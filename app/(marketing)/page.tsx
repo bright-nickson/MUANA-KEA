@@ -83,7 +83,6 @@ export default function HomePage() {
   return (
     <div 
       ref={containerRef}
-      className="scroll-smooth"
       style={{
         backgroundColor: '#000000',
         color: '#ffffff',
@@ -96,7 +95,6 @@ export default function HomePage() {
       {/* About Mauna Kea Consulting Section */}
       <section className="about-section" style={{
         position: 'relative',
-        overflow: 'hidden',
         padding: '4rem 1.5rem',
         maxWidth: '1200px',
         margin: '0 auto'
@@ -142,7 +140,6 @@ export default function HomePage() {
       {/* Why Mauna Kea Section */}
       <section className="why-section" style={{
         position: 'relative',
-        overflow: 'hidden',
         padding: '4rem 1.5rem',
         backgroundColor: 'rgba(5, 5, 5, 0.5)'
       }}>
@@ -192,7 +189,6 @@ export default function HomePage() {
       {/* Partners Section */}
       <section className="partners-section" style={{
         position: 'relative',
-        overflow: 'hidden',
         padding: '4rem 1.5rem',
         maxWidth: '1200px',
         margin: '0 auto',

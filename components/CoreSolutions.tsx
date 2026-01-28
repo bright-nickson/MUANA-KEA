@@ -153,8 +153,7 @@ export function CoreSolutions() {
                 borderRadius: '1rem',
                 height: '100%',
                 display: 'flex',
-                flexDirection: 'column',
-                overflow: 'hidden'
+                flexDirection: 'column'
               }}
             >
               {/* Image */}

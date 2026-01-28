@@ -105,8 +105,7 @@ export function SlidingHero() {
         minHeight: '100vh',
         display: 'flex',
         alignItems: 'center',
-        paddingTop: '4rem',
-        overflow: 'hidden'
+        paddingTop: '4rem'
       }}
     >
       {/* Full Screen Background Image */}
@@ -349,7 +348,6 @@ export function SlidingHero() {
                 position: 'absolute',
                 inset: 0,
                 borderRadius: '1rem',
-                overflow: 'hidden',
                 border: '1px solid rgba(255, 255, 255, 0.1)',
                 backgroundImage: `url(${slides[currentSlide].slideImage})`,
                 backgroundSize: 'cover',

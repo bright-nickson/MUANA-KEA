@@ -1,168 +1,219 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useEffect } from "react";
+import { useGsapScroll } from "@/hooks/useGsapScroll";
 
 const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL ?? "https://calendly.com/your-org/mauna-kea-consulting";
 
 export default function CalendarPage() {
+  const { sectionEntry, textReveal } = useGsapScroll();
+
+  useEffect(() => {
+    sectionEntry(".calendar-hero");
+    sectionEntry(".calendar-iframe");
+    sectionEntry(".calendar-info");
+    
+    textReveal(".section-heading", { stagger: 0.1 });
+  }, [sectionEntry, textReveal]);
+
   return (
     <>
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        style={{
-          maxWidth: '1200px',
+      {/* Add responsive styles */}
+      <style jsx>{`
+        @media (min-width: 768px) {
+          .calendar-grid {
+            grid-template-columns: repeat(3, 1fr) !important;
+          }
+        }
+        
+        @media (max-width: 767px) {
+          .calendar-grid {
+            grid-template-columns: 1fr !important;
+          }
+        }
+      `}</style>
+      
+      <div style={{
+        backgroundColor: '#ffffff',
+        color: '#000000',
+        minHeight: '100vh'
+      }}>
+        {/* Hero Section */}
+        <section className="calendar-hero" style={{
+          padding: 'clamp(3rem, 8vw, 8rem) 1.5rem',
+          textAlign: 'center',
+          maxWidth: 'clamp(500px, 80vw, 1200px)',
           margin: '0 auto'
-        }}
-      >
-        <section aria-labelledby="calendar-heading" style={{
-          marginBottom: '3rem',
-          textAlign: 'center'
         }}>
-          <motion.h1
-            id="calendar-heading"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            style={{
-              fontSize: '2.5rem',
-              fontWeight: '600',
-              color: '#ffffff',
-              marginBottom: '1rem',
-              letterSpacing: '-0.025em'
-            }}
-          >
+          <h1 className="section-heading" style={{
+            fontSize: 'clamp(1.75rem, 5vw, 4rem)',
+            fontWeight: '700',
+            color: '#000000',
+            marginBottom: 'clamp(1rem, 2.5vw, 1.5rem)',
+            letterSpacing: '-0.03em',
+            lineHeight: '1.1'
+          }}>
             Speak with a Technology Expert
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            style={{
-              fontSize: '1.125rem',
-              lineHeight: '1.6',
-              color: '#9ca3af',
-              maxWidth: '800px',
-              margin: '0 auto'
-            }}
-          >
+          </h1>
+          <p className="section-heading" style={{
+            fontSize: 'clamp(1rem, 2.5vw, 1.5rem)',
+            color: '#4a5568',
+            lineHeight: '1.8',
+            maxWidth: 'clamp(400px, 70vw, 800px)',
+            margin: '0 auto',
+            fontWeight: '400'
+          }}>
             Book a 30‑minute conversation with a Mauna Kea Consulting specialist to discuss your challenges, opportunities, and next steps.
-          </motion.p>
+          </p>
         </section>
 
-        <motion.section
-          aria-label="Calendly scheduling"
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          style={{
-            backgroundColor: 'rgba(10, 10, 10, 0.6)',
-            backdropFilter: 'blur(12px)',
-            WebkitBackdropFilter: 'blur(12px)',
-            border: '1px solid rgba(255, 255, 255, 0.08)',
+        {/* Calendar Section */}
+        <section className="calendar-iframe" style={{
+          padding: 'clamp(2rem, 4vw, 4rem) 1.5rem',
+          maxWidth: 'clamp(500px, 90vw, 1200px)',
+          margin: '0 auto'
+        }}>
+          <div style={{
+            backgroundColor: '#f8fafc',
+            border: '1px solid #e2e8f0',
             borderRadius: '1rem',
             overflow: 'hidden',
-            minHeight: '600px'
-          }}
-        >
-          <div style={{
-            aspectRatio: '16/9',
-            width: '100%'
+            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+            minHeight: 'clamp(300px, 50vh, 600px)'
           }}>
-            <iframe
-              src={CALENDLY_URL}
-              title="Book time with Mauna Kea Consulting"
-              style={{
-                width: '100%',
-                height: '100%',
-                border: 'none'
-              }}
-              loading="lazy"
-            />
+            <div style={{
+              aspectRatio: '16/9',
+              width: '100%',
+              position: 'relative'
+            }}>
+              <iframe
+                src={CALENDLY_URL}
+                title="Book time with Mauna Kea Consulting"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  border: 'none'
+                }}
+                loading="lazy"
+              />
+            </div>
           </div>
-        </motion.section>
+        </section>
 
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          style={{
-            marginTop: '3rem',
-            padding: '2rem',
-            backgroundColor: 'rgba(10, 10, 10, 0.6)',
-            backdropFilter: 'blur(12px)',
-            WebkitBackdropFilter: 'blur(12px)',
-            border: '1px solid rgba(255, 255, 255, 0.08)',
-            borderRadius: '1rem'
-          }}
-        >
-          <h3 style={{
-            fontSize: '1.5rem',
-            fontWeight: '600',
-            color: '#ffffff',
-            marginBottom: '1rem'
+        {/* Information Section */}
+        <section className="calendar-info" style={{
+          padding: 'clamp(3rem, 8vw, 8rem) 1.5rem',
+          maxWidth: 'clamp(500px, 90vw, 1200px)',
+          margin: '0 auto'
+        }}>
+          <h2 className="section-heading" style={{
+            fontSize: 'clamp(1.5rem, 4vw, 3rem)',
+            fontWeight: '700',
+            color: '#000000',
+            marginBottom: 'clamp(2rem, 4vw, 4rem)',
+            letterSpacing: '-0.03em',
+            lineHeight: '1.1',
+            textAlign: 'center'
           }}>
             What to Expect
-          </h3>
-          <div style={{
+          </h2>
+          
+          <div className="calendar-grid" style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-            gap: '1.5rem'
+            gap: 'clamp(2rem, 4vw, 4rem)'
           }}>
-            <div>
-              <h4 style={{
-                fontSize: '1.125rem',
-                fontWeight: '600',
-                color: '#8b0000',
-                marginBottom: '0.5rem'
+            <div style={{
+              textAlign: 'center',
+              padding: 'clamp(1.5rem, 3vw, 3rem) clamp(1rem, 2vw, 2rem)'
+            }}>
+              <div style={{
+                fontSize: 'clamp(1.5rem, 3vw, 4rem)',
+                marginBottom: 'clamp(0.75rem, 1.5vw, 1.5rem)',
+                color: '#8b0000'
               }}>
-                30-Minute Session
-              </h4>
+                30
+              </div>
+              <h3 style={{
+                fontSize: 'clamp(1rem, 2.5vw, 1.5rem)',
+                fontWeight: '600',
+                color: '#000000',
+                marginBottom: 'clamp(0.75rem, 1.5vw, 1rem)',
+                letterSpacing: '-0.025em'
+              }}>
+                Minute Session
+              </h3>
               <p style={{
-                fontSize: '0.875rem',
-                lineHeight: '1.6',
-                color: '#9ca3af'
+                fontSize: 'clamp(0.875rem, 2vw, 1rem)',
+                lineHeight: '1.7',
+                color: '#4a5568',
+                fontWeight: '400'
               }}>
                 Focused conversation about your current challenges and opportunities
               </p>
             </div>
-            <div>
-              <h4 style={{
-                fontSize: '1.125rem',
-                fontWeight: '600',
-                color: '#8b0000',
-                marginBottom: '0.5rem'
+            
+            <div style={{
+              textAlign: 'center',
+              padding: 'clamp(1.5rem, 3vw, 3rem) clamp(1rem, 2vw, 2rem)'
+            }}>
+              <div style={{
+                fontSize: 'clamp(1.5rem, 3vw, 4rem)',
+                marginBottom: 'clamp(0.75rem, 1.5vw, 1.5rem)',
+                color: '#8b0000'
               }}>
-                Expert Guidance
-              </h4>
+                Expert
+              </div>
+              <h3 style={{
+                fontSize: 'clamp(1rem, 2.5vw, 1.5rem)',
+                fontWeight: '600',
+                color: '#000000',
+                marginBottom: 'clamp(0.75rem, 1.5vw, 1rem)',
+                letterSpacing: '-0.025em'
+              }}>
+                Guidance
+              </h3>
               <p style={{
-                fontSize: '0.875rem',
-                lineHeight: '1.6',
-                color: '#9ca3af'
+                fontSize: 'clamp(0.875rem, 2vw, 1rem)',
+                lineHeight: '1.7',
+                color: '#4a5568',
+                fontWeight: '400'
               }}>
                 Direct access to senior consultants with deep technical expertise
               </p>
             </div>
-            <div>
-              <h4 style={{
-                fontSize: '1.125rem',
-                fontWeight: '600',
-                color: '#8b0000',
-                marginBottom: '0.5rem'
+            
+            <div style={{
+              textAlign: 'center',
+              padding: 'clamp(1.5rem, 3vw, 3rem) clamp(1rem, 2vw, 2rem)'
+            }}>
+              <div style={{
+                fontSize: 'clamp(1.5rem, 3vw, 4rem)',
+                marginBottom: 'clamp(0.75rem, 1.5vw, 1.5rem)',
+                color: '#8b0000'
               }}>
-                Actionable Next Steps
-              </h4>
+                Actionable
+              </div>
+              <h3 style={{
+                fontSize: 'clamp(1rem, 2.5vw, 1.5rem)',
+                fontWeight: '600',
+                color: '#000000',
+                marginBottom: 'clamp(0.75rem, 1.5vw, 1rem)',
+                letterSpacing: '-0.025em'
+              }}>
+                Next Steps
+              </h3>
               <p style={{
-                fontSize: '0.875rem',
-                lineHeight: '1.6',
-                color: '#9ca3af'
+                fontSize: 'clamp(0.875rem, 2vw, 1rem)',
+                lineHeight: '1.7',
+                color: '#4a5568',
+                fontWeight: '400'
               }}>
                 Clear recommendations and potential pilot projects to prove value
               </p>
             </div>
           </div>
-        </motion.div>
-      </motion.div>
+        </section>
+      </div>
     </>
   );
 }

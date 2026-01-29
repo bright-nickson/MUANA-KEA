@@ -1,7 +1,7 @@
 "use client";
 
-import { FormEvent, useState } from "react";
-import { motion } from "framer-motion";
+import { FormEvent, useState, useEffect } from "react";
+import { useGsapScroll } from "@/hooks/useGsapScroll";
 import Link from "next/link";
 
 const areasOfInterest = [
@@ -17,6 +17,14 @@ export default function ContactPage() {
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const { sectionEntry, textReveal } = useGsapScroll();
+
+  useEffect(() => {
+    sectionEntry(".contact-hero");
+    sectionEntry(".contact-form");
+    
+    textReveal(".section-heading", { stagger: 0.1 });
+  }, [sectionEntry, textReveal]);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -78,448 +86,482 @@ export default function ContactPage() {
 
   return (
     <>
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        style={{
+      <div style={{
+        backgroundColor: '#000000',
+        color: '#ffffff',
+        minHeight: '100vh'
+      }}>
+        {/* Hero Section */}
+        <section className="contact-hero" style={{
+          padding: '8rem 1.5rem',
+          textAlign: 'center',
           maxWidth: '1200px',
           margin: '0 auto'
-        }}
-      >
-        <section aria-labelledby="contact-heading" style={{
-          marginBottom: '3rem',
-          textAlign: 'center'
         }}>
-          <motion.h1
-            id="contact-heading"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.1 }}
-            style={{
-              fontSize: '2.5rem',
-              fontWeight: '600',
-              color: '#ffffff',
-              marginBottom: '1rem',
-              letterSpacing: '-0.025em'
-            }}
-          >
+          <h1 className="section-heading" style={{
+            fontSize: 'clamp(2.5rem, 6vw, 4rem)',
+            fontWeight: '700',
+            color: '#ffffff',
+            marginBottom: '1.5rem',
+            letterSpacing: '-0.03em',
+            lineHeight: '1.1'
+          }}>
             Contact Mauna Kea Consulting
-          </motion.h1>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            style={{
-              fontSize: '1.125rem',
-              lineHeight: '1.6',
-              color: '#9ca3af',
-              maxWidth: '800px',
-              margin: '0 auto'
-            }}
-          >
+          </h1>
+          <p className="section-heading" style={{
+            fontSize: 'clamp(1.125rem, 2.5vw, 1.5rem)',
+            color: '#9ca3af',
+            lineHeight: '1.8',
+            maxWidth: '800px',
+            margin: '0 auto',
+            fontWeight: '400'
+          }}>
             Use this form for formal requests, pilots, proposals, training, and partnerships.
-          </motion.p>
+          </p>
         </section>
 
-        <motion.section
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-            gap: '3rem',
-            alignItems: 'start'
-          }}
-        >
-          {/* Info Section */}
+        {/* Contact Form Section */}
+        <section className="contact-form" style={{
+          padding: '4rem 1.5rem',
+          maxWidth: '1400px',
+          margin: '0 auto'
+        }}>
           <div style={{
-            fontSize: '0.875rem',
-            lineHeight: '1.6',
-            color: '#9ca3af'
+            display: 'grid',
+            gridTemplateColumns: '1fr 1.2fr',
+            gap: '8rem',
+            alignItems: 'start'
           }}>
-            <p style={{ marginBottom: '1.5rem' }}>
-              Whether you're modernizing cloud infrastructure, strengthening security, unlocking data value, deploying AI, or accelerating workloads with HPC — we're ready to help.
-            </p>
-            
+            {/* Info Section */}
             <div style={{
-              padding: '1.5rem',
-              backgroundColor: 'rgba(10, 10, 10, 0.6)',
-              backdropFilter: 'blur(12px)',
-              WebkitBackdropFilter: 'blur(12px)',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
-              borderRadius: '0.75rem'
+              paddingLeft: '2rem'
             }}>
-              <h3 style={{
-                fontSize: '0.875rem',
-                fontWeight: '600',
+              <h2 className="section-heading" style={{
+                fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
+                fontWeight: '700',
                 color: '#ffffff',
-                marginBottom: '0.75rem'
+                marginBottom: '2rem',
+                letterSpacing: '-0.03em',
+                lineHeight: '1.1'
               }}>
-                Prefer to talk?
-              </h3>
+                Let's Start a Conversation
+              </h2>
               <p style={{
-                fontSize: '0.75rem',
+                fontSize: 'clamp(1rem, 2.5vw, 1.125rem)',
+                lineHeight: '1.8',
                 color: '#9ca3af',
-                marginBottom: '1rem'
+                marginBottom: '3rem'
               }}>
-                If you already know the topic and stakeholders, you can book time directly.
+                Whether you're modernizing cloud infrastructure, strengthening security, unlocking data value, deploying AI, or accelerating workloads with HPC — we're ready to help.
               </p>
-              <Link
-                href="/calendar"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                  padding: '0.75rem 1.5rem',
-                  backgroundColor: '#8b0000',
-                  color: '#ffffff',
-                  textDecoration: 'none',
-                  borderRadius: '0.5rem',
-                  fontSize: '0.75rem',
-                  fontWeight: '500',
-                  transition: 'all 0.15s ease-in-out',
-                  cursor: 'pointer'
-                }}
-                onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                  e.currentTarget.style.backgroundColor = '#a31414';
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                }}
-                onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => {
-                  e.currentTarget.style.backgroundColor = '#8b0000';
-                  e.currentTarget.style.transform = 'translateY(0)';
-                }}
-              >
-                👉 Book time with an expert
-              </Link>
-            </div>
-          </div>
-
-          {/* Form Section */}
-          <form
-            onSubmit={handleSubmit}
-            style={{
-              padding: '2rem',
-              backgroundColor: 'rgba(10, 10, 10, 0.6)',
-              backdropFilter: 'blur(12px)',
-              WebkitBackdropFilter: 'blur(12px)',
-              border: '1px solid rgba(255, 255, 255, 0.08)',
-              borderRadius: '1rem'
-            }}
-          >
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-              gap: '1rem',
-              marginBottom: '1rem'
-            }}>
-              <div>
-                <label htmlFor="name" style={{
-                  display: 'block',
-                  fontSize: '0.75rem',
-                  fontWeight: '500',
-                  color: '#ffffff',
-                  marginBottom: '0.5rem'
-                }}>
-                  Name <span style={{ color: '#8b0000' }}>*</span>
-                </label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  autoComplete="name"
-                  required
-                  style={{
-                    width: '100%',
-                    padding: '0.75rem',
-                    backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                    borderRadius: '0.5rem',
-                    color: '#ffffff',
-                    fontSize: '0.875rem',
-                    transition: 'all 0.15s ease-in-out'
-                  }}
-                  onFocus={(e: React.FocusEvent<HTMLInputElement>) => {
-                    e.currentTarget.style.borderColor = '#8b0000';
-                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.08)';
-                  }}
-                  onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
-                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
-                  }}
-                />
-              </div>
-              <div>
-                <label htmlFor="company" style={{
-                  display: 'block',
-                  fontSize: '0.75rem',
-                  fontWeight: '500',
-                  color: '#ffffff',
-                  marginBottom: '0.5rem'
-                }}>
-                  Company
-                </label>
-                <input
-                  id="company"
-                  name="company"
-                  type="text"
-                  autoComplete="organization"
-                  style={{
-                    width: '100%',
-                    padding: '0.75rem',
-                    backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                    borderRadius: '0.5rem',
-                    color: '#ffffff',
-                    fontSize: '0.875rem',
-                    transition: 'all 0.15s ease-in-out'
-                  }}
-                  onFocus={(e: React.FocusEvent<HTMLInputElement>) => {
-                    e.currentTarget.style.borderColor = '#8b0000';
-                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.08)';
-                  }}
-                  onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
-                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
-                  }}
-                />
-              </div>
-            </div>
-
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-              gap: '1rem',
-              marginBottom: '1rem'
-            }}>
-              <div>
-                <label htmlFor="email" style={{
-                  display: 'block',
-                  fontSize: '0.75rem',
-                  fontWeight: '500',
-                  color: '#ffffff',
-                  marginBottom: '0.5rem'
-                }}>
-                  Email <span style={{ color: '#8b0000' }}>*</span>
-                </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  style={{
-                    width: '100%',
-                    padding: '0.75rem',
-                    backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                    borderRadius: '0.5rem',
-                    color: '#ffffff',
-                    fontSize: '0.875rem',
-                    transition: 'all 0.15s ease-in-out'
-                  }}
-                  onFocus={(e: React.FocusEvent<HTMLInputElement>) => {
-                    e.currentTarget.style.borderColor = '#8b0000';
-                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.08)';
-                  }}
-                  onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
-                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
-                  }}
-                />
-              </div>
-              <div>
-                <label htmlFor="role" style={{
-                  display: 'block',
-                  fontSize: '0.75rem',
-                  fontWeight: '500',
-                  color: '#ffffff',
-                  marginBottom: '0.5rem'
-                }}>
-                  Role
-                </label>
-                <input
-                  id="role"
-                  name="role"
-                  type="text"
-                  style={{
-                    width: '100%',
-                    padding: '0.75rem',
-                    backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
-                    borderRadius: '0.5rem',
-                    color: '#ffffff',
-                    fontSize: '0.875rem',
-                    transition: 'all 0.15s ease-in-out'
-                  }}
-                  onFocus={(e: React.FocusEvent<HTMLInputElement>) => {
-                    e.currentTarget.style.borderColor = '#8b0000';
-                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.08)';
-                  }}
-                  onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
-                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
-                  }}
-                />
-              </div>
-            </div>
-
-            <div style={{ marginBottom: '1rem' }}>
-              <label htmlFor="areaOfInterest" style={{
-                display: 'block',
-                fontSize: '0.75rem',
-                fontWeight: '500',
-                color: '#ffffff',
-                marginBottom: '0.5rem'
+              
+              <div style={{
+                padding: 'clamp(1.5rem, 3vw, 2.5rem)',
+                backgroundColor: 'rgba(10, 10, 10, 0.6)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+                border: '1px solid rgba(255, 255, 255, 0.08)',
+                borderRadius: '1rem',
+                textAlign: 'center',
+                maxWidth: 'clamp(300px, 40vw, 400px)'
               }}>
-                Area of interest <span style={{ color: '#8b0000' }}>*</span>
-              </label>
-              <select
-                id="areaOfInterest"
-                name="areaOfInterest"
-                required
-                defaultValue=""
-                style={{
-                  width: '100%',
-                  padding: '0.75rem',
-                  backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  borderRadius: '0.5rem',
+                <h3 style={{
+                  fontSize: 'clamp(1.125rem, 2.5vw, 1.25rem)',
+                  fontWeight: '600',
                   color: '#ffffff',
-                  fontSize: '0.875rem',
-                  transition: 'all 0.15s ease-in-out'
-                }}
-                onFocus={(e: React.FocusEvent<HTMLSelectElement>) => {
-                  e.currentTarget.style.borderColor = '#8b0000';
-                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.08)';
-                }}
-                onBlur={(e: React.FocusEvent<HTMLSelectElement>) => {
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
-                }}
-              >
-                <option value="" disabled style={{ backgroundColor: '#000000' }}>
-                  Select an area
-                </option>
-                {areasOfInterest.map((area) => (
-                  <option key={area} value={area} style={{ backgroundColor: '#000000' }}>
-                    {area}
-                  </option>
-                ))}
-              </select>
-            </div>
-
-            <div style={{ marginBottom: '1rem' }}>
-              <label htmlFor="message" style={{
-                display: 'block',
-                fontSize: '0.75rem',
-                fontWeight: '500',
-                color: '#ffffff',
-                marginBottom: '0.5rem'
-              }}>
-                Message <span style={{ color: '#8b0000' }}>*</span>
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows={5}
-                required
-                style={{
-                  width: '100%',
-                  padding: '0.75rem',
-                  backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
-                  borderRadius: '0.5rem',
-                  color: '#ffffff',
-                  fontSize: '0.875rem',
-                  resize: 'vertical',
-                  transition: 'all 0.15s ease-in-out'
-                }}
-                onFocus={(e: React.FocusEvent<HTMLTextAreaElement>) => {
-                  e.currentTarget.style.borderColor = '#8b0000';
-                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.08)';
-                }}
-                onBlur={(e: React.FocusEvent<HTMLTextAreaElement>) => {
-                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
-                }}
-              />
-            </div>
-
-            {/* Honeypot field for basic spam protection */}
-            <div style={{ display: 'none' }} aria-hidden="true">
-              <label htmlFor="website">Website</label>
-              <input id="website" name="website" type="text" autoComplete="off" />
-            </div>
-
-            {error ? (
-              <p style={{
-                fontSize: '0.75rem',
-                color: '#ef4444',
-                marginBottom: '1rem'
-              }}>
-                {error}
-              </p>
-            ) : success ? (
-              <p style={{
-                fontSize: '0.75rem',
-                color: '#10b981',
-                marginBottom: '1rem'
-              }}>
-                {success}
-              </p>
-            ) : null}
-
-            <div style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              paddingTop: '1rem',
-              borderTop: '1px solid rgba(255, 255, 255, 0.1)'
-            }}>
-              <button
-                type="submit"
-                disabled={submitting}
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '0.5rem',
-                  padding: '0.75rem 1.5rem',
-                  backgroundColor: '#8b0000',
-                  color: '#ffffff',
-                  border: 'none',
-                  borderRadius: '0.5rem',
-                  fontSize: '0.875rem',
-                  fontWeight: '500',
-                  cursor: submitting ? 'not-allowed' : 'pointer',
-                  opacity: submitting ? 0.7 : 1,
-                  transition: 'all 0.15s ease-in-out'
-                }}
-                onMouseEnter={(e: React.MouseEvent<HTMLButtonElement>) => {
-                  if (!submitting) {
+                  marginBottom: '1rem'
+                }}>
+                  Prefer to talk?
+                </h3>
+                <p style={{
+                  fontSize: 'clamp(0.875rem, 2vw, 1rem)',
+                  color: '#9ca3af',
+                  marginBottom: '2rem',
+                  lineHeight: '1.6'
+                }}>
+                  If you already know the topic and stakeholders, you can book time directly.
+                </p>
+                <Link
+                  href="/calendar"
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '0.75rem',
+                    padding: 'clamp(0.75rem, 2vw, 1rem) clamp(1.5rem, 3vw, 2rem)',
+                    backgroundColor: '#8b0000',
+                    color: '#ffffff',
+                    textDecoration: 'none',
+                    borderRadius: '0.75rem',
+                    fontSize: 'clamp(0.875rem, 2vw, 1rem)',
+                    fontWeight: '600',
+                    transition: 'all 0.2s ease-in-out',
+                    cursor: 'pointer'
+                  }}
+                  onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => {
                     e.currentTarget.style.backgroundColor = '#a31414';
                     e.currentTarget.style.transform = 'translateY(-2px)';
-                  }
-                }}
-                onMouseLeave={(e: React.MouseEvent<HTMLButtonElement>) => {
-                  if (!submitting) {
+                  }}
+                  onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => {
                     e.currentTarget.style.backgroundColor = '#8b0000';
                     e.currentTarget.style.transform = 'translateY(0)';
-                  }
-                }}
-              >
-                {submitting ? "Sending…" : "Submit"}
-              </button>
-              <p style={{
-                fontSize: '0.75rem',
-                color: '#6b7280'
-              }}>
-                We use the details you provide only to follow up on this enquiry.
-              </p>
+                  }}
+                >
+                  Book time with an expert →
+                </Link>
+              </div>
             </div>
-          </form>
-        </motion.section>
-      </motion.div>
+
+            {/* Form Section */}
+            <form
+              onSubmit={handleSubmit}
+              style={{
+                padding: 'clamp(2rem, 4vw, 3.5rem)',
+                backgroundColor: 'rgba(10, 10, 10, 0.6)',
+                backdropFilter: 'blur(12px)',
+                WebkitBackdropFilter: 'blur(12px)',
+                border: '1px solid rgba(255, 255, 255, 0.08)',
+                borderRadius: '1rem',
+                maxWidth: 'clamp(100%, 90vw, 600px)',
+                marginLeft: 'auto'
+              }}
+            >
+              <h3 style={{
+                fontSize: 'clamp(1.5rem, 3.5vw, 1.75rem)',
+                fontWeight: '600',
+                color: '#ffffff',
+                marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)',
+                letterSpacing: '-0.025em'
+              }}>
+                Send us a message
+              </h3>
+
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+                gap: '1.5rem',
+                marginBottom: '1.5rem'
+              }}>
+                <div>
+                  <label htmlFor="name" style={{
+                    display: 'block',
+                    fontSize: '0.875rem',
+                    fontWeight: '600',
+                    color: '#ffffff',
+                    marginBottom: '0.5rem'
+                  }}>
+                    Name <span style={{ color: '#8b0000' }}>*</span>
+                  </label>
+                  <input
+                    id="name"
+                    name="name"
+                    type="text"
+                    autoComplete="name"
+                    required
+                    style={{
+                      width: '100%',
+                      padding: '1rem',
+                      backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                      border: '2px solid rgba(255, 255, 255, 0.1)',
+                      borderRadius: '0.75rem',
+                      color: '#ffffff',
+                      fontSize: '1rem',
+                      transition: 'all 0.2s ease-in-out'
+                    }}
+                    onFocus={(e: React.FocusEvent<HTMLInputElement>) => {
+                      e.currentTarget.style.borderColor = '#8b0000';
+                      e.currentTarget.style.outline = 'none';
+                    }}
+                    onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
+                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                    }}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="company" style={{
+                    display: 'block',
+                    fontSize: '0.875rem',
+                    fontWeight: '600',
+                    color: '#ffffff',
+                    marginBottom: '0.5rem'
+                  }}>
+                    Company
+                  </label>
+                  <input
+                    id="company"
+                    name="company"
+                    type="text"
+                    autoComplete="organization"
+                    style={{
+                      width: '100%',
+                      padding: '1rem',
+                      backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                      border: '2px solid rgba(255, 255, 255, 0.1)',
+                      borderRadius: '0.75rem',
+                      color: '#ffffff',
+                      fontSize: '1rem',
+                      transition: 'all 0.2s ease-in-out'
+                    }}
+                    onFocus={(e: React.FocusEvent<HTMLInputElement>) => {
+                      e.currentTarget.style.borderColor = '#8b0000';
+                      e.currentTarget.style.outline = 'none';
+                    }}
+                    onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
+                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                    }}
+                  />
+                </div>
+              </div>
+
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+                gap: '1.5rem',
+                marginBottom: '1.5rem'
+              }}>
+                <div>
+                  <label htmlFor="email" style={{
+                    display: 'block',
+                    fontSize: '0.875rem',
+                    fontWeight: '600',
+                    color: '#ffffff',
+                    marginBottom: '0.5rem'
+                  }}>
+                    Email <span style={{ color: '#8b0000' }}>*</span>
+                  </label>
+                  <input
+                    id="email"
+                    name="email"
+                    type="email"
+                    autoComplete="email"
+                    required
+                    style={{
+                      width: '100%',
+                      padding: '1rem',
+                      backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                      border: '2px solid rgba(255, 255, 255, 0.1)',
+                      borderRadius: '0.75rem',
+                      color: '#ffffff',
+                      fontSize: '1rem',
+                      transition: 'all 0.2s ease-in-out'
+                    }}
+                    onFocus={(e: React.FocusEvent<HTMLInputElement>) => {
+                      e.currentTarget.style.borderColor = '#8b0000';
+                      e.currentTarget.style.outline = 'none';
+                    }}
+                    onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
+                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                    }}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="role" style={{
+                    display: 'block',
+                    fontSize: '0.875rem',
+                    fontWeight: '600',
+                    color: '#ffffff',
+                    marginBottom: '0.5rem'
+                  }}>
+                    Role
+                  </label>
+                  <input
+                    id="role"
+                    name="role"
+                    type="text"
+                    style={{
+                      width: '100%',
+                      padding: '1rem',
+                      backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                      border: '2px solid rgba(255, 255, 255, 0.1)',
+                      borderRadius: '0.75rem',
+                      color: '#ffffff',
+                      fontSize: '1rem',
+                      transition: 'all 0.2s ease-in-out'
+                    }}
+                    onFocus={(e: React.FocusEvent<HTMLInputElement>) => {
+                      e.currentTarget.style.borderColor = '#8b0000';
+                      e.currentTarget.style.outline = 'none';
+                    }}
+                    onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
+                      e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                    }}
+                  />
+                </div>
+              </div>
+
+              <div style={{ marginBottom: '1.5rem' }}>
+                <label htmlFor="areaOfInterest" style={{
+                  display: 'block',
+                  fontSize: '0.875rem',
+                  fontWeight: '600',
+                  color: '#ffffff',
+                  marginBottom: '0.5rem'
+                }}>
+                  Area of interest <span style={{ color: '#8b0000' }}>*</span>
+                </label>
+                <select
+                  id="areaOfInterest"
+                  name="areaOfInterest"
+                  required
+                  defaultValue=""
+                  style={{
+                    width: '100%',
+                    padding: '1rem',
+                    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                    border: '2px solid rgba(255, 255, 255, 0.1)',
+                    borderRadius: '0.75rem',
+                    color: '#ffffff',
+                    fontSize: '1rem',
+                    transition: 'all 0.2s ease-in-out'
+                  }}
+                  onFocus={(e: React.FocusEvent<HTMLSelectElement>) => {
+                    e.currentTarget.style.borderColor = '#8b0000';
+                    e.currentTarget.style.outline = 'none';
+                  }}
+                  onBlur={(e: React.FocusEvent<HTMLSelectElement>) => {
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                  }}
+                >
+                  <option value="" disabled style={{ backgroundColor: '#000000' }}>
+                    Select an area
+                  </option>
+                  {areasOfInterest.map((area) => (
+                    <option key={area} value={area} style={{ backgroundColor: '#000000' }}>
+                      {area}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div style={{ marginBottom: '2rem' }}>
+                <label htmlFor="message" style={{
+                  display: 'block',
+                  fontSize: '0.875rem',
+                  fontWeight: '600',
+                  color: '#ffffff',
+                  marginBottom: '0.5rem'
+                }}>
+                  Message <span style={{ color: '#8b0000' }}>*</span>
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  rows={6}
+                  required
+                  style={{
+                    width: '100%',
+                    padding: '1rem',
+                    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                    border: '2px solid rgba(255, 255, 255, 0.1)',
+                    borderRadius: '0.75rem',
+                    color: '#ffffff',
+                    fontSize: '1rem',
+                    resize: 'vertical',
+                    transition: 'all 0.2s ease-in-out'
+                  }}
+                  onFocus={(e: React.FocusEvent<HTMLTextAreaElement>) => {
+                    e.currentTarget.style.borderColor = '#8b0000';
+                    e.currentTarget.style.outline = 'none';
+                  }}
+                  onBlur={(e: React.FocusEvent<HTMLTextAreaElement>) => {
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                  }}
+                />
+              </div>
+
+              {/* Honeypot field for basic spam protection */}
+              <div style={{ display: 'none' }} aria-hidden="true">
+                <label htmlFor="website">Website</label>
+                <input id="website" name="website" type="text" autoComplete="off" />
+              </div>
+
+              {error ? (
+                <div style={{
+                  padding: '1rem',
+                  backgroundColor: 'rgba(239, 68, 68, 0.1)',
+                  border: '1px solid rgba(239, 68, 68, 0.3)',
+                  borderRadius: '0.75rem',
+                  marginBottom: '1.5rem'
+                }}>
+                  <p style={{
+                    fontSize: '0.875rem',
+                    color: '#ef4444',
+                    margin: 0
+                  }}>
+                    {error}
+                  </p>
+                </div>
+              ) : success ? (
+                <div style={{
+                  padding: '1rem',
+                  backgroundColor: 'rgba(16, 185, 129, 0.1)',
+                  border: '1px solid rgba(16, 185, 129, 0.3)',
+                  borderRadius: '0.75rem',
+                  marginBottom: '1.5rem'
+                }}>
+                  <p style={{
+                    fontSize: '0.875rem',
+                    color: '#10b981',
+                    margin: 0
+                  }}>
+                    {success}
+                  </p>
+                </div>
+              ) : null}
+
+              <div style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '1rem',
+                paddingTop: '2rem',
+                borderTop: '1px solid rgba(255, 255, 255, 0.1)'
+              }}>
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '0.75rem',
+                    padding: '1rem 2rem',
+                    backgroundColor: '#8b0000',
+                    color: '#ffffff',
+                    border: 'none',
+                    borderRadius: '0.75rem',
+                    fontSize: '1rem',
+                    fontWeight: '600',
+                    cursor: submitting ? 'not-allowed' : 'pointer',
+                    opacity: submitting ? 0.7 : 1,
+                    transition: 'all 0.2s ease-in-out',
+                    width: '100%'
+                  }}
+                  onMouseEnter={(e: React.MouseEvent<HTMLButtonElement>) => {
+                    if (!submitting) {
+                      e.currentTarget.style.backgroundColor = '#a31414';
+                      e.currentTarget.style.transform = 'translateY(-2px)';
+                    }
+                  }}
+                  onMouseLeave={(e: React.MouseEvent<HTMLButtonElement>) => {
+                    if (!submitting) {
+                      e.currentTarget.style.backgroundColor = '#8b0000';
+                      e.currentTarget.style.transform = 'translateY(0)';
+                    }
+                  }}
+                >
+                  {submitting ? "Sending…" : "Submit"}
+                </button>
+                <p style={{
+                  fontSize: '0.875rem',
+                  color: '#6b7280',
+                  textAlign: 'center'
+                }}>
+                  We use the details you provide only to follow up on this enquiry.
+                </p>
+              </div>
+            </form>
+          </div>
+        </section>
+      </div>
     </>
   );
 }

@@ -134,7 +134,7 @@ export default function ContactPage() {
           }}>
             {/* Info Section */}
             <div style={{
-              paddingLeft: '2rem'
+              textAlign: 'left'
             }}>
               <h2 className="section-heading" style={{
                 fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
@@ -215,25 +215,40 @@ export default function ContactPage() {
             <form
               onSubmit={handleSubmit}
               style={{
-                padding: 'clamp(2rem, 4vw, 3.5rem)',
-                backgroundColor: 'rgba(10, 10, 10, 0.6)',
-                backdropFilter: 'blur(12px)',
-                WebkitBackdropFilter: 'blur(12px)',
-                border: '1px solid rgba(255, 255, 255, 0.08)',
-                borderRadius: '1rem',
+                padding: 'clamp(2.5rem, 4vw, 4rem)',
+                backgroundColor: 'rgba(10, 10, 10, 0.8)',
+                backdropFilter: 'blur(20px)',
+                WebkitBackdropFilter: 'blur(20px)',
+                borderRadius: '1.5rem',
                 maxWidth: 'clamp(100%, 90vw, 600px)',
-                marginLeft: 'auto'
+                boxShadow: '0 25px 50px rgba(0, 0, 0, 0.4)',
+                position: 'relative'
               }}
             >
-              <h3 style={{
-                fontSize: 'clamp(1.5rem, 3.5vw, 1.75rem)',
-                fontWeight: '600',
-                color: '#ffffff',
-                marginBottom: 'clamp(1.5rem, 3vw, 2.5rem)',
-                letterSpacing: '-0.025em'
+              {/* Form Header */}
+              <div style={{
+                textAlign: 'center',
+                marginBottom: 'clamp(2rem, 4vw, 3rem)'
               }}>
-                Send us a message
-              </h3>
+                <h3 style={{
+                  fontSize: 'clamp(1.5rem, 3.5vw, 2rem)',
+                  fontWeight: '700',
+                  color: '#ffffff',
+                  marginBottom: '0.5rem',
+                  letterSpacing: '-0.025em',
+                  lineHeight: '1.2'
+                }}>
+                  Send us a message
+                </h3>
+                <p style={{
+                  fontSize: 'clamp(0.875rem, 2vw, 1rem)',
+                  color: '#9ca3af',
+                  lineHeight: '1.6',
+                  margin: 0
+                }}>
+                  We'll respond within 24 hours
+                </p>
+              </div>
 
               <div style={{
                 display: 'grid',
@@ -261,7 +276,6 @@ export default function ContactPage() {
                       width: '100%',
                       padding: '1rem',
                       backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                      border: '2px solid rgba(255, 255, 255, 0.1)',
                       borderRadius: '0.75rem',
                       color: '#ffffff',
                       fontSize: '1rem',
@@ -295,7 +309,6 @@ export default function ContactPage() {
                       width: '100%',
                       padding: '1rem',
                       backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                      border: '2px solid rgba(255, 255, 255, 0.1)',
                       borderRadius: '0.75rem',
                       color: '#ffffff',
                       fontSize: '1rem',
@@ -338,7 +351,6 @@ export default function ContactPage() {
                       width: '100%',
                       padding: '1rem',
                       backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                      border: '2px solid rgba(255, 255, 255, 0.1)',
                       borderRadius: '0.75rem',
                       color: '#ffffff',
                       fontSize: '1rem',
@@ -371,7 +383,6 @@ export default function ContactPage() {
                       width: '100%',
                       padding: '1rem',
                       backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                      border: '2px solid rgba(255, 255, 255, 0.1)',
                       borderRadius: '0.75rem',
                       color: '#ffffff',
                       fontSize: '1rem',
@@ -402,12 +413,10 @@ export default function ContactPage() {
                   id="areaOfInterest"
                   name="areaOfInterest"
                   required
-                  defaultValue=""
                   style={{
                     width: '100%',
                     padding: '1rem',
                     backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                    border: '2px solid rgba(255, 255, 255, 0.1)',
                     borderRadius: '0.75rem',
                     color: '#ffffff',
                     fontSize: '1rem',
@@ -451,7 +460,6 @@ export default function ContactPage() {
                     width: '100%',
                     padding: '1rem',
                     backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                    border: '2px solid rgba(255, 255, 255, 0.1)',
                     borderRadius: '0.75rem',
                     color: '#ffffff',
                     fontSize: '1rem',

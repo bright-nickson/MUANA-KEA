@@ -298,7 +298,7 @@ export default function IndustriesPage() {
         }
       `}</style>
 
-      <div style={{ minHeight: '100vh', background: '#ffffff' }}>
+      <div style={{ background: '#ffffff' }}>
         {/* Premium Hero Section */}
         <section className="hero-gradient" style={{
           minHeight: '100vh',

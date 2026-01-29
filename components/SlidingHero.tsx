@@ -3,7 +3,6 @@
 import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
-import { useGsapScroll } from "@/hooks/useGsapScroll";
 
 const slides = [
   {
@@ -44,7 +43,6 @@ const slides = [
 export function SlidingHero() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const heroRef = useRef<HTMLDivElement>(null);
-  const { gsap, ScrollTrigger } = useGsapScroll();
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -53,36 +51,6 @@ export function SlidingHero() {
 
     return () => clearInterval(timer);
   }, []);
-
-  useEffect(() => {
-    if (!heroRef.current) return;
-
-    // Create blur effect on scroll
-    gsap.to(heroRef.current, {
-      backdropFilter: "blur(20px)",
-      WebkitBackdropFilter: "blur(20px)",
-      ease: "none",
-      scrollTrigger: {
-        trigger: heroRef.current,
-        start: "top top",
-        end: "bottom top",
-        scrub: true
-      }
-    });
-
-    // Create parallax effect for background
-    gsap.to(".hero-background", {
-      yPercent: -30,
-      ease: "none",
-      scrollTrigger: {
-        trigger: heroRef.current,
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true
-      }
-    });
-
-  }, [gsap, ScrollTrigger]);
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);

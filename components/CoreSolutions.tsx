@@ -2,7 +2,6 @@
 
 import { useEffect } from "react";
 import Link from "next/link";
-import { useGsapScroll } from "@/hooks/useGsapScroll";
 
 const solutions = [
   {
@@ -89,19 +88,7 @@ const solutions = [
 ];
 
 export function CoreSolutions() {
-  const { sectionEntry, textReveal, staggeredCards } = useGsapScroll();
-
-  useEffect(() => {
-    // Section entry for the main container
-    sectionEntry(".core-solutions-section");
-    
-    // Text reveal for headings
-    textReveal(".solutions-heading");
-    
-    // Staggered cards for solution cards
-    staggeredCards(".solution-card", { stagger: 0.12 });
-    
-  }, [sectionEntry, textReveal, staggeredCards]);
+  // No scroll/animation effects needed for static site
 
   return (
     <section className="core-solutions-section" style={{

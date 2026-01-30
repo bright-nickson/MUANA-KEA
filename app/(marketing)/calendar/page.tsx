@@ -1,20 +1,12 @@
 "use client";
 
 import { useEffect } from "react";
-import { useGsapScroll } from "@/hooks/useGsapScroll";
 
 const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL ?? "https://calendly.com/your-org/mauna-kea-consulting";
 
 export default function CalendarPage() {
-  const { sectionEntry, textReveal } = useGsapScroll();
 
-  useEffect(() => {
-    sectionEntry(".calendar-hero");
-    sectionEntry(".calendar-iframe");
-    sectionEntry(".calendar-info");
-    
-    textReveal(".section-heading", { stagger: 0.1 });
-  }, [sectionEntry, textReveal]);
+  // No scroll/animation effects needed for static site
 
   return (
     <>

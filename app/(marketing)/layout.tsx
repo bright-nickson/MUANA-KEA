@@ -15,18 +15,19 @@ export default function MarketingLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div 
+    <div
       className="flex min-h-screen flex-col"
       style={{
         backgroundColor: '#050505',
         color: '#e5e5e5',
         fontFamily: 'Inter, sans-serif',
         background: 'linear-gradient(135deg, #050505 0%, #0a0a0a 50%, #050505 100%)',
-        backgroundAttachment: 'fixed'
+        backgroundAttachment: 'fixed',
+        minHeight: '100vh',
       }}
     >
       <PremiumNav />
-      <main className="flex-1">
+      <main className="flex-1" style={{ display: 'flex', flexDirection: 'column', minHeight: '0' }}>
         {children}
       </main>
       <Footer />

@@ -38,20 +38,20 @@ export function Navbar() {
             : "bg-transparent"
         }`}
       >
-        <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-8">
-          <Link href="/" className="group flex items-center gap-3">
+        <nav className="mx-auto flex h-16 sm:h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+          <Link href="/" className="group flex items-center gap-2 sm:gap-3">
             <motion.div
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="relative"
             >
               <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-crimson to-crimson-soft blur-xl opacity-50 group-hover:opacity-75 transition-opacity" />
-              <div className="relative rounded-xl bg-gradient-to-r from-crimson to-crimson-soft p-3">
-                <span className="text-sm font-bold text-white">MK</span>
+              <div className="relative rounded-xl bg-gradient-to-r from-crimson to-crimson-soft p-2 sm:p-3">
+                <span className="text-xs sm:text-sm font-bold text-white">MK</span>
               </div>
             </motion.div>
             <div className="hidden sm:block">
-              <h1 className="text-xl font-semibold text-gradient">Mauna Kea</h1>
+              <h1 className="text-lg sm:text-xl font-semibold text-gradient">Mauna Kea</h1>
               <p className="text-xs text-muted-soft">Consulting</p>
             </div>
           </Link>

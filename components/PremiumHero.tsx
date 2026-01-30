@@ -69,18 +69,18 @@ export function PremiumHero() {
       <div style={{
         width: '100%',
         margin: '0 auto',
-        padding: '0 1.5rem',
+        padding: 'clamp(1rem, 4vw, 1.5rem)',
         position: 'relative',
         zIndex: 10,
         display: 'grid',
-        gridTemplateColumns: 'repeat(12, minmax(0, 1fr))',
-        gap: '3rem',
-        alignItems: 'flex-end',
-        paddingBottom: '5rem'
+        gridTemplateColumns: '1fr',
+        gap: 'clamp(1.5rem, 4vw, 2rem)',
+        alignItems: 'center',
+        paddingBottom: 'clamp(2rem, 5vw, 4rem)'
       }}>
         {/* Text Content */}
         <div style={{
-          gridColumn: 'span 7 / span 8'
+          gridColumn: 'span 12 / span 12'
         }}>
           <motion.div 
             initial={{ y: 100, opacity: 0 }}
@@ -112,11 +112,11 @@ export function PremiumHero() {
           </motion.div>
           
           <h1 style={{
-            fontSize: '3.75rem',
+            fontSize: 'clamp(2rem, 8vw, 3.75rem)',
             lineHeight: 1,
             fontWeight: '500',
             letterSpacing: '-0.025em',
-            marginBottom: '3rem',
+            marginBottom: '2rem',
             color: '#ffffff'
           }}>
             <div style={{ overflow: 'hidden' }}>

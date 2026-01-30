@@ -1,7 +1,6 @@
 "use client";
 
 import { FormEvent, useState, useEffect } from "react";
-import { useGsapScroll } from "@/hooks/useGsapScroll";
 import Link from "next/link";
 
 const areasOfInterest = [
@@ -17,14 +16,8 @@ export default function ContactPage() {
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const { sectionEntry, textReveal } = useGsapScroll();
 
-  useEffect(() => {
-    sectionEntry(".contact-hero");
-    sectionEntry(".contact-form");
-    
-    textReveal(".section-heading", { stagger: 0.1 });
-  }, [sectionEntry, textReveal]);
+  // No scroll/animation effects needed for static site
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -86,6 +79,21 @@ export default function ContactPage() {
 
   return (
     <>
+      <style jsx>{`
+        .contact-form-grid{
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: clamp(1rem, 4vw, 2rem);
+          align-items: start;
+        }
+        @media (min-width: 768px) {
+          .contact-form-grid{
+            grid-template-columns: 1fr 1.2fr;
+            gap: clamp(2rem, 4vw, 4rem);
+          }
+        }
+      `}</style>
+
       <div style={{
         backgroundColor: '#000000',
         color: '#ffffff',
@@ -93,7 +101,7 @@ export default function ContactPage() {
       }}>
         {/* Hero Section */}
         <section className="contact-hero" style={{
-          padding: '8rem 1.5rem',
+          padding: 'clamp(2rem, 6vw, 8rem) 1.5rem',
           textAlign: 'center',
           maxWidth: '1200px',
           margin: '0 auto'
@@ -126,10 +134,7 @@ export default function ContactPage() {
           maxWidth: '1400px',
           margin: '0 auto'
         }}>
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: '1fr 1.2fr',
-            gap: '8rem',
+          <div className="contact-form-grid" style={{
             alignItems: 'start'
           }}>
             {/* Info Section */}
@@ -144,15 +149,15 @@ export default function ContactPage() {
                 letterSpacing: '-0.03em',
                 lineHeight: '1.1'
               }}>
-                Let's Start a Conversation
+                Let&apos;s Start a Conversation
               </h2>
               <p style={{
                 fontSize: 'clamp(1rem, 2.5vw, 1.125rem)',
                 lineHeight: '1.8',
                 color: '#9ca3af',
-                marginBottom: '3rem'
+                marginBottom: '1.5rem'
               }}>
-                Whether you're modernizing cloud infrastructure, strengthening security, unlocking data value, deploying AI, or accelerating workloads with HPC — we're ready to help.
+                Whether you&apos;re modernizing cloud infrastructure, strengthening security, unlocking data value, deploying AI, or accelerating workloads with HPC — we&apos;re ready to help.
               </p>
               
               <div style={{
@@ -246,7 +251,7 @@ export default function ContactPage() {
                   lineHeight: '1.6',
                   margin: 0
                 }}>
-                  We'll respond within 24 hours
+                  We&apos;ll respond within 24 hours
                 </p>
               </div>
 

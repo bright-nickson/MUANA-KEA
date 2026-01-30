@@ -305,7 +305,7 @@ export default function IndustriesPage() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          padding: '2rem',
+          padding: 'clamp(1rem, 5vw, 2rem)',
           position: 'relative'
         }}>
           {/* Floating Background Elements */}
@@ -413,7 +413,7 @@ export default function IndustriesPage() {
 
         {/* Interactive Industries Section */}
         <section style={{
-          padding: '6rem 2rem',
+          padding: 'clamp(3rem, 5vw, 6rem) clamp(1rem, 4vw, 2rem)',
           background: 'linear-gradient(180deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%)'
         }}>
           <div style={{ maxWidth: '1400px', margin: '0 auto' }}>

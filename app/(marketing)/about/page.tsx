@@ -1,35 +1,9 @@
 "use client";
 
-import { useEffect } from "react";
-import { useGsapScroll } from "@/hooks/useGsapScroll";
+// Removed GSAP scroll effects for static layout
 
 export default function AboutPage() {
-  const { sectionEntry, textReveal, gsap, ScrollTrigger } = useGsapScroll();
-
-  useEffect(() => {
-    // Section entry animations
-    sectionEntry(".hero-section");
-    sectionEntry(".story-section");
-    sectionEntry(".approach-section");
-    sectionEntry(".impact-section");
-    
-    // Text reveal for headings
-    textReveal(".section-heading", { stagger: 0.1 });
-
-    // Parallax effect for hero background
-    gsap.to(".hero-parallax-layer", {
-      yPercent: -30,
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".hero-section",
-        start: "top bottom",
-        end: "bottom top",
-        scrub: true
-      }
-    });
-
-  }, [sectionEntry, textReveal, gsap, ScrollTrigger]);
-
+  // All GSAP/ScrollTrigger scroll effects removed. Static layout only.
   return (
     <>
       {/* Add responsive styles */}
@@ -84,18 +58,8 @@ export default function AboutPage() {
         display: 'flex',
         alignItems: 'center',
         padding: 'clamp(2rem, 5vw, 4rem) 1.5rem',
-        backgroundColor: '#ffffff'
+        backgroundColor: '#ffffff',
       }}>
-        {/* Parallax Background Layer */}
-        <div className="hero-parallax-layer" style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          height: '120%',
-          background: 'radial-gradient(circle at 30% 40%, rgba(139, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.02) 50%, transparent 100%)',
-          zIndex: 1
-        }} />
         
         {/* Hero Content - Grid Layout */}
         <div style={{

@@ -58,18 +58,20 @@ export function Footer() {
         zIndex: 10,
         maxWidth: '1200px',
         margin: '0 auto',
-        padding: '0 1.5rem'
+        padding: '0 1rem'
       }}>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-          gap: '2rem',
+          gridTemplateColumns: '1fr',
+          gap: 'clamp(1.5rem, 4vw, 2rem)',
           marginBottom: '2rem'
-        }}>
+        }}
+        className="footer-grid"
+        >
           {/* Company Info */}
           <div>
             <h3 style={{
-              fontSize: '1rem',
+              fontSize: 'clamp(0.9rem, 2vw, 1rem)',
               fontWeight: '600',
               marginBottom: '1rem',
               color: '#ffffff'
@@ -77,7 +79,7 @@ export function Footer() {
               Mauna Kea Consulting
             </h3>
             <p style={{
-              fontSize: '0.875rem',
+              fontSize: 'clamp(0.8rem, 2vw, 0.875rem)',
               lineHeight: '1.5',
               color: '#9ca3af',
               marginBottom: '1rem'
@@ -87,8 +89,9 @@ export function Footer() {
             <div style={{
               display: 'flex',
               gap: '0.5rem',
-              fontSize: '0.75rem',
-              color: '#6b7280'
+              fontSize: '0.7rem',
+              color: '#6b7280',
+              flexWrap: 'wrap'
             }}>
               <span>San Francisco</span>
               <span>•</span>
@@ -101,7 +104,7 @@ export function Footer() {
           {/* Services */}
           <div>
             <h4 style={{
-              fontSize: '0.875rem',
+              fontSize: 'clamp(0.8rem, 2vw, 0.875rem)',
               fontWeight: '600',
               marginBottom: '1rem',
               color: '#ffffff'
@@ -160,7 +163,7 @@ export function Footer() {
           {/* Company */}
           <div>
             <h4 style={{
-              fontSize: '0.875rem',
+              fontSize: 'clamp(0.8rem, 2vw, 0.875rem)',
               fontWeight: '600',
               marginBottom: '1rem',
               color: '#ffffff'
@@ -219,7 +222,7 @@ export function Footer() {
           {/* Newsletter */}
           <div>
             <h4 style={{
-              fontSize: '0.875rem',
+              fontSize: 'clamp(0.8rem, 2vw, 0.875rem)',
               fontWeight: '600',
               marginBottom: '1rem',
               color: '#ffffff'
@@ -227,49 +230,104 @@ export function Footer() {
               Newsletter
             </h4>
             <p style={{
-              fontSize: '0.875rem',
+              fontSize: 'clamp(0.8rem, 2vw, 0.875rem)',
               color: '#9ca3af',
-              marginBottom: '1rem'
+              marginBottom: '1.5rem'
             }}>
               Stay updated with our latest insights and technology trends.
             </p>
-            <form onSubmit={handleSubscribe} style={{ display: 'flex', gap: '0.5rem' }}>
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your email"
-                required
-                style={{
-                  flex: 1,
-                  padding: '0.5rem',
-                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
-                  borderRadius: '0.375rem',
-                  color: '#ffffff',
-                  fontSize: '0.875rem'
-                }}
-              />
+            <form onSubmit={handleSubscribe} style={{ 
+              position: 'relative',
+              display: 'flex',
+              flexDirection: 'row',
+              gap: '0.75rem',
+              alignItems: 'stretch'
+            }}>
+              <div style={{ position: 'relative', flex: 1 }}>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email"
+                  required
+                  style={{
+                    width: '100%',
+                    padding: '0.875rem 1rem',
+                    backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    borderRadius: '0.75rem',
+                    color: '#ffffff',
+                    fontSize: '0.875rem',
+                    transition: 'all 0.3s ease-in-out',
+                    backdropFilter: 'blur(10px)',
+                    WebkitBackdropFilter: 'blur(10px)'
+                  }}
+                  onFocus={(e: React.FocusEvent<HTMLInputElement>) => {
+                    e.currentTarget.style.borderColor = '#8b0000';
+                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.08)';
+                    e.currentTarget.style.outline = 'none';
+                  }}
+                  onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
+                  }}
+                />
+                <div style={{
+                  position: 'absolute',
+                  right: '0.75rem',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  fontSize: '1rem',
+                  color: '#6b7280',
+                  pointerEvents: 'none'
+                }}>
+                  ✉️
+                </div>
+              </div>
               <motion.button
                 type="submit"
                 style={{
-                  padding: '0.5rem 1rem',
+                  padding: '0.875rem 1.5rem',
                   backgroundColor: '#8b0000',
                   color: '#ffffff',
                   border: 'none',
-                  borderRadius: '0.375rem',
+                  borderRadius: '0.75rem',
                   fontSize: '0.875rem',
-                  fontWeight: '500',
+                  fontWeight: '600',
                   cursor: 'pointer',
-                  transition: 'background-color 0.15s ease-in-out'
+                  transition: 'all 0.3s ease-in-out',
+                  position: 'relative',
+                  overflow: 'hidden',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.5rem',
+                  whiteSpace: 'nowrap'
                 }}
-                onMouseEnter={(e: React.MouseEvent<HTMLButtonElement>) => e.currentTarget.style.backgroundColor = '#a31414'}
-                onMouseLeave={(e: React.MouseEvent<HTMLButtonElement>) => e.currentTarget.style.backgroundColor = '#8b0000'}
+                onMouseEnter={(e: React.MouseEvent<HTMLButtonElement>) => {
+                  e.currentTarget.style.backgroundColor = '#a31414';
+                  e.currentTarget.style.transform = 'translateY(-2px)';
+                  e.currentTarget.style.boxShadow = '0 4px 12px rgba(139, 0, 0, 0.3)';
+                }}
+                onMouseLeave={(e: React.MouseEvent<HTMLButtonElement>) => {
+                  e.currentTarget.style.backgroundColor = '#8b0000';
+                  e.currentTarget.style.transform = 'translateY(0)';
+                  e.currentTarget.style.boxShadow = 'none';
+                }}
                 whileTap={{ scale: 0.98 }}
               >
-                Subscribe
+                <span>Subscribe</span>
+                <span style={{ fontSize: '0.75rem' }}>→</span>
               </motion.button>
             </form>
+            <p style={{
+              fontSize: '0.75rem',
+              color: '#6b7280',
+              textAlign: 'center',
+              marginTop: '0.5rem'
+            }}>
+              Join 2,000+ tech leaders
+            </p>
           </div>
         </div>
 
@@ -280,8 +338,10 @@ export function Footer() {
           alignItems: 'center',
           paddingTop: '2rem',
           borderTop: '1px solid rgba(255, 255, 255, 0.1)',
-          fontSize: '0.75rem',
-          color: '#6b7280'
+          fontSize: 'clamp(0.65rem, 1.5vw, 0.75rem)',
+          color: '#6b7280',
+          flexWrap: 'wrap',
+          gap: '1rem'
         }}>
           <div>
             2024 Mauna Kea Consulting. All rights reserved.

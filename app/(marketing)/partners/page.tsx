@@ -63,7 +63,7 @@ export default function PartnersPage() {
                 transition: 'all 0.15s ease-in-out'
               }}
             >
-              🤝 Become a Partner
+              Become a Partner
             </Link>
             <Link
               href="/contact"
@@ -300,32 +300,32 @@ export default function PartnersPage() {
               {
                 benefit: "Technical Enablement",
                 description: "Comprehensive training, certification programs, and technical support to ensure partner success.",
-                icon: "🎓"
+                icon: ""
               },
               {
                 benefit: "Joint Go-to-Market",
                 description: "Collaborative marketing, sales enablement, and lead generation programs to drive growth.",
-                icon: "🚀"
+                icon: ""
               },
               {
                 benefit: "Solution Development",
                 description: "Co-development of integrated solutions that address specific customer needs and market opportunities.",
-                icon: "💡"
+                icon: ""
               },
               {
                 benefit: "Customer Success",
                 description: "Shared commitment to customer success with joint implementation and support models.",
-                icon: "🤝"
+                icon: ""
               },
               {
                 benefit: "Market Expansion",
                 description: "Access to new markets and customer segments through our extensive network and presence.",
-                icon: "🌍"
+                icon: ""
               },
               {
                 benefit: "Revenue Opportunities",
                 description: "Multiple revenue streams through services, licensing, and recurring revenue models.",
-                icon: "💰"
+                icon: ""
               }
             ].map((item, index) => (
               <motion.div
@@ -518,7 +518,7 @@ export default function PartnersPage() {
                 transition: 'all 0.15s ease-in-out'
               }}
             >
-              🤝 Become a Partner
+              Become a Partner
             </Link>
             <Link
               href="/contact"

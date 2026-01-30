@@ -63,7 +63,7 @@ export default function CloudTransformationPage() {
                 transition: 'all 0.15s ease-in-out'
               }}
             >
-              👉 Book Cloud Assessment
+              Book Cloud Assessment
             </Link>
             <Link
               href="/contact"
@@ -393,7 +393,7 @@ export default function CloudTransformationPage() {
                 transition: 'all 0.15s ease-in-out'
               }}
             >
-              👉 Book Discovery Call
+              Book Discovery Call
             </Link>
             <Link
               href="/contact"

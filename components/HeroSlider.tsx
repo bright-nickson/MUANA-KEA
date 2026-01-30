@@ -220,9 +220,9 @@ export function HeroSlider() {
                 
                 <div className="space-y-4">
                   {[
-                    { title: "Advisory", desc: "Roadmaps, governance, portfolio decisions.", icon: "🎯" },
-                    { title: "Execution", desc: "Integration, engineering, and cybersecurity.", icon: "⚡" },
-                    { title: "Run", desc: "Managed services for critical platforms.", icon: "🚀" },
+                    { title: "Advisory", desc: "Roadmaps, governance, portfolio decisions.", icon: "" },
+                    { title: "Execution", desc: "Integration, engineering, and cybersecurity.", icon: "" },
+                    { title: "Run", desc: "Managed services for critical platforms.", icon: "" },
                   ].map((item, index) => (
                     <motion.div
                       key={item.title}

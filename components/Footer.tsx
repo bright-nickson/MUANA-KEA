@@ -393,7 +393,7 @@ export function Footer() {
                   color: '#6b7280',
                   pointerEvents: 'none'
                 }}>
-                  ✉️
+                  @
                 </div>
               </div>
               <motion.button

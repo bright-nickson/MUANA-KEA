@@ -63,7 +63,7 @@ export default function HighPerformanceComputingPage() {
                 transition: 'all 0.15s ease-in-out'
               }}
             >
-              ⚡ Book HPC Consultation
+              Book HPC Consultation
             </Link>
             <Link
               href="/contact"
@@ -514,7 +514,7 @@ export default function HighPerformanceComputingPage() {
                 transition: 'all 0.15s ease-in-out'
               }}
             >
-              ⚡ Book HPC Consultation
+              Book HPC Consultation
             </Link>
             <Link
               href="/contact"

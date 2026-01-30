@@ -6,7 +6,7 @@ import Link from "next/link";
 const solutions = [
   {
     id: "cloud",
-    title: "☁️ Cloud Transformation",
+    title: "Cloud Transformation",
     description: "Modernize infrastructure, applications, and operations with secure, scalable cloud platforms.",
     outcomes: [
       "Faster deployment",
@@ -15,13 +15,13 @@ const solutions = [
       "Ready for AI and data at scale"
     ],
     cta: { text: "Start with a Cloud Pilot", href: "/calendar" },
-    icon: "☁️",
+    icon: "",
     image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2072&q=80",
     imageAlt: "Cloud computing infrastructure with digital transformation visualization"
   },
   {
     id: "cybersecurity",
-    title: "🔐 Cybersecurity",
+    title: "Cybersecurity",
     description: "Protect critical systems, data, and users in an increasingly complex threat landscape.",
     capabilities: [
       "Security posture assessments",
@@ -30,13 +30,13 @@ const solutions = [
       "Incident readiness & response"
     ],
     cta: { text: "Request a Security Review", href: "/contact" },
-    icon: "🔐",
+    icon: "",
     image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     imageAlt: "Cybersecurity digital lock and protection systems"
   },
   {
     id: "data",
-    title: "📊 Data & Intelligence",
+    title: "Data & Intelligence",
     description: "Turn Data Into a Strategic Asset. We help organizations design, build, and operate complete data ecosystems from raw data ingestion to advanced analytics, data science, and AI‑ready platforms.",
     capabilities: [
       "Data Engineering & Pipelines",
@@ -47,13 +47,13 @@ const solutions = [
       "AI‑Ready Data Foundations"
     ],
     cta: { text: "Build Your First Dashboard", href: "/calendar" },
-    icon: "📊",
+    icon: "",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     imageAlt: "Data analytics dashboard with charts and visualizations"
   },
   {
     id: "ai",
-    title: "🤖 Artificial Intelligence (AI)",
+    title: "Artificial Intelligence (AI)",
     description: "Deploy AI that drives real business value. From strategy and data readiness to model development and MLOps, we help enterprises operationalize AI at scale.",
     capabilities: [
       "AI Strategy & Roadmap",
@@ -64,13 +64,13 @@ const solutions = [
       "Generative AI Integration"
     ],
     cta: { text: "Explore AI Use Cases", href: "/calendar" },
-    icon: "🤖",
+    icon: "",
     image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     imageAlt: "Artificial intelligence and machine learning visualization"
   },
   {
     id: "hpc",
-    title: "⚡ High Performance Computing (HPC)",
+    title: "High Performance Computing (HPC)",
     description: "Unlock computational power for research, simulation, and data-intensive workloads with cutting-edge HPC solutions.",
     capabilities: [
       "HPC Cluster Design & Deployment",
@@ -81,7 +81,7 @@ const solutions = [
       "Performance Tuning & Benchmarking"
     ],
     cta: { text: "Assess Your HPC Needs", href: "/calendar" },
-    icon: "⚡",
+    icon: "",
     image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     imageAlt: "High performance computing server room with supercomputers"
   }

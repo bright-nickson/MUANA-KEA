@@ -112,7 +112,7 @@ windsurf-project/
 
 ### Animation & Interaction
 - **Framer Motion 12** - React component animations
-- **GSAP 3** - Advanced animation library
+
 - **ScrollTrigger** - Scroll-based animation triggers
 
 ### Backend & Database

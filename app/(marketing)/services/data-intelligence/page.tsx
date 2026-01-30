@@ -63,7 +63,7 @@ export default function DataIntelligencePage() {
                 transition: 'all 0.15s ease-in-out'
               }}
             >
-              📊 Book Data Strategy Session
+              Book Data Strategy Session
             </Link>
             <Link
               href="/contact"
@@ -314,12 +314,12 @@ export default function DataIntelligencePage() {
                   fontSize: '2rem',
                   marginBottom: '1rem'
                 }}>
-                  {stage.stage === "Ingest" && "📥"}
-                  {stage.stage === "Process" && "⚙️"}
-                  {stage.stage === "Store" && "🗄️"}
-                  {stage.stage === "Analyze" && "📊"}
-                  {stage.stage === " Govern" && "🛡️"}
-                  {stage.stage === "Deploy" && "🚀"}
+                  {stage.stage === "Ingest" && "Ingest"}
+                  {stage.stage === "Process" && "Process"}
+                  {stage.stage === "Store" && "Store"}
+                  {stage.stage === "Analyze" && "Analyze"}
+                  {stage.stage === " Govern" && "Govern"}
+                  {stage.stage === "Deploy" && "Deploy"}
                 </div>
                 <h3 style={{
                   fontSize: '1rem',
@@ -490,7 +490,7 @@ export default function DataIntelligencePage() {
                 transition: 'all 0.15s ease-in-out'
               }}
             >
-              📊 Book Data Strategy Session
+              Book Data Strategy Session
             </Link>
             <Link
               href="/contact"

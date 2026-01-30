@@ -63,7 +63,7 @@ export default function FinancialServicesPage() {
                 transition: 'all 0.15s ease-in-out'
               }}
             >
-              💰 Book Financial Services Consultation
+              Book Financial Services Consultation
             </Link>
             <Link
               href="/contact"
@@ -447,7 +447,7 @@ export default function FinancialServicesPage() {
                 transition: 'all 0.15s ease-in-out'
               }}
             >
-              💰 Book Financial Services Consultation
+              Book Financial Services Consultation
             </Link>
             <Link
               href="/contact"

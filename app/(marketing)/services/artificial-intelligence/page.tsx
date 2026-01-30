@@ -63,7 +63,7 @@ export default function ArtificialIntelligencePage() {
                 transition: 'all 0.15s ease-in-out'
               }}
             >
-              🤖 Book AI Strategy Session
+              Book AI Strategy Session
             </Link>
             <Link
               href="/contact"
@@ -543,7 +543,7 @@ export default function ArtificialIntelligencePage() {
                 transition: 'all 0.15s ease-in-out'
               }}
             >
-              🤖 Book AI Strategy Session
+              Book AI Strategy Session
             </Link>
             <Link
               href="/contact"

@@ -266,7 +266,7 @@ export function SlidingHero() {
                   e.currentTarget.style.transform = 'translateY(0)';
                 }}
               >
-                👉 {slides[currentSlide].primaryCTA.text}
+                {slides[currentSlide].primaryCTA.text}
               </Link>
 
               {slides[currentSlide].secondaryCTA && (
@@ -296,7 +296,7 @@ export function SlidingHero() {
                     e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
                   }}
                 >
-                  👉 {slides[currentSlide].secondaryCTA!.text}
+                  {slides[currentSlide].secondaryCTA!.text}
                 </Link>
               )}
             </motion.div>

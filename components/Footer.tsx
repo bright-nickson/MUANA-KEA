@@ -19,13 +19,15 @@ export function Footer() {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
       style={{
         position: 'relative',
         borderTop: '1px solid rgba(255, 255, 255, 0.1)',
         background: 'rgba(5, 5, 5, 0.8)',
         backdropFilter: 'blur(16px)',
         WebkitBackdropFilter: 'blur(16px)',
-        padding: '3rem 0'
+        padding: '3rem 0',
+        marginTop: 'auto'
       }}
     >
       {/* Background decoration */}
@@ -62,12 +64,11 @@ export function Footer() {
       }}>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: '1fr',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
           gap: 'clamp(1.5rem, 4vw, 2rem)',
           marginBottom: '2rem'
         }}
-        className="footer-grid"
-        >
+        className="footer-grid">
           {/* Company Info */}
           <div>
             <h3 style={{
@@ -98,6 +99,58 @@ export function Footer() {
               <span>New York</span>
               <span>•</span>
               <span>London</span>
+              <span>•</span>
+              <span>Dubai</span>
+              <span>•</span>
+              <span>Nairobi</span>
+            </div>
+            <div style={{
+              display: 'flex',
+              gap: '1rem',
+              marginTop: '1rem'
+            }}>
+              <a href="#" style={{
+                width: '2rem',
+                height: '2rem',
+                borderRadius: '50%',
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#9ca3af',
+                textDecoration: 'none',
+                transition: 'all 0.2s ease-in-out'
+              }}>
+                in
+              </a>
+              <a href="#" style={{
+                width: '2rem',
+                height: '2rem',
+                borderRadius: '50%',
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#9ca3af',
+                textDecoration: 'none',
+                transition: 'all 0.2s ease-in-out'
+              }}>
+                tw
+              </a>
+              <a href="#" style={{
+                width: '2rem',
+                height: '2rem',
+                borderRadius: '50%',
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                color: '#9ca3af',
+                textDecoration: 'none',
+                transition: 'all 0.2s ease-in-out'
+              }}>
+                gh
+              </a>
             </div>
           </div>
 
@@ -124,22 +177,7 @@ export function Footer() {
                   onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#ffffff'}
                   onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#9ca3af'}
                 >
-                  Advisory & Roadmaps
-                </Link>
-              </li>
-              <li style={{ marginBottom: '0.5rem' }}>
-                <Link 
-                  href="/services" 
-                  style={{
-                    color: '#9ca3af',
-                    textDecoration: 'none',
-                    fontSize: '0.875rem',
-                    transition: 'color 0.15s ease-in-out'
-                  }}
-                  onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#ffffff'}
-                  onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#9ca3af'}
-                >
-                  Integration & Development
+                  Cloud Transformation
                 </Link>
               </li>
               <li style={{ marginBottom: '0.5rem' }}>
@@ -155,6 +193,51 @@ export function Footer() {
                   onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#9ca3af'}
                 >
                   Cybersecurity Services
+                </Link>
+              </li>
+              <li style={{ marginBottom: '0.5rem' }}>
+                <Link 
+                  href="/services" 
+                  style={{
+                    color: '#9ca3af',
+                    textDecoration: 'none',
+                    fontSize: '0.875rem',
+                    transition: 'color 0.15s ease-in-out'
+                  }}
+                  onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#ffffff'}
+                  onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#9ca3af'}
+                >
+                  Data & Intelligence
+                </Link>
+              </li>
+              <li style={{ marginBottom: '0.5rem' }}>
+                <Link 
+                  href="/services" 
+                  style={{
+                    color: '#9ca3af',
+                    textDecoration: 'none',
+                    fontSize: '0.875rem',
+                    transition: 'color 0.15s ease-in-out'
+                  }}
+                  onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#ffffff'}
+                  onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#9ca3af'}
+                >
+                  AI Solutions
+                </Link>
+              </li>
+              <li style={{ marginBottom: '0.5rem' }}>
+                <Link 
+                  href="/services" 
+                  style={{
+                    color: '#9ca3af',
+                    textDecoration: 'none',
+                    fontSize: '0.875rem',
+                    transition: 'color 0.15s ease-in-out'
+                  }}
+                  onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#ffffff'}
+                  onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#9ca3af'}
+                >
+                  High Performance Computing
                 </Link>
               </li>
             </ul>
@@ -203,6 +286,36 @@ export function Footer() {
               </li>
               <li style={{ marginBottom: '0.5rem' }}>
                 <Link 
+                  href="/careers" 
+                  style={{
+                    color: '#9ca3af',
+                    textDecoration: 'none',
+                    fontSize: '0.875rem',
+                    transition: 'color 0.15s ease-in-out'
+                  }}
+                  onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#ffffff'}
+                  onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#9ca3af'}
+                >
+                  Careers
+                </Link>
+              </li>
+              <li style={{ marginBottom: '0.5rem' }}>
+                <Link 
+                  href="/blog" 
+                  style={{
+                    color: '#9ca3af',
+                    textDecoration: 'none',
+                    fontSize: '0.875rem',
+                    transition: 'color 0.15s ease-in-out'
+                  }}
+                  onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#ffffff'}
+                  onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#9ca3af'}
+                >
+                  Blog & Insights
+                </Link>
+              </li>
+              <li style={{ marginBottom: '0.5rem' }}>
+                <Link 
                   href="/contact" 
                   style={{
                     color: '#9ca3af',
@@ -239,11 +352,10 @@ export function Footer() {
             <form onSubmit={handleSubscribe} style={{ 
               position: 'relative',
               display: 'flex',
-              flexDirection: 'row',
-              gap: '0.75rem',
-              alignItems: 'stretch'
+              flexDirection: 'column',
+              gap: '0.75rem'
             }}>
-              <div style={{ position: 'relative', flex: 1 }}>
+              <div style={{ position: 'relative' }}>
                 <input
                   type="email"
                   value={email}
@@ -328,6 +440,39 @@ export function Footer() {
             }}>
               Join 2,000+ tech leaders
             </p>
+          </div>
+        </div>
+
+        {/* Trust Badges Section */}
+        <div style={{
+          textAlign: 'center',
+          marginBottom: '2rem',
+          padding: '1.5rem 0',
+          borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
+        }}>
+          <h5 style={{
+            fontSize: '0.8rem',
+            fontWeight: '600',
+            color: '#ffffff',
+            marginBottom: '1rem',
+            textTransform: 'uppercase',
+            letterSpacing: '0.05em'
+          }}>
+            Trusted by Leading Organizations
+          </h5>
+          <div style={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            gap: '3rem',
+            flexWrap: 'wrap',
+            opacity: 0.7
+          }}>
+            <span style={{ fontSize: '0.875rem', color: '#9ca3af', fontWeight: '500' }}>Fortune 500</span>
+            <span style={{ fontSize: '0.875rem', color: '#9ca3af', fontWeight: '500' }}>Global Banks</span>
+            <span style={{ fontSize: '0.875rem', color: '#9ca3af', fontWeight: '500' }}>Healthcare Leaders</span>
+            <span style={{ fontSize: '0.875rem', color: '#9ca3af', fontWeight: '500' }}>Government Agencies</span>
+            <span style={{ fontSize: '0.875rem', color: '#9ca3af', fontWeight: '500' }}>Tech Innovators</span>
           </div>
         </div>
 

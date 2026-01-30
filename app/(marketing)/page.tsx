@@ -11,6 +11,8 @@ export default function HomePage() {
         minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
+        margin: 0,
+        padding: 0
       }}
     >
       <PremiumNav />
@@ -129,7 +131,6 @@ export default function HomePage() {
               fontWeight: '500',
               color: '#ffffff'
             }}>
-*** End Patch
               Microsoft
             </div>
             <div className="partner-logo" style={{
@@ -137,14 +138,7 @@ export default function HomePage() {
               fontWeight: '500',
               color: '#ffffff'
             }}>
-              AWS
-            </div>
-            <div className="partner-logo" style={{
-              fontSize: '1.5rem',
-              fontWeight: '500',
-              color: '#ffffff'
-            }}>
-              Google Cloud
+              Odoo
             </div>
           </div>
         </div>

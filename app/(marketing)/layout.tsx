@@ -27,7 +27,7 @@ export default function MarketingLayout({
       }}
     >
       <PremiumNav />
-      <main className="flex-1" style={{ display: 'flex', flexDirection: 'column', minHeight: '0' }}>
+      <main className="flex-1" style={{ display: 'flex', flexDirection: 'column' }}>
         {children}
       </main>
       <Footer />

@@ -96,6 +96,52 @@ export function PremiumNav() {
           >
             Home
           </Link>
+          
+          <Link 
+            href="/services"
+            style={{
+              fontSize: '0.875rem',
+              fontWeight: '500',
+              color: '#9ca3af',
+              textDecoration: 'none',
+              transition: 'color 0.2s ease-in-out'
+            }}
+            onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#ffffff'}
+            onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#9ca3af'}
+          >
+            Solutions
+          </Link>
+          
+          <Link 
+            href="/industries"
+            style={{
+              fontSize: '0.875rem',
+              fontWeight: '500',
+              color: '#9ca3af',
+              textDecoration: 'none',
+              transition: 'color 0.2s ease-in-out'
+            }}
+            onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#ffffff'}
+            onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#9ca3af'}
+          >
+            Industries
+          </Link>
+          
+          <Link 
+            href="/training"
+            style={{
+              fontSize: '0.875rem',
+              fontWeight: '500',
+              color: '#9ca3af',
+              textDecoration: 'none',
+              transition: 'color 0.2s ease-in-out'
+            }}
+            onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#ffffff'}
+            onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#9ca3af'}
+          >
+            Training
+          </Link>
+          
           <Link 
             href="/about" 
             style={{
@@ -110,20 +156,7 @@ export function PremiumNav() {
           >
             About
           </Link>
-          <Link 
-            href="/calendar" 
-            style={{
-              fontSize: '0.875rem',
-              fontWeight: '500',
-              color: '#9ca3af',
-              textDecoration: 'none',
-              transition: 'color 0.2s ease-in-out'
-            }}
-            onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#ffffff'}
-            onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#9ca3af'}
-          >
-            Calendar
-          </Link>
+          
           <Link 
             href="/contact" 
             style={{

@@ -46,6 +46,11 @@ export default function AboutPage() {
           }
         }
         
+        .partner-scroll {
+          display: flex;
+          animation: scroll 15s linear infinite;
+        }
+        
         .partner-scroll:hover {
           animation-play-state: paused;
         }
@@ -728,11 +733,10 @@ export default function AboutPage() {
               {/* Animated Row */}
               <div className="partner-scroll" style={{
                 display: 'flex',
-                animation: 'scroll 20s linear infinite',
                 width: 'fit-content'
               }}>
                 {/* First set of partners */}
-                {['NVIDIA', 'Microsoft', 'AWS', 'Google Cloud', 'Oracle', 'Dell Technologies'].map((partner, index) => (
+                {['NVIDIA', 'Microsoft', 'Odoo'].map((partner, index) => (
                   <div key={index} style={{
                     fontSize: 'clamp(0.875rem, 1.5vw, 1rem)',
                     fontWeight: '600',
@@ -750,7 +754,7 @@ export default function AboutPage() {
                   </div>
                 ))}
                 {/* Duplicate set for seamless loop */}
-                {['NVIDIA', 'Microsoft', 'AWS', 'Google Cloud', 'Oracle', 'Dell Technologies'].map((partner, index) => (
+                {['NVIDIA', 'Microsoft', 'Odoo'].map((partner, index) => (
                   <div key={`duplicate-${index}`} style={{
                     fontSize: 'clamp(0.875rem, 1.5vw, 1rem)',
                     fontWeight: '600',

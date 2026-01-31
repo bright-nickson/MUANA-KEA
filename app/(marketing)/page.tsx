@@ -20,7 +20,7 @@ export default function HomePage() {
       {/* About Mauna Kea Consulting Section */}
       <section className="about-section" style={{
         position: 'relative',
-        padding: 'clamp(2rem, 5vw, 4rem) 1rem',
+        padding: 'clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 1rem)',
         maxWidth: '1200px',
         margin: '0 auto',
         textAlign: 'center',
@@ -55,7 +55,7 @@ export default function HomePage() {
       {/* Why Mauna Kea Section */}
       <section className="why-section" style={{
         position: 'relative',
-        padding: 'clamp(2rem, 5vw, 4rem) 1rem',
+        padding: 'clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 1rem)',
         backgroundColor: 'rgba(5, 5, 5, 0.5)',
         textAlign: 'center',
       }}>
@@ -94,7 +94,7 @@ export default function HomePage() {
       {/* Partners Section */}
       <section className="partners-section" style={{
         position: 'relative',
-        padding: '4rem 1.5rem',
+        padding: 'clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 1.5rem)',
         maxWidth: '1200px',
         margin: '0 auto',
         textAlign: 'center'
@@ -105,10 +105,10 @@ export default function HomePage() {
           zIndex: 2
         }}>
           <h2 className="section-heading" style={{
-            fontSize: '2rem',
+            fontSize: 'clamp(1.5rem, 4vw, 2rem)',
             fontWeight: '600',
             color: '#ffffff',
-            marginBottom: '2rem'
+            marginBottom: 'clamp(1.5rem, 3vw, 2rem)'
           }}>
             Our Partners
           </h2>
@@ -116,27 +116,30 @@ export default function HomePage() {
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
-            gap: '4rem',
+            gap: 'clamp(2rem, 4vw, 4rem)',
             flexWrap: 'wrap'
           }}>
             <div className="partner-logo" style={{
-              fontSize: '1.5rem',
+              fontSize: 'clamp(1rem, 2.5vw, 1.5rem)',
               fontWeight: '500',
-              color: '#ffffff'
+              color: '#ffffff',
+              padding: '0.5rem 1rem'
             }}>
               NVIDIA
             </div>
             <div className="partner-logo" style={{
-              fontSize: '1.5rem',
+              fontSize: 'clamp(1rem, 2.5vw, 1.5rem)',
               fontWeight: '500',
-              color: '#ffffff'
+              color: '#ffffff',
+              padding: '0.5rem 1rem'
             }}>
               Microsoft
             </div>
             <div className="partner-logo" style={{
-              fontSize: '1.5rem',
+              fontSize: 'clamp(1rem, 2.5vw, 1.5rem)',
               fontWeight: '500',
-              color: '#ffffff'
+              color: '#ffffff',
+              padding: '0.5rem 1rem'
             }}>
               Odoo
             </div>

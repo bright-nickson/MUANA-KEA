@@ -83,13 +83,27 @@ export default function ContactPage() {
         .contact-form-grid{
           display: grid;
           grid-template-columns: 1fr;
-          gap: clamp(1rem, 4vw, 2rem);
+          gap: clamp(2rem, 4vw, 3rem);
           align-items: start;
         }
         @media (min-width: 768px) {
           .contact-form-grid{
             grid-template-columns: 1fr 1.2fr;
             gap: clamp(2rem, 4vw, 4rem);
+          }
+        }
+        
+        /* Responsive form fields */
+        @media (min-width: 640px) {
+          .form-field-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+        }
+        
+        /* Ensure proper spacing on mobile */
+        @media (max-width: 639px) {
+          .form-field-grid {
+            grid-template-columns: 1fr !important;
           }
         }
       `}</style>
@@ -130,7 +144,7 @@ export default function ContactPage() {
 
         {/* Contact Form Section */}
         <section className="contact-form" style={{
-          padding: '4rem 1.5rem',
+          padding: 'clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 1.5rem)',
           maxWidth: '1400px',
           margin: '0 auto'
         }}>
@@ -220,14 +234,16 @@ export default function ContactPage() {
             <form
               onSubmit={handleSubmit}
               style={{
-                padding: 'clamp(2.5rem, 4vw, 4rem)',
+                padding: 'clamp(1.5rem, 4vw, 3rem)',
                 backgroundColor: 'rgba(10, 10, 10, 0.8)',
                 backdropFilter: 'blur(20px)',
                 WebkitBackdropFilter: 'blur(20px)',
                 borderRadius: '1.5rem',
-                maxWidth: 'clamp(100%, 90vw, 600px)',
+                width: '100%',
+                maxWidth: '100%',
                 boxShadow: '0 25px 50px rgba(0, 0, 0, 0.4)',
-                position: 'relative'
+                position: 'relative',
+                boxSizing: 'border-box'
               }}
             >
               {/* Form Header */}
@@ -281,17 +297,21 @@ export default function ContactPage() {
                       width: '100%',
                       padding: '1rem',
                       backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                      border: '1px solid rgba(255, 255, 255, 0.1)',
                       borderRadius: '0.75rem',
                       color: '#ffffff',
-                      fontSize: '1rem',
-                      transition: 'all 0.2s ease-in-out'
+                      fontSize: 'clamp(0.875rem, 2vw, 1rem)',
+                      transition: 'all 0.2s ease-in-out',
+                      boxSizing: 'border-box'
                     }}
                     onFocus={(e: React.FocusEvent<HTMLInputElement>) => {
                       e.currentTarget.style.borderColor = '#8b0000';
                       e.currentTarget.style.outline = 'none';
+                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.08)';
                     }}
                     onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
                       e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
                     }}
                   />
                 </div>
@@ -314,25 +334,29 @@ export default function ContactPage() {
                       width: '100%',
                       padding: '1rem',
                       backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                      border: '1px solid rgba(255, 255, 255, 0.1)',
                       borderRadius: '0.75rem',
                       color: '#ffffff',
-                      fontSize: '1rem',
-                      transition: 'all 0.2s ease-in-out'
+                      fontSize: 'clamp(0.875rem, 2vw, 1rem)',
+                      transition: 'all 0.2s ease-in-out',
+                      boxSizing: 'border-box'
                     }}
                     onFocus={(e: React.FocusEvent<HTMLInputElement>) => {
                       e.currentTarget.style.borderColor = '#8b0000';
                       e.currentTarget.style.outline = 'none';
+                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.08)';
                     }}
                     onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
                       e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
                     }}
                   />
                 </div>
               </div>
 
-              <div style={{
+              <div className="form-field-grid" style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+                gridTemplateColumns: '1fr',
                 gap: '1.5rem',
                 marginBottom: '1.5rem'
               }}>
@@ -356,17 +380,21 @@ export default function ContactPage() {
                       width: '100%',
                       padding: '1rem',
                       backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                      border: '1px solid rgba(255, 255, 255, 0.1)',
                       borderRadius: '0.75rem',
                       color: '#ffffff',
-                      fontSize: '1rem',
-                      transition: 'all 0.2s ease-in-out'
+                      fontSize: 'clamp(0.875rem, 2vw, 1rem)',
+                      transition: 'all 0.2s ease-in-out',
+                      boxSizing: 'border-box'
                     }}
                     onFocus={(e: React.FocusEvent<HTMLInputElement>) => {
                       e.currentTarget.style.borderColor = '#8b0000';
                       e.currentTarget.style.outline = 'none';
+                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.08)';
                     }}
                     onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
                       e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
                     }}
                   />
                 </div>
@@ -388,17 +416,21 @@ export default function ContactPage() {
                       width: '100%',
                       padding: '1rem',
                       backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                      border: '1px solid rgba(255, 255, 255, 0.1)',
                       borderRadius: '0.75rem',
                       color: '#ffffff',
-                      fontSize: '1rem',
-                      transition: 'all 0.2s ease-in-out'
+                      fontSize: 'clamp(0.875rem, 2vw, 1rem)',
+                      transition: 'all 0.2s ease-in-out',
+                      boxSizing: 'border-box'
                     }}
                     onFocus={(e: React.FocusEvent<HTMLInputElement>) => {
                       e.currentTarget.style.borderColor = '#8b0000';
                       e.currentTarget.style.outline = 'none';
+                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.08)';
                     }}
                     onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
                       e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
                     }}
                   />
                 </div>
@@ -422,17 +454,22 @@ export default function ContactPage() {
                     width: '100%',
                     padding: '1rem',
                     backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
                     borderRadius: '0.75rem',
                     color: '#ffffff',
-                    fontSize: '1rem',
-                    transition: 'all 0.2s ease-in-out'
+                    fontSize: 'clamp(0.875rem, 2vw, 1rem)',
+                    transition: 'all 0.2s ease-in-out',
+                    boxSizing: 'border-box',
+                    cursor: 'pointer'
                   }}
                   onFocus={(e: React.FocusEvent<HTMLSelectElement>) => {
                     e.currentTarget.style.borderColor = '#8b0000';
                     e.currentTarget.style.outline = 'none';
+                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.08)';
                   }}
                   onBlur={(e: React.FocusEvent<HTMLSelectElement>) => {
                     e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
                   }}
                 >
                   <option value="" disabled style={{ backgroundColor: '#000000' }}>
@@ -465,18 +502,24 @@ export default function ContactPage() {
                     width: '100%',
                     padding: '1rem',
                     backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                    border: '1px solid rgba(255, 255, 255, 0.1)',
                     borderRadius: '0.75rem',
                     color: '#ffffff',
-                    fontSize: '1rem',
+                    fontSize: 'clamp(0.875rem, 2vw, 1rem)',
                     resize: 'vertical',
-                    transition: 'all 0.2s ease-in-out'
+                    transition: 'all 0.2s ease-in-out',
+                    boxSizing: 'border-box',
+                    fontFamily: 'inherit',
+                    minHeight: '120px'
                   }}
                   onFocus={(e: React.FocusEvent<HTMLTextAreaElement>) => {
                     e.currentTarget.style.borderColor = '#8b0000';
                     e.currentTarget.style.outline = 'none';
+                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.08)';
                   }}
                   onBlur={(e: React.FocusEvent<HTMLTextAreaElement>) => {
                     e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
+                    e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
                   }}
                 />
               </div>

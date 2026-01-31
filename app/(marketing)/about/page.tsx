@@ -29,8 +29,14 @@ export default function AboutPage() {
         }
         
         /* Hero section responsive grid */
+        @media (min-width: 768px) {
+          .hero-section > div:first-of-type {
+            grid-template-columns: 1fr 1fr !important;
+          }
+        }
+        
         @media (max-width: 767px) {
-          .hero-section > div:last-child {
+          .hero-section > div:first-of-type {
             grid-template-columns: 1fr !important;
             gap: 2rem !important;
           }
@@ -73,7 +79,7 @@ export default function AboutPage() {
           maxWidth: 'clamp(600px, 90vw, 1200px)',
           margin: '0 auto',
           display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
+          gridTemplateColumns: '1fr',
           gap: 'clamp(2rem, 4vw, 4rem)',
           alignItems: 'center'
         }}>

@@ -29,7 +29,10 @@ function getTransporter(): nodemailer.Transporter {
     },
     tls: {
       rejectUnauthorized: false
-    }
+    },
+    connectionTimeout: 60000,
+    greetingTimeout: 30000,
+    socketTimeout: 60000,
   });
 
   return transporter;

@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   },
   description:
     "Mauna Kea Consulting provides technology consulting and managed services across Africa and the Middle East, helping enterprises pilot, prove, and scale critical platforms.",
+  viewport: "width=device-width, initial-scale=1",
   icons: {
     icon: [
       { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },

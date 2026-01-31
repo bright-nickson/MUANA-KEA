@@ -14,23 +14,22 @@ let transporter: nodemailer.Transporter | null = null;
 function getTransporter(): nodemailer.Transporter {
   if (transporter) return transporter;
 
-  const host = process.env.SMTP_HOST;
-  const port = process.env.SMTP_PORT ? Number(process.env.SMTP_PORT) : undefined;
   const user = process.env.SMTP_USER;
   const pass = process.env.SMTP_PASSWORD;
 
-  if (!host || !port || !user || !pass) {
-    throw new Error("SMTP configuration is missing. Please set SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASSWORD.");
+  if (!user || !pass) {
+    throw new Error("Gmail configuration is missing. Please set SMTP_USER and SMTP_PASSWORD.");
   }
 
   transporter = nodemailer.createTransport({
-    host,
-    port,
-    secure: port === 465,
+    service: 'gmail',
     auth: {
       user,
       pass,
     },
+    tls: {
+      rejectUnauthorized: false
+    }
   });
 
   return transporter;

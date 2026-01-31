@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { getSupabaseClient } from "@/lib/supabase";
 import { sendContactNotification, ContactPayload } from "@/lib/mailer";
 
 interface IncomingPayload extends ContactPayload {
@@ -56,43 +55,36 @@ export async function POST(request: Request) {
       );
     }
 
-    const supabase = getSupabaseClient();
-
-    const { error: insertError } = await supabase.from("contact_submissions").insert({
+    // Send email notification
+    await sendContactNotification({
       name,
       company,
       email,
       role,
-      area_of_interest: areaOfInterest,
+      areaOfInterest,
       message,
-      created_at: new Date().toISOString(),
     });
-
-    if (insertError) {
-      console.error("Failed to insert contact submission", insertError);
-      return NextResponse.json(
-        { success: false, error: "We were unable to record your message. Please try again later." },
-        { status: 500 },
-      );
-    }
-
-    try {
-      await sendContactNotification({
-        name,
-        company,
-        email,
-        role,
-        areaOfInterest,
-        message,
-      });
-    } catch (mailError) {
-      console.error("Failed to send contact notification", mailError);
-      // Do not fail the request if email sending fails; we already stored the record.
-    }
 
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("Unexpected error handling contact submission", error);
+    console.error("Error handling contact submission", error);
+    
+    // Provide more specific error messages
+    if (error instanceof Error) {
+      if (error.message.includes("SMTP")) {
+        return NextResponse.json(
+          { success: false, error: "Email service is temporarily unavailable. Please try again later." },
+          { status: 500 },
+        );
+      }
+      if (error.message.includes("configuration")) {
+        return NextResponse.json(
+          { success: false, error: "Email service is not properly configured." },
+          { status: 500 },
+        );
+      }
+    }
+    
     return NextResponse.json(
       { success: false, error: "Unexpected error while handling your message." },
       { status: 500 },

@@ -30,6 +30,24 @@ export function PremiumNav() {
 
   return (
     <>
+      <style jsx>{`
+        @media (max-width: 640px) {
+          .nav-logo-full {
+            display: none;
+          }
+          .nav-logo-short {
+            display: inline;
+          }
+        }
+        @media (min-width: 641px) {
+          .nav-logo-full {
+            display: inline;
+          }
+          .nav-logo-short {
+            display: none;
+          }
+        }
+      `}</style>
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -44,36 +62,42 @@ export function PremiumNav() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          padding: '0 2rem',
+          padding: '0 clamp(1rem, 3vw, 2rem)',
           backgroundColor: scrolled ? 'rgba(5, 5, 5, 0.85)' : 'rgba(5, 5, 5, 0.7)',
           backdropFilter: 'blur(20px)',
           WebkitBackdropFilter: 'blur(20px)',
           borderBottom: scrolled ? '1px solid rgba(255, 255, 255, 0.1)' : '1px solid rgba(255, 255, 255, 0.05)',
-          transition: 'all 0.3s ease-in-out'
+          transition: 'all 0.3s ease-in-out',
+          width: '100%',
+          maxWidth: '100vw',
+          boxSizing: 'border-box'
         }}
       >
         {/* Logo */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexShrink: 0 }}>
           <img 
             src="/logo.png"
             alt="Mauna Kea Consulting Logo"
             style={{
-              width: '32px',
-              height: '32px',
+              width: 'clamp(24px, 4vw, 32px)',
+              height: 'clamp(24px, 4vw, 32px)',
               objectFit: 'contain'
             }}
           />
           <Link 
             href="/"
             style={{
-              fontSize: '1rem',
+              fontSize: 'clamp(0.75rem, 2vw, 1rem)',
               fontWeight: '600',
               color: '#ffffff',
               textDecoration: 'none',
-              letterSpacing: '-0.025em'
+              letterSpacing: '-0.025em',
+              whiteSpace: 'nowrap'
             }}
+            className="nav-logo-text"
           >
-            Mauna Kea Consulting
+            <span className="nav-logo-full">Mauna Kea Consulting</span>
+            <span className="nav-logo-short">Mauna Kea</span>
           </Link>
         </div>
         
@@ -250,12 +274,16 @@ export function PremiumNav() {
             top: '64px',
             left: 0,
             right: 0,
+            width: '100%',
+            maxWidth: '100vw',
             backgroundColor: 'rgba(5, 5, 5, 0.95)',
             backdropFilter: 'blur(20px)',
             WebkitBackdropFilter: 'blur(20px)',
             borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
             zIndex: 40,
-            padding: '1rem 2rem'
+            padding: '1rem clamp(1rem, 3vw, 2rem)',
+            boxSizing: 'border-box',
+            overflowX: 'hidden'
           }}
         >
           {/* Mobile Menu Header */}
@@ -265,7 +293,11 @@ export function PremiumNav() {
             gap: '0.75rem',
             marginBottom: '1rem',
             paddingBottom: '1rem',
-            borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
+            borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+            width: '100%',
+            maxWidth: '100%',
+            boxSizing: 'border-box',
+            overflow: 'hidden'
           }}>
             <img 
               src="/logo.png"
@@ -273,19 +305,23 @@ export function PremiumNav() {
               style={{
                 width: '28px',
                 height: '28px',
-                objectFit: 'contain'
+                objectFit: 'contain',
+                flexShrink: 0
               }}
             />
             <span style={{
-              fontSize: '1rem',
+              fontSize: 'clamp(0.875rem, 2vw, 1rem)',
               fontWeight: '600',
-              color: '#ffffff'
+              color: '#ffffff',
+              whiteSpace: 'nowrap',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis'
             }}>
               Mauna Kea Consulting
             </span>
           </div>
           
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem', width: '100%', maxWidth: '100%' }}>
             <Link 
               href="/"
               onClick={() => setMobileMenuOpen(false)}
@@ -296,7 +332,9 @@ export function PremiumNav() {
                 textDecoration: 'none',
                 padding: '0.75rem 0',
                 borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
-                display: 'block'
+                display: 'block',
+                width: '100%',
+                boxSizing: 'border-box'
               }}
             >
               Home
@@ -311,7 +349,9 @@ export function PremiumNav() {
                 textDecoration: 'none',
                 padding: '0.75rem 0',
                 borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
-                display: 'block'
+                display: 'block',
+                width: '100%',
+                boxSizing: 'border-box'
               }}
             >
               About
@@ -326,7 +366,9 @@ export function PremiumNav() {
                 textDecoration: 'none',
                 padding: '0.75rem 0',
                 borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
-                display: 'block'
+                display: 'block',
+                width: '100%',
+                boxSizing: 'border-box'
               }}
             >
               Calendar
@@ -341,7 +383,9 @@ export function PremiumNav() {
                 textDecoration: 'none',
                 padding: '0.75rem 0',
                 borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
-                display: 'block'
+                display: 'block',
+                width: '100%',
+                boxSizing: 'border-box'
               }}
             >
               Contact
@@ -359,7 +403,9 @@ export function PremiumNav() {
                 textDecoration: 'none',
                 textAlign: 'center',
                 display: 'block',
-                marginTop: '0.5rem'
+                marginTop: '0.5rem',
+                width: '100%',
+                boxSizing: 'border-box'
               }}
             >
               Book a Call

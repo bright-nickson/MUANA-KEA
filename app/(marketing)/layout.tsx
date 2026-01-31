@@ -33,6 +33,10 @@ export default function MarketingLayout({
         background: 'linear-gradient(135deg, #050505 0%, #0a0a0a 50%, #050505 100%)',
         backgroundAttachment: 'fixed',
         minHeight: '100vh',
+        width: '100%',
+        maxWidth: '100vw',
+        overflowX: 'hidden',
+        position: 'relative'
       }}
     >
       <PremiumNav />

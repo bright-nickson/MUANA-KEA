@@ -106,6 +106,17 @@ export default function ContactPage() {
             grid-template-columns: 1fr !important;
           }
         }
+        
+        /* Center align info section on mobile */
+        @media (max-width: 767px) {
+          .contact-info-section {
+            text-align: center !important;
+          }
+          .contact-info-section > div:last-child {
+            margin: 0 auto !important;
+            max-width: 100% !important;
+          }
+        }
       `}</style>
 
       <div style={{
@@ -115,7 +126,7 @@ export default function ContactPage() {
       }}>
         {/* Hero Section */}
         <section className="contact-hero" style={{
-          padding: 'clamp(2rem, 6vw, 8rem) 1.5rem',
+          padding: 'clamp(2rem, 6vw, 8rem) clamp(1rem, 3vw, 1.5rem)',
           textAlign: 'center',
           maxWidth: '1200px',
           margin: '0 auto'
@@ -154,7 +165,7 @@ export default function ContactPage() {
             {/* Info Section */}
             <div style={{
               textAlign: 'left'
-            }}>
+            }} className="contact-info-section">
               <h2 className="section-heading" style={{
                 fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
                 fontWeight: '700',
@@ -271,9 +282,9 @@ export default function ContactPage() {
                 </p>
               </div>
 
-              <div style={{
+              <div className="form-field-grid" style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+                gridTemplateColumns: '1fr',
                 gap: '1.5rem',
                 marginBottom: '1.5rem'
               }}>
@@ -298,7 +309,7 @@ export default function ContactPage() {
                       padding: '1rem',
                       backgroundColor: 'rgba(255, 255, 255, 0.05)',
                       border: '1px solid rgba(255, 255, 255, 0.1)',
-                      borderRadius: '0.75rem',
+                        borderRadius: '0.75rem',
                       color: '#ffffff',
                       fontSize: 'clamp(0.875rem, 2vw, 1rem)',
                       transition: 'all 0.2s ease-in-out',

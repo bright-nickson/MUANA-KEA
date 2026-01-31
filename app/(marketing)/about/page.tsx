@@ -26,6 +26,10 @@ export default function AboutPage() {
           .impact-grid {
             grid-template-columns: 1fr !important;
           }
+          .story-text-content {
+            text-align: center !important;
+            padding-left: 0 !important;
+          }
         }
         
         /* Hero section responsive grid */
@@ -68,7 +72,7 @@ export default function AboutPage() {
         minHeight: 'clamp(60vh, 80vh, 80vh)',
         display: 'flex',
         alignItems: 'center',
-        padding: 'clamp(2rem, 5vw, 4rem) 1.5rem',
+        padding: 'clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 1.5rem)',
         backgroundColor: '#ffffff',
       }}>
         
@@ -137,7 +141,7 @@ export default function AboutPage() {
 
       {/* Our Story Section */}
       <section className="story-section" style={{
-        padding: 'clamp(3rem, 8vw, 8rem) 1.5rem',
+        padding: 'clamp(3rem, 8vw, 8rem) clamp(1rem, 3vw, 1.5rem)',
         backgroundColor: '#ffffff'
       }}>
         <div style={{
@@ -228,8 +232,8 @@ export default function AboutPage() {
             {/* Right Side - Text Content */}
             <div style={{
               textAlign: 'left',
-              paddingLeft: 'clamp(1rem, 2vw, 2rem)'
-            }}>
+              paddingLeft: 'clamp(0rem, 2vw, 2rem)'
+            }} className="story-text-content">
               <h2 className="section-heading" style={{
                 fontSize: 'clamp(1.5rem, 4vw, 3rem)',
                 fontWeight: '700',
@@ -271,7 +275,7 @@ export default function AboutPage() {
 
       {/* Our Approach Section */}
       <section className="approach-section" style={{
-        padding: 'clamp(4rem, 8vw, 8rem) 1.5rem',
+        padding: 'clamp(4rem, 8vw, 8rem) clamp(1rem, 3vw, 1.5rem)',
         backgroundColor: '#ffffff',
         position: 'relative'
       }}>
@@ -485,7 +489,7 @@ export default function AboutPage() {
 
       {/* Global Impact Section */}
       <section className="impact-section" style={{
-        padding: 'clamp(4rem, 8vw, 8rem) 1.5rem',
+        padding: 'clamp(4rem, 8vw, 8rem) clamp(1rem, 3vw, 1.5rem)',
         backgroundColor: '#f8fafc',
         position: 'relative'
       }}>

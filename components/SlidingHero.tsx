@@ -65,17 +65,32 @@ export function SlidingHero() {
   };
 
   return (
-    <section 
-      ref={heroRef}
-      className="sliding-hero"
-      style={{
-        position: 'relative',
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        paddingTop: '4rem'
-      }}
-    >
+    <>
+      <style jsx>{`
+        @media (min-width: 768px) {
+          .sliding-hero-grid {
+            grid-template-columns: repeat(12, minmax(0, 1fr)) !important;
+          }
+          .sliding-hero-text {
+            grid-column: span 7 / span 8 !important;
+          }
+          .sliding-hero-image {
+            display: block !important;
+            grid-column: span 5 / span 6 !important;
+          }
+        }
+      `}</style>
+      <section 
+        ref={heroRef}
+        className="sliding-hero"
+        style={{
+          position: 'relative',
+          minHeight: '100vh',
+          display: 'flex',
+          alignItems: 'center',
+          paddingTop: 'clamp(4rem, 8vw, 6rem)'
+        }}
+      >
       {/* Full Screen Background Image */}
       <div 
         className="hero-background"
@@ -164,17 +179,18 @@ export function SlidingHero() {
             width: '100%',
             maxWidth: '1200px',
             margin: '0 auto',
-            padding: '0 1.5rem',
+            padding: '0 clamp(1rem, 3vw, 1.5rem)',
             display: 'grid',
-            gridTemplateColumns: 'repeat(12, minmax(0, 1fr))',
-            gap: '3rem',
+            gridTemplateColumns: '1fr',
+            gap: 'clamp(2rem, 4vw, 3rem)',
             alignItems: 'center'
           }}
+          className="sliding-hero-grid"
         >
           {/* Text Content */}
           <div style={{
-            gridColumn: 'span 7 / span 8'
-          }}>
+            gridColumn: 'span 1'
+          }} className="sliding-hero-text">
             <motion.div
               initial={{ y: 50, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
@@ -304,10 +320,11 @@ export function SlidingHero() {
 
           {/* Visual Element */}
           <div style={{
-            gridColumn: 'span 5 / span 6',
-            height: '400px',
-            position: 'relative'
-          }}>
+            gridColumn: 'span 1',
+            height: 'clamp(250px, 40vw, 400px)',
+            position: 'relative',
+            display: 'none'
+          }} className="sliding-hero-image">
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -437,5 +454,6 @@ export function SlidingHero() {
         </button>
       </div>
     </section>
+    </>
   );
 }

@@ -91,8 +91,21 @@ export function CoreSolutions() {
   // No scroll/animation effects needed for static site
 
   return (
+    <>
+      <style jsx>{`
+        @media (min-width: 640px) {
+          .solutions-grid {
+            grid-template-columns: repeat(2, 1fr) !important;
+          }
+        }
+        @media (min-width: 1024px) {
+          .solutions-grid {
+            grid-template-columns: repeat(3, 1fr) !important;
+          }
+        }
+      `}</style>
     <section className="core-solutions-section" style={{
-      padding: '4rem 1.5rem',
+      padding: 'clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 1.5rem)',
       backgroundColor: 'rgba(5, 5, 5, 0.5)'
     }}>
       <div style={{
@@ -101,10 +114,10 @@ export function CoreSolutions() {
       }}>
         <div style={{
           textAlign: 'center',
-          marginBottom: '4rem'
+          marginBottom: 'clamp(2rem, 4vw, 4rem)'
         }}>
           <h2 className="solutions-heading" style={{
-            fontSize: '2.5rem',
+            fontSize: 'clamp(1.75rem, 5vw, 2.5rem)',
             fontWeight: '600',
             color: '#ffffff',
             marginBottom: '1rem',
@@ -113,11 +126,12 @@ export function CoreSolutions() {
             Our Core Solutions
           </h2>
           <p className="solutions-heading" style={{
-            fontSize: '1.125rem',
+            fontSize: 'clamp(0.95rem, 2.5vw, 1.125rem)',
             lineHeight: '1.6',
             color: '#9ca3af',
             maxWidth: '800px',
-            margin: '0 auto'
+            margin: '0 auto',
+            padding: '0 clamp(0.5rem, 2vw, 1rem)'
           }}>
             End‑to‑end technology solutions designed for scale, security, and measurable business impact
           </p>
@@ -125,9 +139,9 @@ export function CoreSolutions() {
 
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))',
-          gap: '2rem'
-        }}>
+          gridTemplateColumns: '1fr',
+          gap: 'clamp(1.5rem, 3vw, 2rem)'
+        }} className="solutions-grid">
           {solutions.map((solution, index) => (
             <div 
               key={solution.id}
@@ -145,7 +159,7 @@ export function CoreSolutions() {
             >
               {/* Image */}
               <div style={{
-                height: '200px',
+                height: 'clamp(150px, 25vw, 200px)',
                 backgroundImage: `url(${solution.image})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
@@ -173,13 +187,13 @@ export function CoreSolutions() {
               
               {/* Content */}
               <div style={{
-                padding: '2rem',
+                padding: 'clamp(1.5rem, 3vw, 2rem)',
                 flex: 1,
                 display: 'flex',
                 flexDirection: 'column'
               }}>
                 <h3 style={{
-                  fontSize: '1.5rem',
+                  fontSize: 'clamp(1.25rem, 3vw, 1.5rem)',
                   fontWeight: '600',
                   color: '#ffffff',
                   marginBottom: '1rem',
@@ -189,7 +203,7 @@ export function CoreSolutions() {
                 </h3>
                 
                 <p style={{
-                  fontSize: '1rem',
+                  fontSize: 'clamp(0.875rem, 2vw, 1rem)',
                   lineHeight: '1.6',
                   color: '#9ca3af',
                   marginBottom: '1.5rem'
@@ -276,5 +290,6 @@ export function CoreSolutions() {
         </div>
       </div>
     </section>
+    </>
   );
 }

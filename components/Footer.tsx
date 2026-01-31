@@ -71,6 +71,19 @@ export function Footer() {
         className="footer-grid">
           {/* Company Info */}
           <div>
+            {/* Logo */}
+            <div style={{ marginBottom: '1rem' }}>
+              <img 
+                src="/logo.png"
+                alt="Mauna Kea Consulting Logo"
+                style={{
+                  width: '48px',
+                  height: '48px',
+                  objectFit: 'contain'
+                }}
+              />
+            </div>
+            
             <h3 style={{
               fontSize: 'clamp(0.9rem, 2vw, 1rem)',
               fontWeight: '600',

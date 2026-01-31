@@ -54,12 +54,13 @@ export function PremiumNav() {
       >
         {/* Logo */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-          <div 
+          <img 
+            src="/logo.png"
+            alt="Mauna Kea Consulting Logo"
             style={{
-              width: '8px',
-              height: '8px',
-              backgroundColor: '#8b0000',
-              borderRadius: '2px'
+              width: '32px',
+              height: '32px',
+              objectFit: 'contain'
             }}
           />
           <Link 
@@ -257,6 +258,33 @@ export function PremiumNav() {
             padding: '1rem 2rem'
           }}
         >
+          {/* Mobile Menu Header */}
+          <div style={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            gap: '0.75rem',
+            marginBottom: '1rem',
+            paddingBottom: '1rem',
+            borderBottom: '1px solid rgba(255, 255, 255, 0.1)'
+          }}>
+            <img 
+              src="/logo.png"
+              alt="Mauna Kea Consulting Logo"
+              style={{
+                width: '28px',
+                height: '28px',
+                objectFit: 'contain'
+              }}
+            />
+            <span style={{
+              fontSize: '1rem',
+              fontWeight: '600',
+              color: '#ffffff'
+            }}>
+              Mauna Kea Consulting
+            </span>
+          </div>
+          
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             <Link 
               href="/"

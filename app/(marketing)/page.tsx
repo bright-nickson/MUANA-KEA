@@ -56,7 +56,7 @@ export default function HomePage() {
       <section className="why-section" style={{
         position: 'relative',
         padding: 'clamp(2rem, 5vw, 4rem) clamp(1rem, 3vw, 1rem)',
-        backgroundColor: 'rgba(139, 0, 0, 0.3)',
+        background: 'linear-gradient(135deg, rgba(0, 0, 0, 0) 0%, rgba(139, 0, 0, 0.15) 25%, rgba(139, 0, 0, 0.3) 50%, rgba(139, 0, 0, 0.15) 75%, rgba(0, 0, 0, 0) 100%)',
         textAlign: 'center',
       }}>
         {/* Content Layer - Above parallax */}

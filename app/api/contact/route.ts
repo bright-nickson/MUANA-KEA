@@ -1,5 +1,14 @@
 import { NextResponse } from "next/server";
-import { sendContactNotification, ContactPayload } from "@/lib/mailer";
+import { sendContactNotification } from "@/lib/resend-mailer";
+
+interface ContactPayload {
+  name: string;
+  company: string;
+  email: string;
+  role: string;
+  areaOfInterest: string;
+  message: string;
+}
 
 interface IncomingPayload extends ContactPayload {
   honeypot?: string;

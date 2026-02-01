@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { sendContactNotification } from "@/lib/mailer";
+import { sendNewsletterNotification } from "@/lib/resend-mailer";
 
 interface NewsletterPayload {
   email: string;

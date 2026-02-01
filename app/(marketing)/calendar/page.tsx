@@ -71,11 +71,11 @@ export default function CalendarPage() {
             borderRadius: '1rem',
             overflow: 'hidden',
             boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
-            minHeight: 'clamp(300px, 50vh, 600px)'
+            minHeight: '600px'
           }}>
             <div style={{
-              aspectRatio: '16/9',
               width: '100%',
+              height: '600px',
               position: 'relative'
             }}>
               <iframe
@@ -84,7 +84,10 @@ export default function CalendarPage() {
                 style={{
                   width: '100%',
                   height: '100%',
-                  border: 'none'
+                  border: 'none',
+                  position: 'absolute',
+                  top: 0,
+                  left: 0
                 }}
                 loading="lazy"
               />

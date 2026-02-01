@@ -22,6 +22,12 @@ export default function ContactPage() {
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    
+    // Prevent double submission
+    if (submitting) {
+      return;
+    }
+    
     setError(null);
     setSuccess(null);
 
@@ -35,6 +41,8 @@ export default function ContactPage() {
       message: String(formData.get("message") ?? "").trim(),
       honeypot: String(formData.get("website") ?? ""),
     };
+
+    console.log("CONTACT PAYLOAD:", payload);
 
     if (!payload.name || !payload.email || !payload.message || !payload.areaOfInterest) {
       setError("Please complete the required fields before submitting.");
@@ -533,8 +541,15 @@ export default function ContactPage() {
 
               {/* Honeypot field for basic spam protection */}
               <div style={{ display: 'none' }} aria-hidden="true">
-                <label htmlFor="website">Website</label>
-                <input id="website" name="website" type="text" autoComplete="off" />
+                <label htmlFor="website">Leave this field blank</label>
+                <input 
+                  id="website" 
+                  name="website" 
+                  type="text" 
+                  autoComplete="off"
+                  tabIndex={-1}
+                  style={{ display: 'none' }}
+                />
               </div>
 
               {error ? (

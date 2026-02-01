@@ -457,10 +457,12 @@ export default function ContactPage() {
                 }}>
                   Area of interest <span style={{ color: '#8b0000' }}>*</span>
                 </label>
-                <select
+                <input
+                  type="text"
                   id="areaOfInterest"
                   name="areaOfInterest"
                   required
+                  placeholder="e.g., Cloud Migration, Cybersecurity, AI Implementation, etc."
                   style={{
                     width: '100%',
                     padding: '1rem',
@@ -470,28 +472,18 @@ export default function ContactPage() {
                     color: '#ffffff',
                     fontSize: 'clamp(0.875rem, 2vw, 1rem)',
                     transition: 'all 0.2s ease-in-out',
-                    boxSizing: 'border-box',
-                    cursor: 'pointer'
+                    boxSizing: 'border-box'
                   }}
-                  onFocus={(e: React.FocusEvent<HTMLSelectElement>) => {
+                  onFocus={(e: React.FocusEvent<HTMLInputElement>) => {
                     e.currentTarget.style.borderColor = '#8b0000';
                     e.currentTarget.style.outline = 'none';
                     e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.08)';
                   }}
-                  onBlur={(e: React.FocusEvent<HTMLSelectElement>) => {
+                  onBlur={(e: React.FocusEvent<HTMLInputElement>) => {
                     e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)';
                     e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)';
                   }}
-                >
-                  <option value="" disabled style={{ backgroundColor: '#000000' }}>
-                    Select an area
-                  </option>
-                  {areasOfInterest.map((area) => (
-                    <option key={area} value={area} style={{ backgroundColor: '#000000' }}>
-                      {area}
-                    </option>
-                  ))}
-                </select>
+                />
               </div>
 
               <div style={{ marginBottom: '2rem' }}>

@@ -34,8 +34,6 @@ export default function MarketingLayout({
         backgroundAttachment: 'fixed',
         minHeight: '100vh',
         width: '100%',
-        maxWidth: '100vw',
-        overflowX: 'hidden',
         position: 'relative'
       }}
     >

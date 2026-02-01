@@ -140,7 +140,7 @@ export default function IndustriesPage() {
         
         body {
           font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-          background: #ffffff;
+          background: linear-gradient(135deg, #fff5f5 0%, #ffffff 50%, #fff0f0 100%);
           color: #1a1a1a;
           overflow-x: hidden;
         }
@@ -153,7 +153,7 @@ export default function IndustriesPage() {
         }
         
         .premium-card {
-          background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+          background: linear-gradient(135deg, #ffffff 0%, #fff5f5 50%, #fff0f0 100%);
           border: 1px solid rgba(139, 0, 0, 0.1);
           backdrop-filter: blur(10px);
           transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -166,7 +166,7 @@ export default function IndustriesPage() {
         }
         
         .hero-gradient {
-          background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%);
+          background: linear-gradient(135deg, #fff5f5 0%, #ffffff 50%, #fff0f0 100%);
           position: relative;
           overflow: hidden;
         }
@@ -209,7 +209,7 @@ export default function IndustriesPage() {
           font-size: 1.25rem;
           box-shadow: 0 8px 20px -5px rgba(139, 0, 0, 0.3);
         .industry-card {
-          background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+          background: linear-gradient(135deg, #ffffff 0%, #fff5f5 50%, #fff0f0 100%);
           border: 1px solid rgba(139, 0, 0, 0.1);
           transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
           position: relative;
@@ -298,7 +298,7 @@ export default function IndustriesPage() {
         }
       `}</style>
 
-      <div style={{ background: '#ffffff' }}>
+      <div style={{ background: 'linear-gradient(135deg, #fff5f5 0%, #ffffff 50%, #fff0f0 100%)' }}>
         {/* Premium Hero Section */}
         <section className="hero-gradient" style={{
           minHeight: '100vh',
@@ -414,7 +414,7 @@ export default function IndustriesPage() {
         {/* Interactive Industries Section */}
         <section style={{
           padding: 'clamp(3rem, 5vw, 6rem) clamp(1rem, 4vw, 2rem)',
-          background: 'linear-gradient(180deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%)'
+          background: 'linear-gradient(180deg, #ffffff 0%, #fff5f5 50%, #fff0f0 100%)'
         }}>
           <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
@@ -563,7 +563,7 @@ export default function IndustriesPage() {
         {/* All Industries Grid */}
         <section style={{
           padding: '6rem 2rem',
-          background: '#ffffff'
+          background: 'linear-gradient(135deg, #fff5f5 0%, #ffffff 50%, #fff0f0 100%)'
         }}>
           <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: '4rem' }}>

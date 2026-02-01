@@ -37,17 +37,6 @@ export default function ServicesPage() {
 
   const services = [
     {
-      id: 1,
-      title: "Advisory & Roadmaps",
-      description: "Strategic guidance for technology transformation and portfolio governance.",
-      details: [
-        "Target-state architecture and portfolio views for core platforms",
-        "Pragmatic roadmaps respecting funding, regulatory, and organizational constraints",
-        "Decision forums and metrics that keep leadership aligned as delivery progresses"
-      ],
-      color: "#8b0000"
-    },
-    {
       id: 2,
       title: "Consultancy",
       description: "Expert consulting for unblocking critical initiatives and architectural decisions.",
@@ -150,7 +139,7 @@ export default function ServicesPage() {
         
         body {
           font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-          background: #ffffff;
+          background: linear-gradient(135deg, #fff5f5 0%, #ffffff 50%, #fff0f0 100%);
           color: #1a1a1a;
           overflow-x: hidden;
         }
@@ -163,7 +152,7 @@ export default function ServicesPage() {
         }
         
         .premium-card {
-          background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+          background: linear-gradient(135deg, #ffffff 0%, #fff5f5 50%, #fff0f0 100%);
           border: 1px solid rgba(139, 0, 0, 0.1);
           backdrop-filter: blur(10px);
           transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -176,7 +165,7 @@ export default function ServicesPage() {
         }
         
         .hero-gradient {
-          background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%);
+          background: linear-gradient(135deg, #fff5f5 0%, #ffffff 50%, #fff0f0 100%);
           position: relative;
           overflow: hidden;
         }
@@ -221,7 +210,7 @@ export default function ServicesPage() {
         }
         
         .tier-card {
-          background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+          background: linear-gradient(135deg, #ffffff 0%, #fff5f5 50%, #fff0f0 100%);
           border: 2px solid transparent;
           background-clip: padding-box;
           position: relative;
@@ -279,7 +268,7 @@ export default function ServicesPage() {
         }
       `}</style>
 
-      <div style={{ background: '#ffffff' }}>
+      <div style={{ background: 'linear-gradient(135deg, #fff5f5 0%, #ffffff 50%, #fff0f0 100%)' }}>
         {/* Premium Hero Section */}
         <section className="hero-gradient" style={{
           minHeight: '100vh',
@@ -395,7 +384,7 @@ export default function ServicesPage() {
         {/* Interactive Services Section */}
         <section style={{
           padding: 'clamp(2rem, 5vw, 6rem) clamp(1rem, 3vw, 2rem)',
-          background: 'linear-gradient(180deg, #ffffff 0%, #f8fafc 50%, #ffffff 100%)'
+          background: 'linear-gradient(180deg, #ffffff 0%, #fff5f5 50%, #fff0f0 100%)'
         }}>
           <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
             <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
@@ -520,140 +509,6 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        {/* Managed Services Tiers */}
-        <section style={{
-          padding: 'clamp(3rem, 5vw, 6rem) clamp(1rem, 3vw, 2rem)',
-          background: '#ffffff'
-        }}>
-          <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-              <h2 style={{
-                fontSize: 'clamp(2.5rem, 5vw, 3.5rem)',
-                fontWeight: '900',
-                marginBottom: '1.5rem',
-                background: 'linear-gradient(135deg, #1a1a1a 0%, #8b0000 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text'
-              }}>
-                Managed Service Tiers
-              </h2>
-              <p style={{
-                fontSize: '1.25rem',
-                color: '#4a5568',
-                maxWidth: '700px',
-                margin: '0 auto',
-                lineHeight: '1.8'
-              }}>
-                Flexible service levels designed to match your operational requirements and business criticality
-              </p>
-            </div>
-
-            <div className="tier-grid" style={{
-              display: 'grid',
-              gap: '2rem',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))'
-            }}>
-              {managedServiceTiers.map((tier, index) => (
-                <div key={tier.title} className="tier-card" style={{
-                  padding: '2.5rem',
-                  borderRadius: '1.5rem',
-                  textAlign: 'center',
-                  position: 'relative',
-                  overflow: 'hidden'
-                }}>
-                  {index === 1 && (
-                    <div style={{
-                      position: 'absolute',
-                      top: '-5px',
-                      right: '20px',
-                      background: 'linear-gradient(135deg, #8b0000 0%, #dc2626 100%)',
-                      color: 'white',
-                      padding: '0.5rem 1.5rem',
-                      borderRadius: '0 0 1rem 1rem',
-                      fontSize: '0.75rem',
-                      fontWeight: '700',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.05em'
-                    }}>
-                      Most Popular
-                    </div>
-                  )}
-                  
-                  <h3 style={{
-                    fontSize: '1.75rem',
-                    fontWeight: '800',
-                    marginBottom: '1rem',
-                    color: '#1a1a1a'
-                  }}>
-                    {tier.title}
-                  </h3>
-                  
-                  <div style={{
-                    fontSize: '2.5rem',
-                    fontWeight: '900',
-                    color: '#8b0000',
-                    marginBottom: '1rem'
-                  }}>
-                    {tier.price}
-                  </div>
-                  
-                  <p style={{
-                    fontSize: '1rem',
-                    color: '#4a5568',
-                    marginBottom: '2rem',
-                    lineHeight: '1.6'
-                  }}>
-                    {tier.description}
-                  </p>
-                  
-                  <div style={{ textAlign: 'left', marginBottom: '2rem' }}>
-                    {tier.features.map((feature, featureIndex) => (
-                      <div key={featureIndex} style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        marginBottom: '0.75rem'
-                      }}>
-                        <span style={{
-                          color: '#8b0000',
-                          marginRight: '0.75rem',
-                          fontSize: '1.125rem'
-                        }}>
-                          ✓
-                        </span>
-                        <span style={{
-                          color: '#4a5568',
-                          fontSize: '0.9rem'
-                        }}>
-                          {feature}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                  
-                  <button 
-                    onClick={() => window.location.href = '/contact'}
-                    style={{
-                      width: '100%',
-                      padding: '1rem',
-                      border: index === 1 ? 'none' : '2px solid #8b0000',
-                      background: index === 1 ? 'linear-gradient(135deg, #8b0000 0%, #dc2626 100%)' : 'transparent',
-                      color: index === 1 ? 'white' : '#8b0000',
-                      borderRadius: '50px',
-                      fontSize: '1rem',
-                      fontWeight: '600',
-                      cursor: 'pointer',
-                      transition: 'all 0.3s ease'
-                    }}
-                  >
-                    Get Started
-                  </button>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* Enterprise CTA Section */}
         <section style={{
           padding: 'clamp(3rem, 5vw, 6rem) clamp(1rem, 3vw, 2rem)',
@@ -707,15 +562,14 @@ export default function ServicesPage() {
 Mauna Kea Consulting - Services Brochure
 
 Our Premium Services:
-1. Advisory & Roadmaps
-2. Consultancy  
-3. Integration & Development
-4. Cybersecurity
-5. Managed Services
-6. Training & Enablement
-7. Technical Support
-8. Asset Management
-9. Blockchain Solutions
+1. Consultancy  
+2. Integration & Development
+3. Cybersecurity
+4. Managed Services
+5. Training & Enablement
+6. Technical Support
+7. Asset Management
+8. Blockchain Solutions
 
 Contact us: info@maunakeaconsulting.com
                   `;

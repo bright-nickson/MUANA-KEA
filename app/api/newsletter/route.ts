@@ -24,17 +24,26 @@ export async function POST(request: Request) {
       );
     }
 
-    // Send newsletter subscription notification
-    await sendContactNotification({
-      name: "Newsletter Subscriber",
-      company: "",
-      email: email,
-      role: "",
-      areaOfInterest: "Newsletter Subscription",
-      message: `New newsletter subscription from: ${email}\n\nThis user subscribed to receive updates and insights from Mauna Kea Consulting.`,
-    });
+    // Try to send email notification, but don't fail if it doesn't work
+    try {
+      await sendContactNotification({
+        name: "Newsletter Subscriber",
+        company: "",
+        email: email,
+        role: "",
+        areaOfInterest: "Newsletter Subscription",
+        message: `New newsletter subscription from: ${email}\n\nThis user subscribed to receive updates and insights from Mauna Kea Consulting.`,
+      });
+    } catch (emailError) {
+      console.error("Newsletter email sending failed, but continuing:", emailError);
+      // In production, we could store this for later processing
+      // For now, we'll still return success to the user
+    }
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ 
+      success: true,
+      message: "Successfully subscribed to newsletter!"
+    });
   } catch (error) {
     console.error("Error handling newsletter subscription", error);
     

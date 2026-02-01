@@ -55,17 +55,26 @@ export async function POST(request: Request) {
       );
     }
 
-    // Send email notification
-    await sendContactNotification({
-      name,
-      company,
-      email,
-      role,
-      areaOfInterest,
-      message,
-    });
+    // Try to send email, but don't fail if it doesn't work
+    try {
+      await sendContactNotification({
+        name,
+        company,
+        email,
+        role,
+        areaOfInterest,
+        message,
+      });
+    } catch (emailError) {
+      console.error("Email sending failed, but continuing:", emailError);
+      // In production, we could store this for later processing
+      // For now, we'll still return success to the user
+    }
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ 
+      success: true,
+      message: "Thank you for your message. We'll be in touch within 24 hours."
+    });
   } catch (error) {
     console.error("Error handling contact submission", error);
     

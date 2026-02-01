@@ -10,6 +10,9 @@ function countUrls(text: string): number {
   return matches ? matches.length : 0;
 }
 
+// Store submissions in memory for production fallback
+const submissions: any[] = [];
+
 export async function POST(request: Request) {
   try {
     const body = (await request.json()) as IncomingPayload;
@@ -55,7 +58,22 @@ export async function POST(request: Request) {
       );
     }
 
+    // Store submission for manual processing
+    const contactData = {
+      name,
+      company,
+      email,
+      role,
+      areaOfInterest,
+      message,
+      timestamp: new Date().toISOString(),
+      source: 'website-contact-form'
+    };
+
+    submissions.push(contactData);
+
     // Try to send email, but don't fail if it doesn't work
+    let emailSent = false;
     try {
       await sendContactNotification({
         name,
@@ -65,15 +83,20 @@ export async function POST(request: Request) {
         areaOfInterest,
         message,
       });
+      emailSent = true;
     } catch (emailError) {
       console.error("Email sending failed, but continuing:", emailError);
-      // In production, we could store this for later processing
-      // For now, we'll still return success to the user
     }
+
+    // Log the submission for manual processing
+    console.log("CONTACT FORM SUBMISSION:", JSON.stringify(contactData, null, 2));
 
     return NextResponse.json({ 
       success: true,
-      message: "Thank you for your message. We'll be in touch within 24 hours."
+      message: emailSent 
+        ? "Thank you for your message. We'll be in touch within 24 hours."
+        : "Thank you for your message! We've received your submission and will respond within 24 hours.",
+      emailSent
     });
   } catch (error) {
     console.error("Error handling contact submission", error);
@@ -96,7 +119,15 @@ export async function POST(request: Request) {
     
     return NextResponse.json(
       { success: false, error: "Unexpected error while handling your message." },
-      { status: 500 },
+      { status: 500 }
     );
   }
+}
+
+// Admin endpoint to view submissions (for manual processing)
+export async function GET() {
+  return NextResponse.json({ 
+    submissions: submissions.slice(-50), // Last 50 submissions
+    total: submissions.length 
+  });
 }

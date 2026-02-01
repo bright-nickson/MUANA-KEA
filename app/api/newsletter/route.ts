@@ -5,6 +5,9 @@ interface NewsletterPayload {
   email: string;
 }
 
+// Store newsletter subscriptions in memory for production fallback
+const subscriptions: any[] = [];
+
 export async function POST(request: Request) {
   try {
     const body = (await request.json()) as NewsletterPayload;
@@ -24,7 +27,17 @@ export async function POST(request: Request) {
       );
     }
 
+    // Store subscription for manual processing
+    const subscriptionData = {
+      email: email,
+      timestamp: new Date().toISOString(),
+      source: 'website-newsletter'
+    };
+
+    subscriptions.push(subscriptionData);
+
     // Try to send email notification, but don't fail if it doesn't work
+    let emailSent = false;
     try {
       await sendContactNotification({
         name: "Newsletter Subscriber",
@@ -34,15 +47,20 @@ export async function POST(request: Request) {
         areaOfInterest: "Newsletter Subscription",
         message: `New newsletter subscription from: ${email}\n\nThis user subscribed to receive updates and insights from Mauna Kea Consulting.`,
       });
+      emailSent = true;
     } catch (emailError) {
       console.error("Newsletter email sending failed, but continuing:", emailError);
-      // In production, we could store this for later processing
-      // For now, we'll still return success to the user
     }
+
+    // Log the subscription for manual processing
+    console.log("NEWSLETTER SUBSCRIPTION:", JSON.stringify(subscriptionData, null, 2));
 
     return NextResponse.json({ 
       success: true,
-      message: "Successfully subscribed to newsletter!"
+      message: emailSent 
+        ? "Successfully subscribed to newsletter!"
+        : "Thank you for subscribing! We've received your email and will add you to our newsletter list.",
+      emailSent
     });
   } catch (error) {
     console.error("Error handling newsletter subscription", error);
@@ -67,4 +85,12 @@ export async function POST(request: Request) {
       { status: 500 }
     );
   }
+}
+
+// Admin endpoint to view subscriptions (for manual processing)
+export async function GET() {
+  return NextResponse.json({ 
+    subscriptions: subscriptions.slice(-50), // Last 50 subscriptions
+    total: subscriptions.length 
+  });
 }

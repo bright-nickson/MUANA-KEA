@@ -299,36 +299,6 @@ export function Footer() {
               </li>
               <li style={{ marginBottom: '0.5rem' }}>
                 <Link 
-                  href="/careers" 
-                  style={{
-                    color: '#9ca3af',
-                    textDecoration: 'none',
-                    fontSize: '0.875rem',
-                    transition: 'color 0.15s ease-in-out'
-                  }}
-                  onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#ffffff'}
-                  onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#9ca3af'}
-                >
-                  Careers
-                </Link>
-              </li>
-              <li style={{ marginBottom: '0.5rem' }}>
-                <Link 
-                  href="/blog" 
-                  style={{
-                    color: '#9ca3af',
-                    textDecoration: 'none',
-                    fontSize: '0.875rem',
-                    transition: 'color 0.15s ease-in-out'
-                  }}
-                  onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#ffffff'}
-                  onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#9ca3af'}
-                >
-                  Blog & Insights
-                </Link>
-              </li>
-              <li style={{ marginBottom: '0.5rem' }}>
-                <Link 
                   href="/contact" 
                   style={{
                     color: '#9ca3af',
@@ -503,32 +473,6 @@ export function Footer() {
         }}>
           <div>
             2024 Mauna Kea Consulting. All rights reserved.
-          </div>
-          <div style={{ display: 'flex', gap: '1rem' }}>
-            <Link 
-              href="/privacy" 
-              style={{
-                color: '#6b7280',
-                textDecoration: 'none',
-                transition: 'color 0.15s ease-in-out'
-              }}
-              onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#9ca3af'}
-              onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#6b7280'}
-            >
-              Privacy Policy
-            </Link>
-            <Link 
-              href="/terms" 
-              style={{
-                color: '#6b7280',
-                textDecoration: 'none',
-                transition: 'color 0.15s ease-in-out'
-              }}
-              onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#9ca3af'}
-              onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#6b7280'}
-            >
-              Terms of Service
-            </Link>
           </div>
         </div>
       </div>

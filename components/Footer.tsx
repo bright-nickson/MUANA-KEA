@@ -6,12 +6,50 @@ import { useState } from "react";
 
 export function Footer() {
   const [email, setEmail] = useState("");
+  const [subscribing, setSubscribing] = useState(false);
+  const [subscribeMessage, setSubscribeMessage] = useState("");
 
-  const handleSubscribe = (e: React.FormEvent) => {
+  const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle newsletter subscription
-    console.log("Subscribe:", email);
-    setEmail("");
+    
+    if (!email.trim()) {
+      setSubscribeMessage("Please enter your email address.");
+      setTimeout(() => setSubscribeMessage(""), 3000);
+      return;
+    }
+
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setSubscribeMessage("Please enter a valid email address.");
+      setTimeout(() => setSubscribeMessage(""), 3000);
+      return;
+    }
+
+    try {
+      setSubscribing(true);
+      setSubscribeMessage("");
+
+      const response = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email: email.trim() }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubscribeMessage("Successfully subscribed! Check your email for confirmation.");
+        setEmail("");
+      } else {
+        setSubscribeMessage(data.error || "Subscription failed. Please try again.");
+      }
+    } catch (error) {
+      setSubscribeMessage("Network error. Please try again.");
+    } finally {
+      setSubscribing(false);
+      setTimeout(() => setSubscribeMessage(""), 5000);
+    }
   };
 
   return (
@@ -381,15 +419,16 @@ export function Footer() {
               </div>
               <motion.button
                 type="submit"
+                disabled={subscribing}
                 style={{
                   padding: '0.875rem 1.5rem',
-                  backgroundColor: '#8b0000',
+                  backgroundColor: subscribing ? '#666666' : '#8b0000',
                   color: '#ffffff',
                   border: 'none',
                   borderRadius: '0.75rem',
                   fontSize: '0.875rem',
                   fontWeight: '600',
-                  cursor: 'pointer',
+                  cursor: subscribing ? 'not-allowed' : 'pointer',
                   transition: 'all 0.3s ease-in-out',
                   position: 'relative',
                   overflow: 'hidden',
@@ -397,29 +436,56 @@ export function Footer() {
                   alignItems: 'center',
                   justifyContent: 'center',
                   gap: '0.5rem',
-                  whiteSpace: 'nowrap'
+                  whiteSpace: 'nowrap',
+                  opacity: subscribing ? 0.7 : 1
                 }}
                 onMouseEnter={(e: React.MouseEvent<HTMLButtonElement>) => {
-                  e.currentTarget.style.backgroundColor = '#a31414';
-                  e.currentTarget.style.transform = 'translateY(-2px)';
-                  e.currentTarget.style.boxShadow = '0 4px 12px rgba(139, 0, 0, 0.3)';
+                  if (!subscribing) {
+                    e.currentTarget.style.backgroundColor = '#a31414';
+                    e.currentTarget.style.transform = 'translateY(-2px)';
+                    e.currentTarget.style.boxShadow = '0 4px 12px rgba(139, 0, 0, 0.3)';
+                  }
                 }}
                 onMouseLeave={(e: React.MouseEvent<HTMLButtonElement>) => {
-                  e.currentTarget.style.backgroundColor = '#8b0000';
-                  e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = 'none';
+                  if (!subscribing) {
+                    e.currentTarget.style.backgroundColor = '#8b0000';
+                    e.currentTarget.style.transform = 'translateY(0)';
+                    e.currentTarget.style.boxShadow = 'none';
+                  }
                 }}
-                whileTap={{ scale: 0.98 }}
+                whileHover={!subscribing ? { scale: 1.02 } : {}}
+                whileTap={!subscribing ? { scale: 0.98 } : {}}
               >
-                <span>Subscribe</span>
-                <span style={{ fontSize: '0.75rem' }}>→</span>
+                <span>{subscribing ? 'Subscribing...' : 'Subscribe'}</span>
+                <span style={{ fontSize: '0.75rem' }}>{subscribing ? '⏳' : '→'}</span>
               </motion.button>
             </form>
+            
+            {/* Subscription Message */}
+            {subscribeMessage && (
+              <motion.div
+                initial={{ opacity: 0, y: -10 }}
+                animate={{ opacity: 1, y: 0 }}
+                style={{
+                  fontSize: '0.875rem',
+                  padding: '0.5rem',
+                  borderRadius: '0.5rem',
+                  textAlign: 'center',
+                  marginTop: '0.5rem',
+                  backgroundColor: subscribeMessage.includes('Successfully') ? 'rgba(34, 197, 94, 0.1)' : 'rgba(239, 68, 68, 0.1)',
+                  color: subscribeMessage.includes('Successfully') ? '#22c55e' : '#ef4444',
+                  border: `1px solid ${subscribeMessage.includes('Successfully') ? 'rgba(34, 197, 94, 0.3)' : 'rgba(239, 68, 68, 0.3)'}`
+                }}
+              >
+                {subscribeMessage}
+              </motion.div>
+            )}
+            
             <p style={{
               fontSize: '0.75rem',
               color: '#6b7280',
               textAlign: 'center',
-              marginTop: '0.5rem'
+              marginTop: subscribeMessage ? '0.5rem' : '0.5rem'
             }}>
               Join 2,000+ tech leaders
             </p>

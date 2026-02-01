@@ -36,7 +36,7 @@ Submitted via Mauna Kea Consulting website
     `.trim();
 
     const { data: emailData, error } = await resend.emails.send({
-      from: 'noreply@muana-kea.com',
+      from: 'noreply@muana-kea.vercel.app',
       to: ['brightnickson@gmail.com'],
       subject: `New Contact: ${name} - ${areaOfInterest}`,
       html: `
@@ -87,7 +87,7 @@ export async function sendNewsletterNotification(data: NewsletterEmailData) {
     const { email } = data;
     
     const { data: emailData, error } = await resend.emails.send({
-      from: 'noreply@muana-kea.com',
+      from: 'noreply@muana-kea.vercel.app',
       to: ['brightnickson@gmail.com'],
       subject: `New Newsletter Subscription: ${email}`,
       html: `

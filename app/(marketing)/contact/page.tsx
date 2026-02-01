@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useState, useEffect } from "react";
+import { FormEvent, useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
 const areasOfInterest = [
@@ -16,6 +16,7 @@ export default function ContactPage() {
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const formRef = useRef<HTMLFormElement>(null);
 
   // No scroll/animation effects needed for static site
 
@@ -65,7 +66,9 @@ export default function ContactPage() {
       }
 
       setSuccess("Thank you. Your message has been received and we will be in touch.");
-      event.currentTarget.reset();
+      if (formRef.current) {
+        formRef.current.reset();
+      }
     } catch (err) {
       setError(
         err instanceof Error
@@ -243,6 +246,7 @@ export default function ContactPage() {
 
             {/* Form Section */}
             <form
+              ref={formRef}
               onSubmit={handleSubmit}
               style={{
                 padding: 'clamp(1.5rem, 4vw, 3rem)',

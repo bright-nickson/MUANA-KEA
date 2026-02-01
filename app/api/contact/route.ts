@@ -10,8 +10,24 @@ function countUrls(text: string): number {
   return matches ? matches.length : 0;
 }
 
-// Store submissions in memory for production fallback
+// Store submissions in memory for production fallback (limited in serverless)
 const submissions: any[] = [];
+
+// Log submission to Vercel logs (persistent)
+function logSubmission(data: any) {
+  const logEntry = {
+    timestamp: new Date().toISOString(),
+    type: 'CONTACT_SUBMISSION',
+    data: data
+  };
+  
+  console.log('=== CONTACT FORM SUBMISSION ===');
+  console.log(JSON.stringify(logEntry, null, 2));
+  console.log('=== END SUBMISSION ===');
+  
+  // Also log as single line for easy searching
+  console.log(`CONTACT_SUBMISSION: ${data.name} | ${data.email} | ${data.areaOfInterest}`);
+}
 
 export async function POST(request: Request) {
   // Method check
@@ -95,20 +111,21 @@ export async function POST(request: Request) {
       source: 'website-contact-form'
     };
 
+    // Store in memory (limited in serverless) AND log to Vercel logs
     submissions.push(contactData);
-    console.log("CONTACT STORED:", JSON.stringify(contactData, null, 2));
+    logSubmission(contactData);
 
-    // Try to send email with detailed error handling
+    // Try to send email with Resend (serverless-compatible)
     let emailSent = false;
     let emailError = null;
 
     try {
-      // Check if mailer is available
-      const { sendContactNotification } = await import("@/lib/mailer");
+      // Check if Resend is available
+      const { sendContactNotification } = await import("@/lib/resend-mailer");
       
       // Check environment variables
-      if (!process.env.SMTP_USER || !process.env.SMTP_PASSWORD) {
-        throw new Error("SMTP credentials not configured");
+      if (!process.env.RESEND_API_KEY) {
+        throw new Error("Resend API key not configured");
       }
 
       await sendContactNotification({
@@ -120,7 +137,7 @@ export async function POST(request: Request) {
         message,
       });
       emailSent = true;
-      console.log("EMAIL SENT SUCCESSFULLY");
+      console.log("EMAIL SENT SUCCESSFULLY VIA RESEND");
     } catch (emailErr) {
       emailError = emailErr;
       console.error("EMAIL SENDING FAILED:", emailErr);
@@ -131,10 +148,7 @@ export async function POST(request: Request) {
           message: emailErr.message,
           stack: emailErr.stack,
           envVars: {
-            SMTP_USER: !!process.env.SMTP_USER,
-            SMTP_PASSWORD: !!process.env.SMTP_PASSWORD,
-            SMTP_HOST: process.env.SMTP_HOST,
-            SMTP_PORT: process.env.SMTP_PORT
+            RESEND_API_KEY: !!process.env.RESEND_API_KEY
           }
         });
       }

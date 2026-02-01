@@ -5,8 +5,24 @@ interface NewsletterPayload {
   email: string;
 }
 
-// Store newsletter subscriptions in memory for production fallback
+// Store newsletter subscriptions in memory for production fallback (limited in serverless)
 const subscriptions: any[] = [];
+
+// Log subscription to Vercel logs (persistent)
+function logSubscription(data: any) {
+  const logEntry = {
+    timestamp: new Date().toISOString(),
+    type: 'NEWSLETTER_SUBSCRIPTION',
+    data: data
+  };
+  
+  console.log('=== NEWSLETTER SUBSCRIPTION ===');
+  console.log(JSON.stringify(logEntry, null, 2));
+  console.log('=== END SUBSCRIPTION ===');
+  
+  // Also log as single line for easy searching
+  console.log(`NEWSLETTER_SUBSCRIPTION: ${data.email}`);
+}
 
 export async function POST(request: Request) {
   // Method check
@@ -58,32 +74,28 @@ export async function POST(request: Request) {
       source: 'website-newsletter'
     };
 
+    // Store in memory (limited in serverless) AND log to Vercel logs
     subscriptions.push(subscriptionData);
-    console.log("NEWSLETTER STORED:", JSON.stringify(subscriptionData, null, 2));
+    logSubscription(subscriptionData);
 
-    // Try to send email with detailed error handling
+    // Try to send email with Resend (serverless-compatible)
     let emailSent = false;
     let emailError = null;
 
     try {
-      // Check if mailer is available
-      const { sendContactNotification } = await import("@/lib/mailer");
+      // Check if Resend is available
+      const { sendNewsletterNotification } = await import("@/lib/resend-mailer");
       
       // Check environment variables
-      if (!process.env.SMTP_USER || !process.env.SMTP_PASSWORD) {
-        throw new Error("SMTP credentials not configured");
+      if (!process.env.RESEND_API_KEY) {
+        throw new Error("Resend API key not configured");
       }
 
-      await sendContactNotification({
-        name: "Newsletter Subscriber",
-        company: "",
+      await sendNewsletterNotification({
         email: email,
-        role: "",
-        areaOfInterest: "Newsletter Subscription",
-        message: `New newsletter subscription from: ${email}\n\nThis user subscribed to receive updates and insights from Mauna Kea Consulting.`,
       });
       emailSent = true;
-      console.log("NEWSLETTER EMAIL SENT SUCCESSFULLY");
+      console.log("NEWSLETTER EMAIL SENT SUCCESSFULLY VIA RESEND");
     } catch (emailErr) {
       emailError = emailErr;
       console.error("NEWSLETTER EMAIL SENDING FAILED:", emailErr);
@@ -94,10 +106,7 @@ export async function POST(request: Request) {
           message: emailErr.message,
           stack: emailErr.stack,
           envVars: {
-            SMTP_USER: !!process.env.SMTP_USER,
-            SMTP_PASSWORD: !!process.env.SMTP_PASSWORD,
-            SMTP_HOST: process.env.SMTP_HOST,
-            SMTP_PORT: process.env.SMTP_PORT
+            RESEND_API_KEY: !!process.env.RESEND_API_KEY
           }
         });
       }

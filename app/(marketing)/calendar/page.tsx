@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL ?? "https://calendly.com/your-org/mauna-kea-consulting";
+const CALENDLY_URL = "https://calendly.com/brightnickson63/30min";
 
 export default function CalendarPage() {
 

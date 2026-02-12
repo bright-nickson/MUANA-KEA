@@ -167,7 +167,7 @@ What to Expect:
 - Exclusive industry reports and case studies
 - Invitation to webinars and executive events
 
-Explore our services: https://maunakeaconsulting.com/services
+Explore our services: https://mauna-kea.vercel.app/services
 
 Have questions? Contact us at info@maunakeaconsulting.com
 
@@ -196,7 +196,7 @@ export async function sendNewsletterNotification(data: NewsletterEmailData) {
     
     const { data: emailData, error } = await resend.emails.send({
       from: "Mauna Kea <onboarding@resend.dev>",
-      to: ['brightnickson@gmail.com'],
+      to: ['brightnickson63@gmail.com'],
       subject: `New Newsletter Subscription: ${email}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">

@@ -85,23 +85,6 @@ const solutions = [
     image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     imageAlt: "High performance computing server room with supercomputers"
   },
-  {
-    id: "quantum",
-    title: "Quantum Computing",
-    description: "Explore the future of computing with quantum technologies and prepare for the quantum era.",
-    capabilities: [
-      "Quantum algorithm development",
-      "Quantum software development",
-      "Quantum hardware integration",
-      "Quantum cloud computing",
-      "Quantum security and cryptography",
-      "Quantum education and training"
-    ],
-    cta: { text: "Explore Quantum Solutions", href: "/calendar" },
-    icon: "",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
-    imageAlt: "Quantum computing and quantum mechanics visualization"
-  },
     {
     id: "AppDev",
     title: "Application Development",

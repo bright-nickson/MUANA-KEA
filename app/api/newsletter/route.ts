@@ -78,24 +78,34 @@ export async function POST(request: Request) {
     subscriptions.push(subscriptionData);
     logSubscription(subscriptionData);
 
-    // Try to send email with Resend (serverless-compatible)
-    let emailSent = false;
+    // Try to send emails with Resend (serverless-compatible)
+    let adminEmailSent = false;
+    let confirmationEmailSent = false;
     let emailError = null;
 
     try {
       // Check if Resend is available
-      const { sendNewsletterNotification } = await import("@/lib/resend-mailer");
+      const { sendNewsletterNotification, sendNewsletterConfirmation } = await import("@/lib/resend-mailer");
       
       // Check environment variables
       if (!process.env.RESEND_API_KEY) {
         throw new Error("Resend API key not configured");
       }
 
+      // Send admin notification
       await sendNewsletterNotification({
         email: email,
       });
-      emailSent = true;
-      console.log("NEWSLETTER EMAIL SENT SUCCESSFULLY VIA RESEND");
+      adminEmailSent = true;
+      console.log("NEWSLETTER ADMIN EMAIL SENT SUCCESSFULLY VIA RESEND");
+
+      // Send confirmation to subscriber
+      await sendNewsletterConfirmation({
+        email: email,
+      });
+      confirmationEmailSent = true;
+      console.log("NEWSLETTER CONFIRMATION EMAIL SENT SUCCESSFULLY VIA RESEND");
+      
     } catch (emailErr) {
       emailError = emailErr;
       console.error("NEWSLETTER EMAIL SENDING FAILED:", emailErr);
@@ -115,10 +125,11 @@ export async function POST(request: Request) {
     // Return appropriate response
     const response = {
       success: true,
-      message: emailSent 
-        ? "Successfully subscribed to newsletter!"
+      message: confirmationEmailSent && adminEmailSent
+        ? "Successfully subscribed to newsletter! Check your email for confirmation."
         : "Thank you for subscribing! We've received your email and will add you to our newsletter list.",
-      emailSent,
+      confirmationEmailSent,
+      adminEmailSent,
       subscriptionId: subscriptions.length - 1
     };
 

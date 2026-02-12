@@ -38,18 +38,6 @@ export default function ServicesPage() {
   const services = [
     {
       id: 1,
-      title: "Cloud Transformation",
-      description: "Modernize infrastructure, applications, and operations with secure, scalable cloud platforms.",
-      details: [
-        "Faster deployment",
-        "Optimized costs", 
-        "Improved resilience",
-        "Ready for AI and data at scale"
-      ],
-      color: "#8b0000"
-    },
-    {
-      id: 2,
       title: "Cybersecurity",
       description: "Protect critical systems, data, and users in an increasingly complex threat landscape.",
       details: [
@@ -61,7 +49,7 @@ export default function ServicesPage() {
       color: "#8b0000"
     },
     {
-      id: 3,
+      id: 2,
       title: "Data & Intelligence",
       description: "Turn Data Into a Strategic Asset. We help organizations design, build, and operate complete data ecosystems from raw data ingestion to advanced analytics, data science, and AI‑ready platforms.",
       details: [
@@ -75,7 +63,7 @@ export default function ServicesPage() {
       color: "#8b0000"
     },
     {
-      id: 4,
+      id: 3,
       title: "Artificial Intelligence (AI)",
       description: "Deploy AI that drives real business value. From strategy and data readiness to model development and MLOps, we help enterprises operationalize AI at scale.",
       details: [
@@ -89,7 +77,7 @@ export default function ServicesPage() {
       color: "#8b0000"
     },
     {
-      id: 5,
+      id: 4,
       title: "High Performance Computing (HPC)",
       description: "Unlock computational power for research, simulation, and data-intensive workloads with cutting-edge HPC solutions.",
       details: [
@@ -104,7 +92,21 @@ export default function ServicesPage() {
     },
     
     {
-      id: 7,
+      id: 5,
+      title: "AI Training & Enablement",
+      description: "Comprehensive AI training programs to upskill your team and build internal AI capabilities.",
+      details: [
+        "AI Fundamentals & Strategy Workshops",
+        "Machine Learning Model Development Training",
+        "MLOps & AI Deployment Training",
+        "AI Ethics & Governance Education",
+        "Custom AI Use Case Development Sessions",
+        "Hands-on AI Project Implementation"
+      ],
+      color: "#8b0000"
+    },
+    {
+      id: 6,
       title: "Application Development",
       description: "Build scalable, secure, and high-performance applications tailored to your business needs.",
       details: [
@@ -118,7 +120,7 @@ export default function ServicesPage() {
       color: "#8b0000"
     },
     {
-      id: 8,
+      id: 7,
       title: "Cloud Migration & Management",
       description: "Migrate and manage your infrastructure in the cloud with our expert team.",
       details: [
@@ -570,11 +572,11 @@ export default function ServicesPage() {
 Mauna Kea Consulting - Services Brochure
 
 Our Core Services:
-1. Cloud Transformation
-2. Cybersecurity
-3. Data & Intelligence
-4. Artificial Intelligence (AI)
-5. High Performance Computing (HPC)
+1. Cybersecurity
+2. Data & Intelligence
+3. Artificial Intelligence (AI)
+4. High Performance Computing (HPC)
+5. AI Training & Enablement
 6. Application Development
 7. Cloud Migration & Management
 

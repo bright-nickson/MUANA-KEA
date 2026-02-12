@@ -92,19 +92,32 @@ export async function POST(request: Request) {
         throw new Error("Resend API key not configured");
       }
 
-      // Send admin notification
-      await sendNewsletterNotification({
-        email: email,
-      });
-      adminEmailSent = true;
-      console.log("NEWSLETTER ADMIN EMAIL SENT SUCCESSFULLY VIA RESEND");
+      // Send admin notification first (most important)
+      try {
+        await sendNewsletterNotification({
+          email: email,
+        });
+        adminEmailSent = true;
+        console.log("NEWSLETTER ADMIN EMAIL SENT SUCCESSFULLY VIA RESEND");
+      } catch (adminErr) {
+        console.error("ADMIN EMAIL FAILED:", adminErr);
+        emailError = adminErr;
+      }
 
-      // Send confirmation to subscriber
-      await sendNewsletterConfirmation({
-        email: email,
-      });
-      confirmationEmailSent = true;
-      console.log("NEWSLETTER CONFIRMATION EMAIL SENT SUCCESSFULLY VIA RESEND");
+      // Try to send confirmation to subscriber (nice to have)
+      try {
+        await sendNewsletterConfirmation({
+          email: email,
+        });
+        confirmationEmailSent = true;
+        console.log("NEWSLETTER CONFIRMATION EMAIL SENT SUCCESSFULLY VIA RESEND");
+      } catch (confirmationErr) {
+        console.error("CONFIRMATION EMAIL FAILED:", confirmationErr);
+        // Don't fail the whole operation if confirmation fails
+        if (!emailError) {
+          emailError = confirmationErr;
+        }
+      }
       
     } catch (emailErr) {
       emailError = emailErr;
@@ -123,11 +136,18 @@ export async function POST(request: Request) {
     }
 
     // Return appropriate response
+    let responseMessage;
+    if (confirmationEmailSent && adminEmailSent) {
+      responseMessage = "Successfully subscribed to newsletter! Check your email for confirmation.";
+    } else if (adminEmailSent) {
+      responseMessage = "Successfully subscribed to newsletter! You'll receive updates from us soon.";
+    } else {
+      responseMessage = "Thank you for subscribing! We've received your email and will add you to our newsletter list.";
+    }
+
     const response = {
       success: true,
-      message: confirmationEmailSent && adminEmailSent
-        ? "Successfully subscribed to newsletter! Check your email for confirmation."
-        : "Thank you for subscribing! We've received your email and will add you to our newsletter list.",
+      message: responseMessage,
       confirmationEmailSent,
       adminEmailSent,
       subscriptionId: subscriptions.length - 1

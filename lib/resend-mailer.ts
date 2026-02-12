@@ -87,7 +87,7 @@ export async function sendNewsletterConfirmation(data: NewsletterEmailData) {
     const { email } = data;
     
     const { data: emailData, error } = await resend.emails.send({
-      from: "Mauna Kea Consulting <onboarding@resend.dev>",
+      from: "Mauna Kea <onboarding@resend.dev>",
       to: [email],
       subject: "Welcome to Mauna Kea Consulting Newsletter!",
       html: `

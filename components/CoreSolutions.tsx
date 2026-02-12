@@ -84,6 +84,58 @@ const solutions = [
     icon: "",
     image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
     imageAlt: "High performance computing server room with supercomputers"
+  },
+  {
+    id: "quantum",
+    title: "Quantum Computing",
+    description: "Explore the future of computing with quantum technologies and prepare for the quantum era.",
+    capabilities: [
+      "Quantum algorithm development",
+      "Quantum software development",
+      "Quantum hardware integration",
+      "Quantum cloud computing",
+      "Quantum security and cryptography",
+      "Quantum education and training"
+    ],
+    cta: { text: "Explore Quantum Solutions", href: "/calendar" },
+    icon: "",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    imageAlt: "Quantum computing and quantum mechanics visualization"
+  },
+    {
+    id: "AppDev",
+    title: "Application Development",
+    description: "Build scalable, secure, and high-performance applications tailored to your business needs.",
+    capabilities: [
+      "Custom Application Development",
+      "Mobile App Development",
+      "Web Application Development",
+      "API Development & Integration",
+      "Microservices Architecture",
+      "DevOps & CI/CD Implementation"
+    ],
+    cta: { text: "Build Your Application", href: "/calendar" },
+    icon: "",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    imageAlt: "Application development and software engineering"
+  },
+    {
+    id: "Cloud",
+    title: "Cloud Migration & Management",
+    description: "Migrate and manage your infrastructure in the cloud with our expert team.",
+    capabilities: [
+      "Cloud Migration Strategy",
+      "Cloud Infrastructure Management",
+      "Cloud Security & Compliance",
+      "Cloud Cost Optimization",
+      "Cloud Monitoring & Support",
+      "Cloud HPC & Hybrid Solutions",
+      "Performance Tuning & Benchmarking"
+    ],
+    cta: { text: "Assess Your Cloud Needs", href: "/calendar" },
+    icon: "",
+    image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    imageAlt: "High performance computing server room with supercomputers"
   }
 ];
 
@@ -123,7 +175,7 @@ export function CoreSolutions() {
             marginBottom: '1rem',
             letterSpacing: '-0.025em'
           }}>
-            Our Core Solutions
+            Our Core Services
           </h2>
           <p className="solutions-heading" style={{
             fontSize: 'clamp(0.95rem, 2.5vw, 1.125rem)',

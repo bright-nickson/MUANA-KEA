@@ -291,6 +291,39 @@ export function Footer() {
                   High Performance Computing
                 </Link>
               </li>
+              <li style={{ marginBottom: '0.5rem' }}>
+
+              </li>
+              <li style={{ marginBottom: '0.5rem' }}>
+                <Link 
+                  href="/services" 
+                  style={{
+                    color: '#9ca3af',
+                    textDecoration: 'none',
+                    fontSize: '0.875rem',
+                    transition: 'color 0.15s ease-in-out'
+                  }}
+                  onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#ffffff'}
+                  onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#9ca3af'}
+                >
+                  Application Development
+                </Link>
+              </li>
+              <li style={{ marginBottom: '0.5rem' }}>
+                <Link 
+                  href="/services" 
+                  style={{
+                    color: '#9ca3af',
+                    textDecoration: 'none',
+                    fontSize: '0.875rem',
+                    transition: 'color 0.15s ease-in-out'
+                  }}
+                  onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#ffffff'}
+                  onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#9ca3af'}
+                >
+                  Cloud Migration & Management
+                </Link>
+              </li>
             </ul>
           </div>
 

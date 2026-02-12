@@ -1,0 +1,4 @@
+<svg width="120" height="40" viewBox="0 0 120 40" xmlns="http://www.w3.org/2000/svg">
+  <rect width="120" height="40" fill="#875A7B" rx="4"/>
+  <text x="60" y="25" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" fill="white" text-anchor="middle">Odoo</text>
+</svg>

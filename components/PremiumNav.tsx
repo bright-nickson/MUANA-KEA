@@ -134,7 +134,7 @@ export function PremiumNav() {
             onMouseEnter={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#ffffff'}
             onMouseLeave={(e: React.MouseEvent<HTMLAnchorElement>) => e.currentTarget.style.color = '#9ca3af'}
           >
-            Solutions
+            Services
           </Link>
           
           <Link 

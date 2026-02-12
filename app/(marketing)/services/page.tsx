@@ -37,90 +37,98 @@ export default function ServicesPage() {
 
   const services = [
     {
-      id: 2,
-      title: "Consultancy",
-      description: "Expert consulting for unblocking critical initiatives and architectural decisions.",
+      id: 1,
+      title: "Cloud Transformation",
+      description: "Modernize infrastructure, applications, and operations with secure, scalable cloud platforms.",
       details: [
-        "Programme reviews and rescue engagements for challenged initiatives",
-        "Architecture and design authority support for major transformation",
-        "Independent options analysis across vendors and delivery models"
+        "Faster deployment",
+        "Optimized costs", 
+        "Improved resilience",
+        "Ready for AI and data at scale"
+      ],
+      color: "#8b0000"
+    },
+    {
+      id: 2,
+      title: "Cybersecurity",
+      description: "Protect critical systems, data, and users in an increasingly complex threat landscape.",
+      details: [
+        "Security posture assessments",
+        "Threat detection & monitoring",
+        "Compliance and risk management",
+        "Incident readiness & response"
       ],
       color: "#8b0000"
     },
     {
       id: 3,
-      title: "Integration & Development",
-      description: "Enterprise-grade integration and software development services.",
+      title: "Data & Intelligence",
+      description: "Turn Data Into a Strategic Asset. We help organizations design, build, and operate complete data ecosystems from raw data ingestion to advanced analytics, data science, and AI‑ready platforms.",
       details: [
-        "API-led and event-driven integration patterns for legacy and modern estates",
-        "Engineering teams focused on reliability, observability, and run-readiness",
-        "Delivery approaches matched to your internal capability and vendor landscape"
+        "Data Engineering & Pipelines",
+        "Data Platforms & Architecture",
+        "Analytics & Business Intelligence",
+        "Data Science & Advanced Analytics",
+        "Data Governance & Management",
+        "AI‑Ready Data Foundations"
       ],
       color: "#8b0000"
     },
     {
       id: 4,
-      title: "Cybersecurity",
-      description: "Comprehensive security services balancing regulatory requirements and operational reality.",
+      title: "Artificial Intelligence (AI)",
+      description: "Deploy AI that drives real business value. From strategy and data readiness to model development and MLOps, we help enterprises operationalize AI at scale.",
       details: [
-        "Security architecture and control design aligned to regional regulations",
-        "Security-by-design support for new platforms and integration initiatives",
-        "Pragmatic remediation roadmaps that prioritize real risk reduction"
+        "AI Strategy & Roadmap",
+        "Machine Learning Model Development",
+        "MLOps & Model Deployment",
+        "Computer Vision & NLP Solutions",
+        "AI Governance & Ethics",
+        "Generative AI Integration"
       ],
       color: "#8b0000"
     },
     {
       id: 5,
-      title: "Managed Services",
-      description: "Tiered managed services with flexible coverage and responsibility models.",
+      title: "High Performance Computing (HPC)",
+      description: "Unlock computational power for research, simulation, and data-intensive workloads with cutting-edge HPC solutions.",
       details: [
-        "Consistent operating model for critical platforms",
-        "Flexible coverage levels from basic to enterprise",
-        "Clear responsibility boundaries between teams, vendors, and Mauna Kea Consulting"
+        "HPC Cluster Design & Deployment",
+        "GPU Acceleration & Optimization",
+        "Workload Management & Scheduling",
+        "Storage Solutions for Big Data",
+        "Cloud HPC & Hybrid Solutions",
+        "Performance Tuning & Benchmarking"
       ],
       color: "#8b0000"
     },
-    {
-      id: 6,
-      title: "Training & Enablement",
-      description: "Targeted enablement for architecture, engineering, operations, and risk teams.",
-      details: [
-        "Working sessions and playbooks, not generic classroom training",
-        "Shadowing and co-delivery so internal teams own patterns and decisions",
-        "Operational readiness exercises that test monitoring, incident, and change processes"
-      ],
-      color: "#8b0000"
-    },
+    
     {
       id: 7,
-      title: "Technical Support",
-      description: "Structured L2/L3 support models for platforms we help design and build.",
+      title: "Application Development",
+      description: "Build scalable, secure, and high-performance applications tailored to your business needs.",
       details: [
-        "Clear ownership boundaries between your teams, vendors, and Mauna Kea Consulting",
-        "Runbooks and knowledge bases created as part of delivery, not as an afterthought",
-        "Support models aligned to operational hours and escalation paths that work in practice"
+        "Custom Application Development",
+        "Mobile App Development",
+        "Web Application Development",
+        "API Development & Integration",
+        "Microservices Architecture",
+        "DevOps & CI/CD Implementation"
       ],
       color: "#8b0000"
     },
     {
       id: 8,
-      title: "Asset Management",
-      description: "Visibility and control over technology assets that underpin core services.",
+      title: "Cloud Migration & Management",
+      description: "Migrate and manage your infrastructure in the cloud with our expert team.",
       details: [
-        "Inventories that are kept live through integration with existing tooling",
-        "Asset data connected to risk, lifecycle, and cost decisions",
-        "Support for audits, renewals, and optimization initiatives"
-      ],
-      color: "#8b0000"
-    },
-    {
-      id: 9,
-      title: "Blockchain Solutions",
-      description: "Focused distributed ledger technologies for real-world business problems.",
-      details: [
-        "Use-case evaluation grounded in regulatory, operational, and ecosystem realities",
-        "Design and integration of blockchain components into existing enterprise architectures",
-        "Run and support models that recognize the shared nature of distributed platforms"
+        "Cloud Migration Strategy",
+        "Cloud Infrastructure Management",
+        "Cloud Security & Compliance",
+        "Cloud Cost Optimization",
+        "Cloud Monitoring & Support",
+        "Cloud HPC & Hybrid Solutions",
+        "Performance Tuning & Benchmarking"
       ],
       color: "#8b0000"
     }
@@ -561,15 +569,14 @@ export default function ServicesPage() {
                   const brochureContent = `
 Mauna Kea Consulting - Services Brochure
 
-Our Premium Services:
-1. Consultancy  
-2. Integration & Development
-3. Cybersecurity
-4. Managed Services
-5. Training & Enablement
-6. Technical Support
-7. Asset Management
-8. Blockchain Solutions
+Our Core Services:
+1. Cloud Transformation
+2. Cybersecurity
+3. Data & Intelligence
+4. Artificial Intelligence (AI)
+5. High Performance Computing (HPC)
+6. Application Development
+7. Cloud Migration & Management
 
 Contact us: info@maunakeaconsulting.com
                   `;

@@ -37,7 +37,7 @@ Submitted via Mauna Kea Consulting website
 
     const { data: emailData, error } = await resend.emails.send({
       from: "Mauna Kea <onboarding@resend.dev>",
-      to: ['brightnickson63@gmail.com'],
+      to: ['elikplim@mkcsen.com'],
       subject: `New Contact: ${name} - ${areaOfInterest}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -196,7 +196,7 @@ export async function sendNewsletterNotification(data: NewsletterEmailData) {
     
     const { data: emailData, error } = await resend.emails.send({
       from: "Mauna Kea <onboarding@resend.dev>",
-      to: ['brightnickson63@gmail.com'],
+      to: ['elikplim@mkcsen.com'],
       subject: `New Newsletter Subscription: ${email}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">

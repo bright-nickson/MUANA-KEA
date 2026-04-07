@@ -104,20 +104,9 @@ export async function POST(request: Request) {
         emailError = adminErr;
       }
 
-      // Try to send confirmation to subscriber (nice to have)
-      try {
-        await sendNewsletterConfirmation({
-          email: email,
-        });
-        confirmationEmailSent = true;
-        console.log("NEWSLETTER CONFIRMATION EMAIL SENT SUCCESSFULLY VIA RESEND");
-      } catch (confirmationErr) {
-        console.error("CONFIRMATION EMAIL FAILED:", confirmationErr);
-        // Don't fail the whole operation if confirmation fails
-        if (!emailError) {
-          emailError = confirmationErr;
-        }
-      }
+      // Skip confirmation email for now (requires domain verification)
+      // TODO: Enable after verifying mkcsen.com domain with Resend
+      console.log("CONFIRMATION EMAIL SKIPPED (domain verification required)");
       
     } catch (emailErr) {
       emailError = emailErr;

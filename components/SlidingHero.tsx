@@ -13,7 +13,7 @@ const slides = [
     secondaryCTA: { text: "Request a Pilot Proposal", href: "/contact" },
     backgroundImage: "/hero-background.jpg",
     imageAlt: "Mauna Kea Consulting hero background",
-    slideImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    slideImage: "/pexels-andy-barbour-6684503.jpg",
     slideImageAlt: "Modern data center with servers and network infrastructure"
   },
   {
@@ -24,7 +24,7 @@ const slides = [
     secondaryCTA: null,
     backgroundImage: "/hero-background.jpg",
     imageAlt: "Mauna Kea Consulting hero background",
-    slideImage: "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    slideImage: "/pexels-keira-burton-6147369.jpg",
     slideImageAlt: "Business team collaborating in modern office meeting room"
   },
   {
@@ -35,7 +35,7 @@ const slides = [
     secondaryCTA: null,
     backgroundImage: "/hero-background.jpg",
     imageAlt: "Mauna Kea Consulting hero background",
-    slideImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+    slideImage: "/pexels-mikhail-nilov-9301260.jpg",
     slideImageAlt: "Modern city skyline representing business growth and technology"
   }
 ];

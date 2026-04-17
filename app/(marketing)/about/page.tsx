@@ -123,7 +123,7 @@ export default function AboutPage() {
             <div style={{
               position: 'absolute',
               inset: 0,
-              backgroundImage: 'url("https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")',
+              backgroundImage: 'url("/pexels-andy-barbour-6684503.jpg")',
               backgroundSize: 'cover',
               backgroundPosition: 'center',
               backgroundRepeat: 'no-repeat'
@@ -165,7 +165,7 @@ export default function AboutPage() {
               <div style={{
                 position: 'absolute',
                 inset: 0,
-                backgroundImage: 'url("https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")',
+                backgroundImage: 'url("/pexels-mikhail-nilov-9301260.jpg")',
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 backgroundRepeat: 'no-repeat'
@@ -343,7 +343,7 @@ export default function AboutPage() {
                 <div style={{
                   position: 'absolute',
                   inset: 0,
-                  backgroundImage: 'url("https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")',
+                  backgroundImage: 'url("/pexels-keira-burton-6147369.jpg")',
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   backgroundRepeat: 'no-repeat'
@@ -399,7 +399,7 @@ export default function AboutPage() {
                 <div style={{
                   position: 'absolute',
                   inset: 0,
-                  backgroundImage: 'url("https://images.unsplash.com/photo-1556761175-5973dc0f32e7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")',
+                  backgroundImage: 'url("/pexels-andy-barbour-6684503.jpg")',
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   backgroundRepeat: 'no-repeat'
@@ -639,7 +639,7 @@ export default function AboutPage() {
                 <div style={{
                   position: 'absolute',
                   inset: 0,
-                  backgroundImage: 'url("https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80")',
+                  backgroundImage: 'url("/pexels-mikhail-nilov-9301260.jpg")',
                   backgroundSize: 'cover',
                   backgroundPosition: 'center',
                   backgroundRepeat: 'no-repeat'

@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-const CALENDLY_URL = "https://calendly.com/brightnickson63/30min";
+const CALENDLY_URL = "https://calendly.com/elikplim-mkcsen/30min";
 
 export default function CalendarPage() {
 

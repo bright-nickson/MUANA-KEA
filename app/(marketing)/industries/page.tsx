@@ -8,9 +8,9 @@ const industries = [
     title: "Banking & Financial Services",
     description: "Supporting banks, payment providers, and financial institutions as they modernise core platforms and channels.",
     outcomes: [
-      "Improved resilience and observability for core transaction flows",
-      "Roadmaps that balance regulatory change, modernisation, and cost",
-      "Delivery structures that align technology change with risk and compliance expectations"
+      "Strengthen cybersecurity across core and digital banking systems",
+      "Reduce fraud exposure with secure, data‑driven controls",
+      "Meet evolving regulatory and compliance requirements"
     ],
   },
   {
@@ -18,9 +18,9 @@ const industries = [
     title: "Public Sector & Government",
     description: "Helping public institutions design, deliver, and operate services that citizens and businesses can rely on.",
     outcomes: [
-      "Platforms that are robust, auditable, and transparent in their operation",
-      "Procurement and delivery models that support long-term maintainability",
-      "Cross-agency integration patterns that respect data protection requirements"
+      "Protect citizen data and national digital infrastructure",
+      "Improve resilience of mission‑critical public systems",
+      "Ensure compliance across ministries, agencies, and digital services"
     ],
   },
   {
@@ -28,9 +28,9 @@ const industries = [
     title: "Energy & Utilities",
     description: "Working with energy and utility providers on platforms that support operations, customers, and regulators.",
     outcomes: [
-      "Integration between OT, IT, and customer-facing systems",
-      "Data platforms that support planning, reliability, and reporting",
-      "Governance structures that manage risk across complex partner ecosystems"
+      "Secure OT/IT environments against operational disruption",
+      "Enhance grid and plant reliablity across distributed assets",
+      "Improved safety across high-risk operational developments"
     ],
   },
   {
@@ -38,9 +38,9 @@ const industries = [
     title: "Healthcare",
     description: "Supporting healthcare providers and partners with platforms that handle sensitive data and critical services.",
     outcomes: [
-      "Architectures that protect patient data while enabling collaboration",
-      "Operational models that can support high-availability requirements",
-      "Change approaches that respect clinical, regulatory, and operational constraints"
+      "Safeguard patient information and clinical systems",
+      "Maintain compliance with health data regulations",
+      "Ensure reliability of digital and administrative platforms"
     ],
   },
   {
@@ -48,9 +48,9 @@ const industries = [
     title: "Mining & Natural Resources",
     description: "Enabling mining and resources organisations to connect operational, financial, and partner ecosystems.",
     outcomes: [
-      "Integration between operational systems, supply chains, and finance",
-      "Data capabilities that inform safety, productivity, and sustainability initiatives",
-      "Delivery models tuned to remote operations and distributed teams"
+      "Improve workforce and site safety across remote operations",
+      "Secure operational technologies and connected equipment",
+      "Reduce environmental and operational exposure"
     ],
   },
   {
@@ -58,9 +58,9 @@ const industries = [
     title: "Telecommunications",
     description: "Working with telecom operators and service providers on platforms that support connectivity and digital services.",
     outcomes: [
-      "Modernisation of BSS/OSS landscapes without disrupting core services",
-      "API and event architectures that enable new products and partnerships",
-      "Managed services that stabilise complex multi-vendor environments"
+      "Strengthen network and infrastructure security",
+      "Protect customer data across digital channels",
+      "Maintain resilience across high‑availability systems"
     ],
   },
   {
@@ -68,9 +68,9 @@ const industries = [
     title: "Manufacturing",
     description: "Helping manufacturers connect production, supply chain, and commercial platforms.",
     outcomes: [
-      "Integration patterns that reduce manual reconciliation and latency",
-      "Data visibility for planning, quality, and performance management",
-      "Secure connectivity between plants, partners, and corporate functions"
+      "Secure production lines and connected factory systems",
+      "Minimize downtime risks across automated environments",
+      "Protect supply chain and operational data flows"
     ],
   },
   {
@@ -78,9 +78,9 @@ const industries = [
     title: "Retail & Distribution",
     description: "Supporting retailers and distributors as they align store, e-commerce, and fulfilment operations.",
     outcomes: [
-      "Unified views of inventory, pricing, and customer interactions",
-      "Platforms that support new channels without fragmenting operations",
-      "Integration with payment, logistics, and partner ecosystems"
+      "Protect customer and transaction data",
+      "Secure digital commerce and omnichannel platforms",
+      "Reduce vulnerabilities across logistics and inventory systems"
     ],
   },
   {
@@ -88,9 +88,9 @@ const industries = [
     title: "Education",
     description: "Transforming education institutions with advanced technology solutions for modern learning environments and streamlined administrative operations.",
     outcomes: [
-      "Platforms that support blended and remote learning models",
-      "Data capabilities for outcomes tracking and regulatory reporting",
-      "Governance that balances innovation with duty-of-care obligations"
+      "Safeguard sensitive client and case information",
+      "Ensure confidentiality across digital workflows",
+      "Maintain compliance with data protection regulations"
     ],
   },
   {
@@ -98,9 +98,9 @@ const industries = [
     title: "Legal & Professional Services",
     description: "Supporting legal and professional services firms as they digitise workflows and client interaction.",
     outcomes: [
-      "Matter, document, and knowledge platforms that are secure and accessible",
-      "Integration with client, finance, and risk platforms",
-      "Change approaches that respect partnership governance and culture"
+      "Protect student and institutional data",
+      "Secure digital learning and administrative platforms",
+      "Ensure continuity across academic systems"
     ],
   }
 ];

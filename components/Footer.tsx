@@ -140,23 +140,6 @@ export function Footer() {
             </p>
             <div style={{
               display: 'flex',
-              gap: '0.5rem',
-              fontSize: '0.7rem',
-              color: '#6b7280',
-              flexWrap: 'wrap'
-            }}>
-              <span>San Francisco</span>
-              <span>•</span>
-              <span>New York</span>
-              <span>•</span>
-              <span>London</span>
-              <span>•</span>
-              <span>Dubai</span>
-              <span>•</span>
-              <span>Nairobi</span>
-            </div>
-            <div style={{
-              display: 'flex',
               gap: '1rem',
               marginTop: '1rem'
             }}>
@@ -520,7 +503,7 @@ export function Footer() {
               textAlign: 'center',
               marginTop: subscribeMessage ? '0.5rem' : '0.5rem'
             }}>
-              Join 2,000+ tech leaders
+              Join tech leaders across the globe
             </p>
           </div>
         </div>
@@ -550,8 +533,6 @@ export function Footer() {
             flexWrap: 'wrap',
             opacity: 0.7
           }}>
-            <span style={{ fontSize: '0.875rem', color: '#9ca3af', fontWeight: '500' }}>Fortune 500</span>
-            <span style={{ fontSize: '0.875rem', color: '#9ca3af', fontWeight: '500' }}>Global Banks</span>
             <span style={{ fontSize: '0.875rem', color: '#9ca3af', fontWeight: '500' }}>Healthcare Leaders</span>
             <span style={{ fontSize: '0.875rem', color: '#9ca3af', fontWeight: '500' }}>Government Agencies</span>
             <span style={{ fontSize: '0.875rem', color: '#9ca3af', fontWeight: '500' }}>Tech Innovators</span>
@@ -571,7 +552,7 @@ export function Footer() {
           gap: '1rem'
         }}>
           <div>
-            2024 Mauna Kea Consulting. All rights reserved.
+             Mauna Kea Consulting. All rights reserved.
           </div>
         </div>
       </div>

@@ -173,20 +173,7 @@ export default function PartnersPage() {
                   "Edge Computing"
                 ]
               },
-              {
-                name: "Odoo",
-                tier: "Technology Partner",
-                description: "Odoo partner implementing comprehensive ERP solutions including inventory, manufacturing, CRM, and financial management.",
-                capabilities: [
-                  "ERP Implementation",
-                  "Inventory Management",
-                  "Manufacturing",
-                  "CRM & Sales",
-                  "Financial Management",
-                  "Custom Development"
-                ]
-              }
-            ].map((partner, index) => (
+                          ].map((partner, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 50 }}

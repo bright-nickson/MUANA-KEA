@@ -12,7 +12,6 @@ const industries = [
       "Roadmaps that balance regulatory change, modernisation, and cost",
       "Delivery structures that align technology change with risk and compliance expectations"
     ],
-    stats: { clients: "150+", projects: "500+", experience: "15+ years" }
   },
   {
     id: 2,
@@ -23,7 +22,6 @@ const industries = [
       "Procurement and delivery models that support long-term maintainability",
       "Cross-agency integration patterns that respect data protection requirements"
     ],
-    stats: { clients: "200+", projects: "750+", experience: "20+ years" }
   },
   {
     id: 3,
@@ -34,7 +32,6 @@ const industries = [
       "Data platforms that support planning, reliability, and reporting",
       "Governance structures that manage risk across complex partner ecosystems"
     ],
-    stats: { clients: "100+", projects: "300+", experience: "12+ years" }
   },
   {
     id: 4,
@@ -45,7 +42,6 @@ const industries = [
       "Operational models that can support high-availability requirements",
       "Change approaches that respect clinical, regulatory, and operational constraints"
     ],
-    stats: { clients: "80+", projects: "250+", experience: "10+ years" }
   },
   {
     id: 5,
@@ -56,7 +52,6 @@ const industries = [
       "Data capabilities that inform safety, productivity, and sustainability initiatives",
       "Delivery models tuned to remote operations and distributed teams"
     ],
-    stats: { clients: "60+", projects: "200+", experience: "8+ years" }
   },
   {
     id: 6,
@@ -67,7 +62,6 @@ const industries = [
       "API and event architectures that enable new products and partnerships",
       "Managed services that stabilise complex multi-vendor environments"
     ],
-    stats: { clients: "90+", projects: "400+", experience: "18+ years" }
   },
   {
     id: 7,
@@ -78,7 +72,6 @@ const industries = [
       "Data visibility for planning, quality, and performance management",
       "Secure connectivity between plants, partners, and corporate functions"
     ],
-    stats: { clients: "120+", projects: "350+", experience: "14+ years" }
   },
   {
     id: 8,
@@ -89,18 +82,16 @@ const industries = [
       "Platforms that support new channels without fragmenting operations",
       "Integration with payment, logistics, and partner ecosystems"
     ],
-    stats: { clients: "180+", projects: "600+", experience: "16+ years" }
   },
   {
     id: 9,
     title: "Education",
-    description: "Working with education providers and partners to modernise learning and administrative platforms.",
+    description: "Transforming education institutions with advanced technology solutions for modern learning environments and streamlined administrative operations.",
     outcomes: [
       "Platforms that support blended and remote learning models",
       "Data capabilities for outcomes tracking and regulatory reporting",
       "Governance that balances innovation with duty-of-care obligations"
     ],
-    stats: { clients: "70+", projects: "180+", experience: "9+ years" }
   },
   {
     id: 10,
@@ -111,7 +102,6 @@ const industries = [
       "Integration with client, finance, and risk platforms",
       "Change approaches that respect partnership governance and culture"
     ],
-    stats: { clients: "50+", projects: "150+", experience: "7+ years" }
   }
 ];
 
@@ -501,19 +491,6 @@ export default function IndustriesPage() {
                 {industries[activeIndustry].description}
               </p>
               
-              {/* Industry Stats */}
-              <div style={{
-                display: 'flex',
-                justifyContent: 'center',
-                gap: '1rem',
-                marginBottom: '2rem',
-                flexWrap: 'wrap'
-              }}>
-                <span className="stat-badge">{industries[activeIndustry].stats.clients} Clients</span>
-                <span className="stat-badge">{industries[activeIndustry].stats.projects} Projects</span>
-                <span className="stat-badge">{industries[activeIndustry].stats.experience} Experience</span>
-              </div>
-              
               <div style={{
                 textAlign: 'left',
                 maxWidth: '700px',
@@ -560,116 +537,7 @@ export default function IndustriesPage() {
           </div>
         </section>
 
-        {/* All Industries Grid */}
-        <section style={{
-          padding: '6rem 2rem',
-          background: 'linear-gradient(135deg, #fff5f5 0%, #ffffff 50%, #fff0f0 100%)'
-        }}>
-          <div style={{ maxWidth: '1400px', margin: '0 auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: '4rem' }}>
-              <h2 style={{
-                fontSize: 'clamp(2.5rem, 5vw, 3.5rem)',
-                fontWeight: '900',
-                marginBottom: '1.5rem',
-                background: 'linear-gradient(135deg, #1a1a1a 0%, #8b0000 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text'
-              }}>
-                All Industries
-              </h2>
-              <p style={{
-                fontSize: '1.25rem',
-                color: '#4a5568',
-                maxWidth: '700px',
-                margin: '0 auto',
-                lineHeight: '1.8'
-              }}>
-                Comprehensive expertise across critical sectors
-              </p>
-            </div>
-
-            <div className="industry-grid" style={{
-              display: 'grid',
-              gap: '2rem',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))'
-            }}>
-              {industries.map((industry, index) => (
-                <div key={industry.id} className="industry-card" style={{
-                  padding: '0',
-                  borderRadius: '1.5rem',
-                  cursor: 'pointer'
-                }}>
-                  <div className="industry-header">
-                    <h3 style={{
-                      fontSize: '1.5rem',
-                      fontWeight: '800',
-                      color: '#1a1a1a',
-                      margin: 0,
-                      paddingRight: '4rem'
-                    }}>
-                      {industry.title}
-                    </h3>
-                    <div className="industry-number">
-                      {String(industry.id).padStart(2, '0')}
-                    </div>
-                  </div>
-                  
-                  <div style={{ padding: '2rem' }}>
-                    <p style={{
-                      fontSize: '1rem',
-                      color: '#4a5568',
-                      lineHeight: '1.7',
-                      marginBottom: '2rem'
-                    }}>
-                      {industry.description}
-                    </p>
-                    
-                    <div style={{
-                      display: 'flex',
-                      justifyContent: 'space-between',
-                      alignItems: 'center',
-                      gap: '1rem'
-                    }}>
-                      <div style={{
-                        display: 'flex',
-                        gap: '0.75rem',
-                        flexWrap: 'wrap'
-                      }}>
-                        <span className="stat-badge">{industry.stats.clients} Clients</span>
-                        <span className="stat-badge">{industry.stats.projects} Projects</span>
-                      </div>
-                      <button 
-                        onClick={() => {
-                          setActiveIndustry(index);
-                          const element = document.querySelector('.premium-card');
-                          if (element) {
-                            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                          }
-                        }}
-                        style={{
-                          background: 'linear-gradient(135deg, #8b0000 0%, #dc2626 100%)',
-                          color: 'white',
-                          border: 'none',
-                          padding: '0.75rem 1.5rem',
-                          borderRadius: '50px',
-                          fontSize: '0.875rem',
-                          fontWeight: '700',
-                          cursor: 'pointer',
-                          transition: 'all 0.3s ease',
-                          boxShadow: '0 4px 12px -2px rgba(139, 0, 0, 0.3)',
-                          whiteSpace: 'nowrap'
-                        }}
-                      >
-                        Explore →
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+       
 
         {/* Enterprise CTA Section */}
         <section style={{

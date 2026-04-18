@@ -135,15 +135,7 @@ export default function HomePage() {
             }}>
               Microsoft
             </div>
-            <div className="partner-logo" style={{
-              fontSize: 'clamp(1rem, 2.5vw, 1.5rem)',
-              fontWeight: '500',
-              color: '#ffffff',
-              padding: '0.5rem 1rem'
-            }}>
-              Odoo
-            </div>
-          </div>
+                      </div>
         </div>
       </section>
     </div>

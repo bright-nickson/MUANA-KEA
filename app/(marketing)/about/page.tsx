@@ -746,7 +746,7 @@ export default function AboutPage() {
                 width: 'fit-content'
               }}>
                 {/* First set of partners */}
-                {['NVIDIA', 'Microsoft', 'Odoo'].map((partner, index) => (
+                {['NVIDIA', 'Microsoft'].map((partner, index) => (
                   <div key={index} style={{
                     fontSize: 'clamp(0.875rem, 1.5vw, 1rem)',
                     fontWeight: '600',
@@ -764,7 +764,7 @@ export default function AboutPage() {
                   </div>
                 ))}
                 {/* Duplicate set for seamless loop */}
-                {['NVIDIA', 'Microsoft', 'Odoo'].map((partner, index) => (
+                {['NVIDIA', 'Microsoft'].map((partner, index) => (
                   <div key={`duplicate-${index}`} style={{
                     fontSize: 'clamp(0.875rem, 1.5vw, 1rem)',
                     fontWeight: '600',

@@ -503,7 +503,7 @@ export default function IndustriesPage() {
                   marginBottom: '1.5rem',
                   textAlign: 'center'
                 }}>
-                  Key Outcomes
+                  Strategic Priorities for Your Industry
                 </h4>
                 {industries[activeIndustry].outcomes.map((outcome, index) => (
                   <div key={index} style={{

@@ -269,6 +269,108 @@ export default function EducationPage() {
         </div>
       </section>
 
+      {/* AI Use Cases Table */}
+      <section style={{
+        padding: 'clamp(3rem, 6vw, 4rem) 1rem'
+      }}>
+        <div style={{
+          maxWidth: '1200px',
+          margin: '0 auto'
+        }}>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 style={{
+              fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
+              fontWeight: '600',
+              marginBottom: '3rem',
+              textAlign: 'center'
+            }}>
+              AI Use Cases
+            </h2>
+            <div style={{
+              backgroundColor: 'rgba(10, 10, 10, 0.6)',
+              backdropFilter: 'blur(12px)',
+              border: '1px solid rgba(255, 255, 255, 0.08)',
+              borderRadius: '1rem',
+              overflow: 'hidden'
+            }}>
+              {/* Table Header */}
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(4, 1fr)',
+                gap: '1rem',
+                padding: '1.5rem',
+                backgroundColor: 'rgba(139, 0, 0, 0.2)',
+                borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+                fontWeight: '600',
+                fontSize: '0.875rem',
+                color: '#ffffff'
+              }}>
+                <div>Use Case</div>
+                <div>Description</div>
+                <div>Example</div>
+                <div>Solution</div>
+              </div>
+              {/* Table Rows */}
+              {[
+                {
+                  useCase: "Personalized Learning",
+                  description: "Adaptive learning paths",
+                  example: "Khan Academy AI",
+                  solution: "ML learning models"
+                },
+                {
+                  useCase: "Automated Grading",
+                  description: "AI‑assisted marking",
+                  example: "Coursera",
+                  solution: "NLP grading tools"
+                },
+                {
+                  useCase: "Student Risk Prediction",
+                  description: "Identify at‑risk learners",
+                  example: "US universities",
+                  solution: "ML dropout prediction"
+                },
+                {
+                  useCase: "Virtual Tutors",
+                  description: "AI teaching assistants",
+                  example: "Duolingo Max",
+                  solution: "Gen‑AI tutor"
+                },
+                {
+                  useCase: "Admin Automation",
+                  description: "Automate school workflows",
+                  example: "EdTech platforms",
+                  solution: "RPA + AI document processing"
+                }
+              ].map((row, index) => (
+                <div
+                  key={index}
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(4, 1fr)',
+                    gap: '1rem',
+                    padding: '1.5rem',
+                    borderBottom: index < 4 ? '1px solid rgba(255, 255, 255, 0.05)' : 'none',
+                    fontSize: '0.875rem',
+                    color: '#e5e5e5'
+                  }}
+                >
+                  <div style={{ fontWeight: '500', color: '#ffffff' }}>{row.useCase}</div>
+                  <div style={{ color: '#9ca3af' }}>{row.description}</div>
+                  <div style={{ color: '#9ca3af' }}>{row.example}</div>
+                  <div style={{ color: '#9ca3af' }}>{row.solution}</div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section style={{
         padding: 'clamp(3rem, 6vw, 4rem) 1rem',

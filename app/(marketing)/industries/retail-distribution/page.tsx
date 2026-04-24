@@ -269,6 +269,108 @@ export default function RetailDistributionPage() {
         </div>
       </section>
 
+      {/* AI Use Cases Table */}
+      <section style={{
+        padding: 'clamp(3rem, 6vw, 4rem) 1rem'
+      }}>
+        <div style={{
+          maxWidth: '1200px',
+          margin: '0 auto'
+        }}>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 style={{
+              fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
+              fontWeight: '600',
+              marginBottom: '3rem',
+              textAlign: 'center'
+            }}>
+              AI Use Cases
+            </h2>
+            <div style={{
+              backgroundColor: 'rgba(10, 10, 10, 0.6)',
+              backdropFilter: 'blur(12px)',
+              border: '1px solid rgba(255, 255, 255, 0.08)',
+              borderRadius: '1rem',
+              overflow: 'hidden'
+            }}>
+              {/* Table Header */}
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(4, 1fr)',
+                gap: '1rem',
+                padding: '1.5rem',
+                backgroundColor: 'rgba(139, 0, 0, 0.2)',
+                borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+                fontWeight: '600',
+                fontSize: '0.875rem',
+                color: '#ffffff'
+              }}>
+                <div>Use Case</div>
+                <div>Description</div>
+                <div>Example</div>
+                <div>Solution</div>
+              </div>
+              {/* Table Rows */}
+              {[
+                {
+                  useCase: "Demand Forecasting",
+                  description: "Predict product demand",
+                  example: "Walmart",
+                  solution: "ML forecasting"
+                },
+                {
+                  useCase: "Personalized Marketing",
+                  description: "Tailored recommendations",
+                  example: "Amazon",
+                  solution: "Recommendation engine"
+                },
+                {
+                  useCase: "Inventory Optimization",
+                  description: "Reduce stockouts",
+                  example: "Zara",
+                  solution: "AI inventory planning"
+                },
+                {
+                  useCase: "Computer Vision Checkout",
+                  description: "Automated checkout",
+                  example: "Amazon Go",
+                  solution: "CV‑based checkout"
+                },
+                {
+                  useCase: "Price Optimization",
+                  description: "Dynamic pricing",
+                  example: "Uber, airlines",
+                  solution: "AI price‑elasticity models"
+                }
+              ].map((row, index) => (
+                <div
+                  key={index}
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(4, 1fr)',
+                    gap: '1rem',
+                    padding: '1.5rem',
+                    borderBottom: index < 4 ? '1px solid rgba(255, 255, 255, 0.05)' : 'none',
+                    fontSize: '0.875rem',
+                    color: '#e5e5e5'
+                  }}
+                >
+                  <div style={{ fontWeight: '500', color: '#ffffff' }}>{row.useCase}</div>
+                  <div style={{ color: '#9ca3af' }}>{row.description}</div>
+                  <div style={{ color: '#9ca3af' }}>{row.example}</div>
+                  <div style={{ color: '#9ca3af' }}>{row.solution}</div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section style={{
         padding: 'clamp(3rem, 6vw, 4rem) 1rem',

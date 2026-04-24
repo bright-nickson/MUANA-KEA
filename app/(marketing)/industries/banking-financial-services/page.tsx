@@ -184,9 +184,112 @@ export default function BankingFinancialServicesPage() {
         </div>
       </section>
 
-      {/* Solutions Section */}
+      {/* AI Use Cases Table */}
       <section style={{
         padding: 'clamp(3rem, 6vw, 4rem) 1rem'
+      }}>
+        <div style={{
+          maxWidth: '1200px',
+          margin: '0 auto'
+        }}>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <h2 style={{
+              fontSize: 'clamp(1.75rem, 4vw, 2.5rem)',
+              fontWeight: '600',
+              marginBottom: '3rem',
+              textAlign: 'center'
+            }}>
+              AI Use Cases
+            </h2>
+            <div style={{
+              backgroundColor: 'rgba(10, 10, 10, 0.6)',
+              backdropFilter: 'blur(12px)',
+              border: '1px solid rgba(255, 255, 255, 0.08)',
+              borderRadius: '1rem',
+              overflow: 'hidden'
+            }}>
+              {/* Table Header */}
+              <div style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(4, 1fr)',
+                gap: '1rem',
+                padding: '1.5rem',
+                backgroundColor: 'rgba(139, 0, 0, 0.2)',
+                borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+                fontWeight: '600',
+                fontSize: '0.875rem',
+                color: '#ffffff'
+              }}>
+                <div>Use Case</div>
+                <div>Description</div>
+                <div>Example</div>
+                <div>Solution</div>
+              </div>
+              {/* Table Rows */}
+              {[
+                {
+                  useCase: "Fraud Detection",
+                  description: "Real‑time anomaly detection",
+                  example: "Visa, Mastercard",
+                  solution: "ML scoring engine + real‑time monitoring"
+                },
+                {
+                  useCase: "Conversational Banking",
+                  description: "AI chatbots for customers",
+                  example: "Bank of America Erica",
+                  solution: "Gen‑AI assistant with RAG"
+                },
+                {
+                  useCase: "Credit Risk Scoring",
+                  description: "Predict loan defaults",
+                  example: "Capital One",
+                  solution: "ML risk models integrated with loan systems"
+                },
+                {
+                  useCase: "AML Monitoring",
+                  description: "Detect suspicious activity",
+                  example: "HSBC",
+                  solution: "Graph‑based AML models"
+                },
+                {
+                  useCase: "Personalized Offers",
+                  description: "Tailored product recommendations",
+                  example: "Revolut",
+                  solution: "Recommendation engine"
+                }
+              ].map((row, index) => (
+                <div
+                  key={index}
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(4, 1fr)',
+                    gap: '1rem',
+                    padding: '1.5rem',
+                    borderBottom: index < 4 ? '1px solid rgba(255, 255, 255, 0.05)' : 'none',
+                    fontSize: '0.875rem',
+                    color: '#e5e5e5'
+                  }}
+                >
+                  <div style={{ fontWeight: '500', color: '#ffffff' }}>{row.useCase}</div>
+                  <div style={{ color: '#9ca3af' }}>{row.description}</div>
+                  <div style={{ color: '#9ca3af' }}>{row.example}</div>
+                  <div style={{ color: '#9ca3af' }}>{row.solution}</div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Solutions Section */}
+      <section style={{
+        padding: 'clamp(3rem, 6vw, 4rem) 1rem',
+        backgroundColor: 'rgba(5, 5, 5, 0.5)'
       }}>
         <div style={{
           maxWidth: '1200px',

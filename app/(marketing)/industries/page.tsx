@@ -12,6 +12,13 @@ const industries = [
       "Reduce fraud exposure with secure, data‑driven controls",
       "Meet evolving regulatory and compliance requirements"
     ],
+    aiUseCases: [
+      { useCase: "Fraud Detection", description: "Real‑time anomaly detection", example: "Visa, Mastercard", solution: "ML scoring engine + real‑time monitoring" },
+      { useCase: "Conversational Banking", description: "AI chatbots for customers", example: "Bank of America Erica", solution: "Gen‑AI assistant with RAG" },
+      { useCase: "Credit Risk Scoring", description: "Predict loan defaults", example: "Capital One", solution: "ML risk models integrated with loan systems" },
+      { useCase: "AML Monitoring", description: "Detect suspicious activity", example: "HSBC", solution: "Graph‑based AML models" },
+      { useCase: "Personalized Offers", description: "Tailored product recommendations", example: "Revolut", solution: "Recommendation engine" }
+    ]
   },
   {
     id: 2,
@@ -22,6 +29,13 @@ const industries = [
       "Improve resilience of mission‑critical public systems",
       "Ensure compliance across ministries, agencies, and digital services"
     ],
+    aiUseCases: [
+      { useCase: "Citizen Service Automation", description: "AI chatbots for public services", example: "Singapore GovTech", solution: "Multilingual RAG chatbot" },
+      { useCase: "Predictive Policing", description: "Crime hotspot prediction", example: "LAPD pilots", solution: "ML hotspot forecasting" },
+      { useCase: "Smart City Ops", description: "Traffic, waste, utilities optimization", example: "Dubai Smart City", solution: "IoT + AI orchestration" },
+      { useCase: "Document Automation", description: "Automate forms & workflows", example: "HMRC", solution: "RPA + AI extraction" },
+      { useCase: "Policy Analytics", description: "Data‑driven policymaking", example: "EU climate models", solution: "AI simulation + scenario modelling" }
+    ]
   },
   {
     id: 3,
@@ -32,6 +46,13 @@ const industries = [
       "Enhance grid and plant reliablity across distributed assets",
       "Improved safety across high-risk operational developments"
     ],
+    aiUseCases: [
+      { useCase: "Predictive Maintenance", description: "Detect turbine/transformer failures", example: "GE", solution: "IoT + ML anomaly detection" },
+      { useCase: "Smart Grid Optimization", description: "Balance load & prevent outages", example: "National Grid", solution: "Grid‑level optimization" },
+      { useCase: "Renewable Forecasting", description: "Predict solar/wind output", example: "Iberdrola", solution: "Weather + ML forecasting" },
+      { useCase: "Demand Prediction", description: "Forecast consumption", example: "UK ESO", solution: "ML demand engine" },
+      { useCase: "Drone Inspections", description: "Automated asset inspection", example: "Shell", solution: "CV + autonomous drones" }
+    ]
   },
   {
     id: 4,
@@ -42,6 +63,13 @@ const industries = [
       "Maintain compliance with health data regulations",
       "Ensure reliability of digital and administrative platforms"
     ],
+    aiUseCases: [
+      { useCase: "AI Imaging", description: "Detect anomalies in scans", example: "Viz.ai", solution: "AI imaging models" },
+      { useCase: "Virtual Wards", description: "Remote monitoring", example: "NHS", solution: "Wearables + AI alerts" },
+      { useCase: "Triage Chatbots", description: "Symptom assessment", example: "Babylon", solution: "Guard‑railed medical chatbot" },
+      { useCase: "Clinical Decision Support", description: "Evidence‑based recommendations", example: "Oncology AI tools", solution: "CDSS integrated with EHR" },
+      { useCase: "Admin Automation", description: "Reduce clinician paperwork", example: "Ambient AI scribes", solution: "AI note‑taking + RPA" }
+    ]
   },
   {
     id: 5,
@@ -52,6 +80,13 @@ const industries = [
       "Secure operational technologies and connected equipment",
       "Reduce environmental and operational exposure"
     ],
+    aiUseCases: [
+      { useCase: "Predictive Equipment Maintenance", description: "Detect failures in heavy machinery", example: "Rio Tinto", solution: "IoT + ML maintenance" },
+      { useCase: "Ore Grade Prediction", description: "Optimize extraction quality", example: "BHP", solution: "ML geological modelling" },
+      { useCase: "Autonomous Haulage", description: "Self‑driving mining trucks", example: "Komatsu AHS", solution: "AI‑driven fleet automation" },
+      { useCase: "Safety Monitoring", description: "Detect hazards in real time", example: "Anglo American", solution: "CV + sensor fusion" },
+      { useCase: "Energy Optimization", description: "Reduce fuel & power usage", example: "Vale", solution: "AI energy‑efficiency models" }
+    ]
   },
   {
     id: 6,
@@ -62,6 +97,13 @@ const industries = [
       "Protect customer data across digital channels",
       "Maintain resilience across high‑availability systems"
     ],
+    aiUseCases: [
+      { useCase: "Network Optimization", description: "Predict congestion & outages", example: "Vodafone", solution: "AI network orchestration" },
+      { useCase: "Customer Service Automation", description: "AI chatbots for support", example: "MTN", solution: "Gen‑AI customer assistant" },
+      { useCase: "Churn Prediction", description: "Identify customers likely to leave", example: "Airtel", solution: "ML churn models" },
+      { useCase: "Fraud Detection", description: "SIM fraud, subscription fraud", example: "Orange", solution: "Real‑time anomaly detection" },
+      { useCase: "Predictive Maintenance", description: "Tower & fiber monitoring", example: "AT&T", solution: "IoT + ML fault prediction" }
+    ]
   },
   {
     id: 7,
@@ -72,6 +114,13 @@ const industries = [
       "Minimize downtime risks across automated environments",
       "Protect supply chain and operational data flows"
     ],
+    aiUseCases: [
+      { useCase: "Predictive Maintenance", description: "Detect machine failures", example: "Siemens", solution: "IoT + ML" },
+      { useCase: "Quality Inspection", description: "Detect defects via vision", example: "BMW", solution: "Computer vision QA" },
+      { useCase: "Supply Chain Optimization", description: "Predict disruptions", example: "Toyota", solution: "ML forecasting" },
+      { useCase: "Digital Twins", description: "Simulate factory operations", example: "GE", solution: "Real‑time simulation" },
+      { useCase: "Robotics Automation", description: "AI‑driven robots", example: "Tesla", solution: "Autonomous robotic workflows" }
+    ]
   },
   {
     id: 8,
@@ -82,6 +131,13 @@ const industries = [
       "Secure digital commerce and omnichannel platforms",
       "Reduce vulnerabilities across logistics and inventory systems"
     ],
+    aiUseCases: [
+      { useCase: "Demand Forecasting", description: "Predict product demand", example: "Walmart", solution: "ML forecasting" },
+      { useCase: "Personalized Marketing", description: "Tailored recommendations", example: "Amazon", solution: "Recommendation engine" },
+      { useCase: "Inventory Optimization", description: "Reduce stockouts", example: "Zara", solution: "AI inventory planning" },
+      { useCase: "Computer Vision Checkout", description: "Automated checkout", example: "Amazon Go", solution: "CV‑based checkout" },
+      { useCase: "Price Optimization", description: "Dynamic pricing", example: "Uber, airlines", solution: "AI price‑elasticity models" }
+    ]
   },
   {
     id: 9,
@@ -92,6 +148,13 @@ const industries = [
       "Ensure confidentiality across digital workflows",
       "Maintain compliance with data protection regulations"
     ],
+    aiUseCases: [
+      { useCase: "Personalized Learning", description: "Adaptive learning paths", example: "Khan Academy AI", solution: "ML learning models" },
+      { useCase: "Automated Grading", description: "AI‑assisted marking", example: "Coursera", solution: "NLP grading tools" },
+      { useCase: "Student Risk Prediction", description: "Identify at‑risk learners", example: "US universities", solution: "ML dropout prediction" },
+      { useCase: "Virtual Tutors", description: "AI teaching assistants", example: "Duolingo Max", solution: "Gen‑AI tutor" },
+      { useCase: "Admin Automation", description: "Automate school workflows", example: "EdTech platforms", solution: "RPA + AI document processing" }
+    ]
   },
   {
     id: 10,
@@ -99,9 +162,16 @@ const industries = [
     description: "Supporting legal and professional services firms as they digitise workflows and client interaction.",
     outcomes: [
       "Protect student and institutional data",
-      "Secure digital learning and administrative platforms",
+      "Secure digital learning  and administrative platforms",
       "Ensure continuity across academic systems"
     ],
+    aiUseCases: [
+      { useCase: "Contract Review", description: "AI extracts clauses & risks", example: "Kira Systems", solution: "NLP contract analysis" },
+      { useCase: "Legal Research Automation", description: "Summaries & case retrieval", example: "Lexis+ AI", solution: "Gen‑AI research assistant" },
+      { useCase: "E‑Discovery", description: "Identify relevant documents", example: "Relativity", solution: "AI document classification" },
+      { useCase: "Compliance Monitoring", description: "Track regulatory changes", example: "BigLaw firms", solution: "AI regulatory intelligence" },
+      { useCase: "Document Drafting", description: "AI‑assisted drafting", example: "Harvey AI", solution: "Gen‑AI drafting engine" }
+    ]
   }
 ];
 
@@ -532,6 +602,66 @@ export default function IndustriesPage() {
                     </span>
                   </div>
                 ))}
+              </div>
+
+              {/* AI Use Cases Table */}
+              <div style={{
+                marginTop: '3rem',
+                textAlign: 'left'
+              }}>
+                <h4 style={{
+                  fontSize: '1.125rem',
+                  fontWeight: '700',
+                  color: '#8b0000',
+                  marginBottom: '1.5rem',
+                  textAlign: 'center'
+                }}>
+                  AI Use Cases
+                </h4>
+                <div style={{
+                  background: 'rgba(139, 0, 0, 0.03)',
+                  border: '1px solid rgba(139, 0, 0, 0.15)',
+                  borderRadius: '0.75rem',
+                  overflow: 'hidden'
+                }}>
+                  {/* Table Header */}
+                  <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(4, 1fr)',
+                    gap: '0.75rem',
+                    padding: '1rem',
+                    background: 'rgba(139, 0, 0, 0.1)',
+                    borderBottom: '1px solid rgba(139, 0, 0, 0.15)',
+                    fontWeight: '600',
+                    fontSize: '0.8rem',
+                    color: '#8b0000'
+                  }}>
+                    <div>Use Case</div>
+                    <div>Description</div>
+                    <div>Example</div>
+                    <div>Solution</div>
+                  </div>
+                  {/* Table Rows */}
+                  {industries[activeIndustry].aiUseCases.map((row, index) => (
+                    <div
+                      key={index}
+                      style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(4, 1fr)',
+                        gap: '0.75rem',
+                        padding: '1rem',
+                        borderBottom: index < industries[activeIndustry].aiUseCases.length - 1 ? '1px solid rgba(139, 0, 0, 0.08)' : 'none',
+                        fontSize: '0.8rem',
+                        background: index % 2 === 0 ? 'white' : 'rgba(139, 0, 0, 0.02)'
+                      }}
+                    >
+                      <div style={{ fontWeight: '600', color: '#1a1a1a' }}>{row.useCase}</div>
+                      <div style={{ color: '#4a5568' }}>{row.description}</div>
+                      <div style={{ color: '#4a5568' }}>{row.example}</div>
+                      <div style={{ color: '#4a5568' }}>{row.solution}</div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
